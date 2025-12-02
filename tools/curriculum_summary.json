@@ -1,0 +1,2319 @@
+[
+  {
+    "file": "2021 경영정보학과 교육과정(홈페이지).docx",
+    "liberal_arts_credits": null,
+    "major_credits": null,
+    "major_requirements": {
+      "전필": {
+        "table_index": 4,
+        "credit": 30.0,
+        "rows": [
+          [
+            "학년",
+            "학기",
+            "이수구분",
+            "교과목번  호",
+            "교   과   목   명",
+            "교   과   목   명",
+            "교   과   목   명",
+            "학점",
+            "학점"
+          ],
+          [
+            "4",
+            "1",
+            "전선",
+            "6208046\n6208047\n6208809\n6208050\n6208080\n6208043\n6208038\n6208078",
+            "e-비즈니스론(e-Business Systems)\n정보보호관리(Information Security Management)\n데이터 지식경영(캡스톤디자인)(Data Knowledge Management(Capstone Design))\n경영프로세스통합(Business Process Integration)\n영업 및 운영계획론(Sales and Operation Planning)\n비즈니스 인텔리전스(Business Intelligence)\n비즈니스 프로그래밍(Business Programming)\nMIS 프로젝트(캡스톤디자인)Ⅰ(MIS Project(Capstone Design)Ⅰ)",
+            "e-비즈니스론(e-Business Systems)\n정보보호관리(Information Security Management)\n데이터 지식경영(캡스톤디자인)(Data Knowledge Management(Capstone Design))\n경영프로세스통합(Business Process Integration)\n영업 및 운영계획론(Sales and Operation Planning)\n비즈니스 인텔리전스(Business Intelligence)\n비즈니스 프로그래밍(Business Programming)\nMIS 프로젝트(캡스톤디자인)Ⅰ(MIS Project(Capstone Design)Ⅰ)",
+            "e-비즈니스론(e-Business Systems)\n정보보호관리(Information Security Management)\n데이터 지식경영(캡스톤디자인)(Data Knowledge Management(Capstone Design))\n경영프로세스통합(Business Process Integration)\n영업 및 운영계획론(Sales and Operation Planning)\n비즈니스 인텔리전스(Business Intelligence)\n비즈니스 프로그래밍(Business Programming)\nMIS 프로젝트(캡스톤디자인)Ⅰ(MIS Project(Capstone Design)Ⅰ)",
+            "3-3-0\n3-3-0\n3-3-0\n3-3-0\n3-3-0\n3-3-0\n3-2-2\n1-0-2",
+            "3-3-0\n3-3-0\n3-3-0\n3-3-0\n3-3-0\n3-3-0\n3-2-2\n1-0-2"
+          ],
+          [
+            "4",
+            "1",
+            "일선",
+            "6208052\n6208053",
+            "인턴십Ⅰ(InternshipⅠ)\n인턴십Ⅲ(InternshipⅢ)",
+            "인턴십Ⅰ(InternshipⅠ)\n인턴십Ⅲ(InternshipⅢ)",
+            "인턴십Ⅰ(InternshipⅠ)\n인턴십Ⅲ(InternshipⅢ)",
+            "15-0-16주\n3-0-4주",
+            "15-0-16주\n3-0-4주"
+          ],
+          [
+            "4",
+            "2",
+            "전선",
+            "6208054\n6208057\n6208049\n6208055\n6208062\n6208079",
+            "기술경영론(캡스톤디자인)(Technology Management)(Capstone Design)\nERP구축 프로젝트(ERP Implementation Project)\n프로젝트관리(Project Management)\n의사결정론(Decision Making)\n고급 비즈니스 프로그래밍(Advanced Business Programming)\nMIS 프로젝트(캡스톤디자인)Ⅱ(MIS Project(Capstone Design)Ⅱ)",
+            "기술경영론(캡스톤디자인)(Technology Management)(Capstone Design)\nERP구축 프로젝트(ERP Implementation Project)\n프로젝트관리(Project Management)\n의사결정론(Decision Making)\n고급 비즈니스 프로그래밍(Advanced Business Programming)\nMIS 프로젝트(캡스톤디자인)Ⅱ(MIS Project(Capstone Design)Ⅱ)",
+            "기술경영론(캡스톤디자인)(Technology Management)(Capstone Design)\nERP구축 프로젝트(ERP Implementation Project)\n프로젝트관리(Project Management)\n의사결정론(Decision Making)\n고급 비즈니스 프로그래밍(Advanced Business Programming)\nMIS 프로젝트(캡스톤디자인)Ⅱ(MIS Project(Capstone Design)Ⅱ)",
+            "3-3-0\n3-3-0\n3-3-0\n3-3-0\n3-3-0\n1-0-2",
+            "3-3-0\n3-3-0\n3-3-0\n3-3-0\n3-3-0\n1-0-2"
+          ],
+          [
+            "4",
+            "2",
+            "일선",
+            "6208059\n6208060",
+            "인턴십Ⅱ(InternshipⅡ)\n인턴십Ⅳ(InternshipⅣ)",
+            "인턴십Ⅱ(InternshipⅡ)\n인턴십Ⅳ(InternshipⅣ)",
+            "인턴십Ⅱ(InternshipⅡ)\n인턴십Ⅳ(InternshipⅣ)",
+            "15-0-16주\n3-0-4주",
+            "15-0-16주\n3-0-4주"
+          ],
+          [
+            "필수   10 과목  30 학점\n\n                                 전공     선택   30 과목  86 학점\n\n                                          계     40 과목 116 학점",
+            "필수   10 과목  30 학점\n\n                                 전공     선택   30 과목  86 학점\n\n                                          계     40 과목 116 학점",
+            "필수   10 과목  30 학점\n\n                                 전공     선택   30 과목  86 학점\n\n                                          계     40 과목 116 학점",
+            "필수   10 과목  30 학점\n\n                                 전공     선택   30 과목  86 학점\n\n                                          계     40 과목 116 학점",
+            "필수   10 과목  30 학점\n\n                                 전공     선택   30 과목  86 학점\n\n                                          계     40 과목 116 학점",
+            "필수   10 과목  30 학점\n\n                                 전공     선택   30 과목  86 학점\n\n                                          계     40 과목 116 학점",
+            "필수   10 과목  30 학점\n\n                                 전공     선택   30 과목  86 학점\n\n                                          계     40 과목 116 학점",
+            "필수   10 과목  30 학점\n\n                                 전공     선택   30 과목  86 학점\n\n                                          계     40 과목 116 학점",
+            "필수   10 과목  30 학점\n\n                                 전공     선택   30 과목  86 학점\n\n                                          계     40 과목 116 학점"
+          ],
+          [
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "경영학부",
+            "경영학부",
+            "6210008\n6210040\n6210045\n6210016\n6210072\n6210021\n6210068\n6210044\n6210071",
+            "경제학원론(Principles of Economics) \n중급회계Ⅰ(Intermediate AccountingⅠ)\n증권시장(Security Market)\n소비자행동론(Consumer Behavior)\n경영조직론(Organizational Theory for Management)\n투자론(Investment Theory)\n경영전략론(캡스톤디자인)(Strategic Management)\n기업윤리(Business Ethics)\n환경경영과 기업의 사회적 책임(Environmental Management and CSR)",
+            "경제학원론(Principles of Economics) \n중급회계Ⅰ(Intermediate AccountingⅠ)\n증권시장(Security Market)\n소비자행동론(Consumer Behavior)\n경영조직론(Organizational Theory for Management)\n투자론(Investment Theory)\n경영전략론(캡스톤디자인)(Strategic Management)\n기업윤리(Business Ethics)\n환경경영과 기업의 사회적 책임(Environmental Management and CSR)",
+            "3-3-0\n3-3-0\n3-3-0\n3-3-0\n3-3-0\n3-3-0\n3-3-0\n3-3-0\n3-3-0"
+          ],
+          [
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "국제경영 학과",
+            "국제경영 학과",
+            "6209100\n\n6209044\n6209113",
+            "글로벌비즈니스의 이해\n(Understanding of Global Business)\n경제학원론(Principles of Economics)\n물류 및 운송론(캡스톤디자인) (Logistics and Transportation)",
+            "글로벌비즈니스의 이해\n(Understanding of Global Business)\n경제학원론(Principles of Economics)\n물류 및 운송론(캡스톤디자인) (Logistics and Transportation)",
+            "3-3-0\n\n3-3-0\n3-3-0"
+          ],
+          [
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "컴퓨터 공학과",
+            "컴퓨터 공학과",
+            "5110005\n5110007\n5110047\n5110032\n5110026",
+            "이산수학(Discrete Mathematics)\nC/C++프로그래밍(C/C++ Programming)\n데이터통신(Data Communication)\n컴퓨터네트워크(Computer Network)\n수치해석(Numerical Analysis)",
+            "이산수학(Discrete Mathematics)\nC/C++프로그래밍(C/C++ Programming)\n데이터통신(Data Communication)\n컴퓨터네트워크(Computer Network)\n수치해석(Numerical Analysis)",
+            "3-3-0\n3-2-2\n3-3-0\n3-3-0\n3-3-0"
+          ],
+          [
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "안전\n공학과",
+            "안전\n공학과",
+            "6543108\n6543020",
+            "안전관리개론(Introduction to Safety Management)\n작업환경공학(Working Environment Engineering)",
+            "안전관리개론(Introduction to Safety Management)\n작업환경공학(Working Environment Engineering)",
+            "3-3-0\n3-3-0"
+          ],
+          [
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "경영대학에서 개설되는 모든 전공필수과목",
+            "경영대학에서 개설되는 모든 전공필수과목",
+            "경영대학에서 개설되는 모든 전공필수과목",
+            "경영대학에서 개설되는 모든 전공필수과목",
+            "경영대학에서 개설되는 모든 전공필수과목",
+            "경영대학에서 개설되는 모든 전공필수과목"
+          ]
+        ]
+      },
+      "전선": {
+        "table_index": 4,
+        "credit": 30.0,
+        "rows": [
+          [
+            "학년",
+            "학기",
+            "이수구분",
+            "교과목번  호",
+            "교   과   목   명",
+            "교   과   목   명",
+            "교   과   목   명",
+            "학점",
+            "학점"
+          ],
+          [
+            "4",
+            "1",
+            "전선",
+            "6208046\n6208047\n6208809\n6208050\n6208080\n6208043\n6208038\n6208078",
+            "e-비즈니스론(e-Business Systems)\n정보보호관리(Information Security Management)\n데이터 지식경영(캡스톤디자인)(Data Knowledge Management(Capstone Design))\n경영프로세스통합(Business Process Integration)\n영업 및 운영계획론(Sales and Operation Planning)\n비즈니스 인텔리전스(Business Intelligence)\n비즈니스 프로그래밍(Business Programming)\nMIS 프로젝트(캡스톤디자인)Ⅰ(MIS Project(Capstone Design)Ⅰ)",
+            "e-비즈니스론(e-Business Systems)\n정보보호관리(Information Security Management)\n데이터 지식경영(캡스톤디자인)(Data Knowledge Management(Capstone Design))\n경영프로세스통합(Business Process Integration)\n영업 및 운영계획론(Sales and Operation Planning)\n비즈니스 인텔리전스(Business Intelligence)\n비즈니스 프로그래밍(Business Programming)\nMIS 프로젝트(캡스톤디자인)Ⅰ(MIS Project(Capstone Design)Ⅰ)",
+            "e-비즈니스론(e-Business Systems)\n정보보호관리(Information Security Management)\n데이터 지식경영(캡스톤디자인)(Data Knowledge Management(Capstone Design))\n경영프로세스통합(Business Process Integration)\n영업 및 운영계획론(Sales and Operation Planning)\n비즈니스 인텔리전스(Business Intelligence)\n비즈니스 프로그래밍(Business Programming)\nMIS 프로젝트(캡스톤디자인)Ⅰ(MIS Project(Capstone Design)Ⅰ)",
+            "3-3-0\n3-3-0\n3-3-0\n3-3-0\n3-3-0\n3-3-0\n3-2-2\n1-0-2",
+            "3-3-0\n3-3-0\n3-3-0\n3-3-0\n3-3-0\n3-3-0\n3-2-2\n1-0-2"
+          ],
+          [
+            "4",
+            "1",
+            "일선",
+            "6208052\n6208053",
+            "인턴십Ⅰ(InternshipⅠ)\n인턴십Ⅲ(InternshipⅢ)",
+            "인턴십Ⅰ(InternshipⅠ)\n인턴십Ⅲ(InternshipⅢ)",
+            "인턴십Ⅰ(InternshipⅠ)\n인턴십Ⅲ(InternshipⅢ)",
+            "15-0-16주\n3-0-4주",
+            "15-0-16주\n3-0-4주"
+          ],
+          [
+            "4",
+            "2",
+            "전선",
+            "6208054\n6208057\n6208049\n6208055\n6208062\n6208079",
+            "기술경영론(캡스톤디자인)(Technology Management)(Capstone Design)\nERP구축 프로젝트(ERP Implementation Project)\n프로젝트관리(Project Management)\n의사결정론(Decision Making)\n고급 비즈니스 프로그래밍(Advanced Business Programming)\nMIS 프로젝트(캡스톤디자인)Ⅱ(MIS Project(Capstone Design)Ⅱ)",
+            "기술경영론(캡스톤디자인)(Technology Management)(Capstone Design)\nERP구축 프로젝트(ERP Implementation Project)\n프로젝트관리(Project Management)\n의사결정론(Decision Making)\n고급 비즈니스 프로그래밍(Advanced Business Programming)\nMIS 프로젝트(캡스톤디자인)Ⅱ(MIS Project(Capstone Design)Ⅱ)",
+            "기술경영론(캡스톤디자인)(Technology Management)(Capstone Design)\nERP구축 프로젝트(ERP Implementation Project)\n프로젝트관리(Project Management)\n의사결정론(Decision Making)\n고급 비즈니스 프로그래밍(Advanced Business Programming)\nMIS 프로젝트(캡스톤디자인)Ⅱ(MIS Project(Capstone Design)Ⅱ)",
+            "3-3-0\n3-3-0\n3-3-0\n3-3-0\n3-3-0\n1-0-2",
+            "3-3-0\n3-3-0\n3-3-0\n3-3-0\n3-3-0\n1-0-2"
+          ],
+          [
+            "4",
+            "2",
+            "일선",
+            "6208059\n6208060",
+            "인턴십Ⅱ(InternshipⅡ)\n인턴십Ⅳ(InternshipⅣ)",
+            "인턴십Ⅱ(InternshipⅡ)\n인턴십Ⅳ(InternshipⅣ)",
+            "인턴십Ⅱ(InternshipⅡ)\n인턴십Ⅳ(InternshipⅣ)",
+            "15-0-16주\n3-0-4주",
+            "15-0-16주\n3-0-4주"
+          ],
+          [
+            "필수   10 과목  30 학점\n\n                                 전공     선택   30 과목  86 학점\n\n                                          계     40 과목 116 학점",
+            "필수   10 과목  30 학점\n\n                                 전공     선택   30 과목  86 학점\n\n                                          계     40 과목 116 학점",
+            "필수   10 과목  30 학점\n\n                                 전공     선택   30 과목  86 학점\n\n                                          계     40 과목 116 학점",
+            "필수   10 과목  30 학점\n\n                                 전공     선택   30 과목  86 학점\n\n                                          계     40 과목 116 학점",
+            "필수   10 과목  30 학점\n\n                                 전공     선택   30 과목  86 학점\n\n                                          계     40 과목 116 학점",
+            "필수   10 과목  30 학점\n\n                                 전공     선택   30 과목  86 학점\n\n                                          계     40 과목 116 학점",
+            "필수   10 과목  30 학점\n\n                                 전공     선택   30 과목  86 학점\n\n                                          계     40 과목 116 학점",
+            "필수   10 과목  30 학점\n\n                                 전공     선택   30 과목  86 학점\n\n                                          계     40 과목 116 학점",
+            "필수   10 과목  30 학점\n\n                                 전공     선택   30 과목  86 학점\n\n                                          계     40 과목 116 학점"
+          ],
+          [
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "경영학부",
+            "경영학부",
+            "6210008\n6210040\n6210045\n6210016\n6210072\n6210021\n6210068\n6210044\n6210071",
+            "경제학원론(Principles of Economics) \n중급회계Ⅰ(Intermediate AccountingⅠ)\n증권시장(Security Market)\n소비자행동론(Consumer Behavior)\n경영조직론(Organizational Theory for Management)\n투자론(Investment Theory)\n경영전략론(캡스톤디자인)(Strategic Management)\n기업윤리(Business Ethics)\n환경경영과 기업의 사회적 책임(Environmental Management and CSR)",
+            "경제학원론(Principles of Economics) \n중급회계Ⅰ(Intermediate AccountingⅠ)\n증권시장(Security Market)\n소비자행동론(Consumer Behavior)\n경영조직론(Organizational Theory for Management)\n투자론(Investment Theory)\n경영전략론(캡스톤디자인)(Strategic Management)\n기업윤리(Business Ethics)\n환경경영과 기업의 사회적 책임(Environmental Management and CSR)",
+            "3-3-0\n3-3-0\n3-3-0\n3-3-0\n3-3-0\n3-3-0\n3-3-0\n3-3-0\n3-3-0"
+          ],
+          [
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "국제경영 학과",
+            "국제경영 학과",
+            "6209100\n\n6209044\n6209113",
+            "글로벌비즈니스의 이해\n(Understanding of Global Business)\n경제학원론(Principles of Economics)\n물류 및 운송론(캡스톤디자인) (Logistics and Transportation)",
+            "글로벌비즈니스의 이해\n(Understanding of Global Business)\n경제학원론(Principles of Economics)\n물류 및 운송론(캡스톤디자인) (Logistics and Transportation)",
+            "3-3-0\n\n3-3-0\n3-3-0"
+          ],
+          [
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "컴퓨터 공학과",
+            "컴퓨터 공학과",
+            "5110005\n5110007\n5110047\n5110032\n5110026",
+            "이산수학(Discrete Mathematics)\nC/C++프로그래밍(C/C++ Programming)\n데이터통신(Data Communication)\n컴퓨터네트워크(Computer Network)\n수치해석(Numerical Analysis)",
+            "이산수학(Discrete Mathematics)\nC/C++프로그래밍(C/C++ Programming)\n데이터통신(Data Communication)\n컴퓨터네트워크(Computer Network)\n수치해석(Numerical Analysis)",
+            "3-3-0\n3-2-2\n3-3-0\n3-3-0\n3-3-0"
+          ],
+          [
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "안전\n공학과",
+            "안전\n공학과",
+            "6543108\n6543020",
+            "안전관리개론(Introduction to Safety Management)\n작업환경공학(Working Environment Engineering)",
+            "안전관리개론(Introduction to Safety Management)\n작업환경공학(Working Environment Engineering)",
+            "3-3-0\n3-3-0"
+          ],
+          [
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "경영대학에서 개설되는 모든 전공필수과목",
+            "경영대학에서 개설되는 모든 전공필수과목",
+            "경영대학에서 개설되는 모든 전공필수과목",
+            "경영대학에서 개설되는 모든 전공필수과목",
+            "경영대학에서 개설되는 모든 전공필수과목",
+            "경영대학에서 개설되는 모든 전공필수과목"
+          ]
+        ]
+      }
+    },
+    "paragraph_hits": [],
+    "tables_scanned": 5
+  },
+  {
+    "file": "2022 경영정보학과 교육과정 (홈페이지).docx",
+    "liberal_arts_credits": null,
+    "major_credits": null,
+    "major_requirements": {
+      "전필": {
+        "table_index": 2,
+        "credit": 30.0,
+        "rows": [
+          [
+            "학년",
+            "학기",
+            "이수구분",
+            "교과목번  호",
+            "교과목번  호",
+            "교   과   목   명",
+            "교   과   목   명",
+            "교   과   목   명",
+            "교   과   목   명",
+            "학점"
+          ],
+          [
+            "1",
+            "1",
+            "전필",
+            "6208028\n6208035",
+            "6208028\n6208035",
+            "회계원리(Principles of Accounting)\n경영통계학(Business Statistics)",
+            "회계원리(Principles of Accounting)\n경영통계학(Business Statistics)",
+            "회계원리(Principles of Accounting)\n경영통계학(Business Statistics)",
+            "회계원리(Principles of Accounting)\n경영통계학(Business Statistics)",
+            "3-3-0\n3-3-0"
+          ],
+          [
+            "1",
+            "1",
+            "전선",
+            "6208003\n6208066",
+            "6208003\n6208066",
+            "경영학원론(Principles of Management)\n비즈니스 커뮤니케이션 실무(Practices in Business Communication)",
+            "경영학원론(Principles of Management)\n비즈니스 커뮤니케이션 실무(Practices in Business Communication)",
+            "경영학원론(Principles of Management)\n비즈니스 커뮤니케이션 실무(Practices in Business Communication)",
+            "경영학원론(Principles of Management)\n비즈니스 커뮤니케이션 실무(Practices in Business Communication)",
+            "3-3-0\n3-3-0"
+          ],
+          [
+            "1",
+            "2",
+            "전필",
+            "6208028\n6208035",
+            "6208028\n6208035",
+            "회계원리(Principles of Accounting)\n경영통계학(Business Statistics)",
+            "회계원리(Principles of Accounting)\n경영통계학(Business Statistics)",
+            "회계원리(Principles of Accounting)\n경영통계학(Business Statistics)",
+            "회계원리(Principles of Accounting)\n경영통계학(Business Statistics)",
+            "3-3-0\n3-3-0"
+          ],
+          [
+            "1",
+            "2",
+            "전선",
+            "6208063",
+            "6208063",
+            "경영과 정보기술(Management and IT)",
+            "경영과 정보기술(Management and IT)",
+            "경영과 정보기술(Management and IT)",
+            "경영과 정보기술(Management and IT)",
+            "3-2-2"
+          ],
+          [
+            "2",
+            "1",
+            "전필",
+            "6208033\n6208076\n\n6208019\n6208005",
+            "6208033\n6208076\n\n6208019\n6208005",
+            "데이터베이스시스템(Database Systems)\n비즈니스 프로세스 분석과 응용 소프트웨어 설계\n(Business Process Analysis and Application Software Design)\n재무관리(Financial Management)\n계량경영학(Introduction to Quantitative Management)",
+            "데이터베이스시스템(Database Systems)\n비즈니스 프로세스 분석과 응용 소프트웨어 설계\n(Business Process Analysis and Application Software Design)\n재무관리(Financial Management)\n계량경영학(Introduction to Quantitative Management)",
+            "데이터베이스시스템(Database Systems)\n비즈니스 프로세스 분석과 응용 소프트웨어 설계\n(Business Process Analysis and Application Software Design)\n재무관리(Financial Management)\n계량경영학(Introduction to Quantitative Management)",
+            "데이터베이스시스템(Database Systems)\n비즈니스 프로세스 분석과 응용 소프트웨어 설계\n(Business Process Analysis and Application Software Design)\n재무관리(Financial Management)\n계량경영학(Introduction to Quantitative Management)",
+            "3-3-0\n3-3-0\n\n3-3-0\n3-3-0"
+          ],
+          [
+            "2",
+            "1",
+            "전선",
+            "6208007\n6208024\n6208808",
+            "6208007\n6208024\n6208808",
+            "마케팅관리론(Marketing Management)\n조직행동론(Organizational Behavior)\n디지털산업론 (Introduction to Digital Industry)",
+            "마케팅관리론(Marketing Management)\n조직행동론(Organizational Behavior)\n디지털산업론 (Introduction to Digital Industry)",
+            "마케팅관리론(Marketing Management)\n조직행동론(Organizational Behavior)\n디지털산업론 (Introduction to Digital Industry)",
+            "마케팅관리론(Marketing Management)\n조직행동론(Organizational Behavior)\n디지털산업론 (Introduction to Digital Industry)",
+            "3-3-0\n3-3-0\n3-3-0"
+          ],
+          [
+            "2",
+            "2",
+            "전필",
+            "6208033\n6208076\n\n6208019\n6208005",
+            "6208033\n6208076\n\n6208019\n6208005",
+            "데이터베이스시스템(Database Systems)\n비즈니스 프로세스 분석과 응용 소프트웨어 설계\n(Business Process Analysis and Application Software Design)\n재무관리(Financial Management)\n계량경영학(Introduction to Quantitative Management)",
+            "데이터베이스시스템(Database Systems)\n비즈니스 프로세스 분석과 응용 소프트웨어 설계\n(Business Process Analysis and Application Software Design)\n재무관리(Financial Management)\n계량경영학(Introduction to Quantitative Management)",
+            "데이터베이스시스템(Database Systems)\n비즈니스 프로세스 분석과 응용 소프트웨어 설계\n(Business Process Analysis and Application Software Design)\n재무관리(Financial Management)\n계량경영학(Introduction to Quantitative Management)",
+            "데이터베이스시스템(Database Systems)\n비즈니스 프로세스 분석과 응용 소프트웨어 설계\n(Business Process Analysis and Application Software Design)\n재무관리(Financial Management)\n계량경영학(Introduction to Quantitative Management)",
+            "3-3-0\n3-3-0\n\n3-3-0\n3-3-0"
+          ],
+          [
+            "2",
+            "2",
+            "전선",
+            "6208007\n6208024\n6208037\n6208811",
+            "6208007\n6208024\n6208037\n6208811",
+            "마케팅관리론(Marketing Management)\n조직행동론(Organizational Behavior)\n비즈니스 커뮤니케이션(Business Communication)\n창의적 사고와 디지털 비즈니스(Creative Thinking and Digital Business)",
+            "마케팅관리론(Marketing Management)\n조직행동론(Organizational Behavior)\n비즈니스 커뮤니케이션(Business Communication)\n창의적 사고와 디지털 비즈니스(Creative Thinking and Digital Business)",
+            "마케팅관리론(Marketing Management)\n조직행동론(Organizational Behavior)\n비즈니스 커뮤니케이션(Business Communication)\n창의적 사고와 디지털 비즈니스(Creative Thinking and Digital Business)",
+            "마케팅관리론(Marketing Management)\n조직행동론(Organizational Behavior)\n비즈니스 커뮤니케이션(Business Communication)\n창의적 사고와 디지털 비즈니스(Creative Thinking and Digital Business)",
+            "3-3-0\n3-3-0\n3-3-0\n3-3-0"
+          ],
+          [
+            "3",
+            "1",
+            "전필",
+            "6208039\n6208040\n6208069\n6208004",
+            "6208039\n6208040\n6208069\n6208004",
+            "생산관리(Production Management)\n정보통신경영(Information and Telecommunication Management)\n프로그래밍언어(Programming Language)\n경영정보시스템(Management Information Systems)",
+            "생산관리(Production Management)\n정보통신경영(Information and Telecommunication Management)\n프로그래밍언어(Programming Language)\n경영정보시스템(Management Information Systems)",
+            "생산관리(Production Management)\n정보통신경영(Information and Telecommunication Management)\n프로그래밍언어(Programming Language)\n경영정보시스템(Management Information Systems)",
+            "생산관리(Production Management)\n정보통신경영(Information and Telecommunication Management)\n프로그래밍언어(Programming Language)\n경영정보시스템(Management Information Systems)",
+            "3-3-0\n3-3-0\n3-2-2\n3-3-0"
+          ],
+          [
+            "3",
+            "1",
+            "전선",
+            "6208804\n6208042\n6208071",
+            "6208804\n6208042\n6208071",
+            "객체지향 응용소프트웨어 설계(Object-oriented Application Software Design)\nERP전략과 실천(ERP Strategy and Implementation)\n데이터마이닝(Data Mining)",
+            "객체지향 응용소프트웨어 설계(Object-oriented Application Software Design)\nERP전략과 실천(ERP Strategy and Implementation)\n데이터마이닝(Data Mining)",
+            "객체지향 응용소프트웨어 설계(Object-oriented Application Software Design)\nERP전략과 실천(ERP Strategy and Implementation)\n데이터마이닝(Data Mining)",
+            "객체지향 응용소프트웨어 설계(Object-oriented Application Software Design)\nERP전략과 실천(ERP Strategy and Implementation)\n데이터마이닝(Data Mining)",
+            "3-2-2\n3-2-2\n3-3-0"
+          ],
+          [
+            "3",
+            "2",
+            "전필",
+            "6208039\n6208040\n6208069\n6208004",
+            "6208039\n6208040\n6208069\n6208004",
+            "생산관리(Production Management)\n정보통신경영 (Information and Telecommunication Management)\n프로그래밍언어(Programming Language)\n경영정보시스템(Management Information Systems)",
+            "생산관리(Production Management)\n정보통신경영 (Information and Telecommunication Management)\n프로그래밍언어(Programming Language)\n경영정보시스템(Management Information Systems)",
+            "생산관리(Production Management)\n정보통신경영 (Information and Telecommunication Management)\n프로그래밍언어(Programming Language)\n경영정보시스템(Management Information Systems)",
+            "생산관리(Production Management)\n정보통신경영 (Information and Telecommunication Management)\n프로그래밍언어(Programming Language)\n경영정보시스템(Management Information Systems)",
+            "3-3-0\n3-3-0\n3-2-2\n3-3-0"
+          ],
+          [
+            "3",
+            "2",
+            "전선",
+            "6208044\n6208065\n6208807\n\n6208073\n6208810",
+            "6208044\n6208065\n6208807\n\n6208073\n6208810",
+            "공급사슬관리론(Supply Chain Management)\nERP회계정보활용론(Method of ERP Accounting Information Analysis)\n비즈니스 프로세스 관리(캡스톤디자인)\n(Business Process Management(Capstone Design))\nIT 강독(English Reading on Special Topic of IT)\n인공지능 경영(캡스톤디자인)(AI Management (Capstone Design))",
+            "공급사슬관리론(Supply Chain Management)\nERP회계정보활용론(Method of ERP Accounting Information Analysis)\n비즈니스 프로세스 관리(캡스톤디자인)\n(Business Process Management(Capstone Design))\nIT 강독(English Reading on Special Topic of IT)\n인공지능 경영(캡스톤디자인)(AI Management (Capstone Design))",
+            "공급사슬관리론(Supply Chain Management)\nERP회계정보활용론(Method of ERP Accounting Information Analysis)\n비즈니스 프로세스 관리(캡스톤디자인)\n(Business Process Management(Capstone Design))\nIT 강독(English Reading on Special Topic of IT)\n인공지능 경영(캡스톤디자인)(AI Management (Capstone Design))",
+            "공급사슬관리론(Supply Chain Management)\nERP회계정보활용론(Method of ERP Accounting Information Analysis)\n비즈니스 프로세스 관리(캡스톤디자인)\n(Business Process Management(Capstone Design))\nIT 강독(English Reading on Special Topic of IT)\n인공지능 경영(캡스톤디자인)(AI Management (Capstone Design))",
+            "3-3-0\n3-3-0\n3-3-0\n\n3-3-0\n3-3-0"
+          ],
+          [
+            "4",
+            "1",
+            "전선",
+            "6208046\n6208047\n6208809\n6208050\n6208080\n6208043\n6208038",
+            "6208046\n6208047\n6208809\n6208050\n6208080\n6208043\n6208038",
+            "e-비즈니스론(e-Business Systems)\n정보보호관리(Information Security Management)\n데이터 지식경영(캡스톤디자인)(Data Knowledge Management(Capstone Design))\n경영프로세스통합(Business Process Integration)\n영업 및 운영계획론(Sales and Operation Planning)\n비즈니스 인텔리전스(Business Intelligence)\n비즈니스 프로그래밍(Business Programming)",
+            "e-비즈니스론(e-Business Systems)\n정보보호관리(Information Security Management)\n데이터 지식경영(캡스톤디자인)(Data Knowledge Management(Capstone Design))\n경영프로세스통합(Business Process Integration)\n영업 및 운영계획론(Sales and Operation Planning)\n비즈니스 인텔리전스(Business Intelligence)\n비즈니스 프로그래밍(Business Programming)",
+            "e-비즈니스론(e-Business Systems)\n정보보호관리(Information Security Management)\n데이터 지식경영(캡스톤디자인)(Data Knowledge Management(Capstone Design))\n경영프로세스통합(Business Process Integration)\n영업 및 운영계획론(Sales and Operation Planning)\n비즈니스 인텔리전스(Business Intelligence)\n비즈니스 프로그래밍(Business Programming)",
+            "e-비즈니스론(e-Business Systems)\n정보보호관리(Information Security Management)\n데이터 지식경영(캡스톤디자인)(Data Knowledge Management(Capstone Design))\n경영프로세스통합(Business Process Integration)\n영업 및 운영계획론(Sales and Operation Planning)\n비즈니스 인텔리전스(Business Intelligence)\n비즈니스 프로그래밍(Business Programming)",
+            "3-3-0\n3-3-0\n3-3-0\n3-3-0\n3-3-0\n3-3-0\n3-2-2"
+          ],
+          [
+            "4",
+            "1",
+            "일선",
+            "6208052\n6208053",
+            "6208052\n6208053",
+            "인턴십Ⅰ(InternshipⅠ)\n인턴십Ⅲ(InternshipⅢ)",
+            "인턴십Ⅰ(InternshipⅠ)\n인턴십Ⅲ(InternshipⅢ)",
+            "인턴십Ⅰ(InternshipⅠ)\n인턴십Ⅲ(InternshipⅢ)",
+            "인턴십Ⅰ(InternshipⅠ)\n인턴십Ⅲ(InternshipⅢ)",
+            "15-0-16주\n3-0-4주"
+          ],
+          [
+            "4",
+            "2",
+            "전선",
+            "6208054\n6208057\n6208049\n6208055\n6208062",
+            "6208054\n6208057\n6208049\n6208055\n6208062",
+            "기술경영론(캡스톤디자인)(Technology Management)(Capstone Design)\nERP구축 프로젝트(ERP Implementation Project)\n프로젝트관리(Project Management)\n의사결정론(Decision Making)\n고급 비즈니스 프로그래밍(Advanced Business Programming)",
+            "기술경영론(캡스톤디자인)(Technology Management)(Capstone Design)\nERP구축 프로젝트(ERP Implementation Project)\n프로젝트관리(Project Management)\n의사결정론(Decision Making)\n고급 비즈니스 프로그래밍(Advanced Business Programming)",
+            "기술경영론(캡스톤디자인)(Technology Management)(Capstone Design)\nERP구축 프로젝트(ERP Implementation Project)\n프로젝트관리(Project Management)\n의사결정론(Decision Making)\n고급 비즈니스 프로그래밍(Advanced Business Programming)",
+            "기술경영론(캡스톤디자인)(Technology Management)(Capstone Design)\nERP구축 프로젝트(ERP Implementation Project)\n프로젝트관리(Project Management)\n의사결정론(Decision Making)\n고급 비즈니스 프로그래밍(Advanced Business Programming)",
+            "3-3-0\n3-3-0\n3-3-0\n3-3-0\n3-3-0"
+          ],
+          [
+            "4",
+            "2",
+            "일선",
+            "6208059\n6208060",
+            "6208059\n6208060",
+            "인턴십Ⅱ(InternshipⅡ)\n인턴십Ⅳ(InternshipⅣ)",
+            "인턴십Ⅱ(InternshipⅡ)\n인턴십Ⅳ(InternshipⅣ)",
+            "인턴십Ⅱ(InternshipⅡ)\n인턴십Ⅳ(InternshipⅣ)",
+            "인턴십Ⅱ(InternshipⅡ)\n인턴십Ⅳ(InternshipⅣ)",
+            "15-0-16주\n3-0-4주"
+          ],
+          [
+            "필수   10 과목  30 학점\n\n                                 전공     선택   28 과목  84 학점\n\n                                          계     38 과목 114 학점",
+            "필수   10 과목  30 학점\n\n                                 전공     선택   28 과목  84 학점\n\n                                          계     38 과목 114 학점",
+            "필수   10 과목  30 학점\n\n                                 전공     선택   28 과목  84 학점\n\n                                          계     38 과목 114 학점",
+            "필수   10 과목  30 학점\n\n                                 전공     선택   28 과목  84 학점\n\n                                          계     38 과목 114 학점",
+            "필수   10 과목  30 학점\n\n                                 전공     선택   28 과목  84 학점\n\n                                          계     38 과목 114 학점",
+            "필수   10 과목  30 학점\n\n                                 전공     선택   28 과목  84 학점\n\n                                          계     38 과목 114 학점",
+            "필수   10 과목  30 학점\n\n                                 전공     선택   28 과목  84 학점\n\n                                          계     38 과목 114 학점",
+            "필수   10 과목  30 학점\n\n                                 전공     선택   28 과목  84 학점\n\n                                          계     38 과목 114 학점",
+            "필수   10 과목  30 학점\n\n                                 전공     선택   28 과목  84 학점\n\n                                          계     38 과목 114 학점",
+            "필수   10 과목  30 학점\n\n                                 전공     선택   28 과목  84 학점\n\n                                          계     38 과목 114 학점"
+          ],
+          [
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "경영학부",
+            "경영학부",
+            "6210008\n6210040\n6210045\n6210016\n6210072\n6210021\n6210068\n6210044\n6210071",
+            "경제학원론(Principles of Economics) \n중급회계Ⅰ(Intermediate AccountingⅠ)\n증권시장(Security Market)\n소비자행동론(Consumer Behavior)\n경영조직론(Organizational Theory for Management)\n투자론(Investment Theory)\n경영전략론(캡스톤디자인)(Strategic Management)\n기업윤리(Business Ethics)\n환경경영과 기업의 사회적 책임(Environmental Management and CSR)",
+            "3-3-0\n3-3-0\n3-3-0\n3-3-0\n3-3-0\n3-3-0\n3-3-0\n3-3-0\n3-3-0",
+            "3-3-0\n3-3-0\n3-3-0\n3-3-0\n3-3-0\n3-3-0\n3-3-0\n3-3-0\n3-3-0"
+          ],
+          [
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "국제경영 학과",
+            "국제경영 학과",
+            "6209100\n\n6209044\n6209113",
+            "글로벌비즈니스의 이해\n(Understanding of Global Business)\n경제학원론(Principles of Economics)\n물류 및 운송론(캡스톤디자인) (Logistics and Transportation)",
+            "3-3-0\n\n3-3-0\n3-3-0",
+            "3-3-0\n\n3-3-0\n3-3-0"
+          ],
+          [
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "컴퓨터 공학과",
+            "컴퓨터 공학과",
+            "5110005\n5110007\n5110047\n5110032\n5110026",
+            "이산수학(Discrete Mathematics)\nC/C++프로그래밍(C/C++ Programming)\n데이터통신(Data Communication)\n컴퓨터네트워크(Computer Network)\n수치해석(Numerical Analysis)",
+            "3-3-0\n3-2-2\n3-3-0\n3-3-0\n3-3-0",
+            "3-3-0\n3-2-2\n3-3-0\n3-3-0\n3-3-0"
+          ],
+          [
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "안전\n공학과",
+            "안전\n공학과",
+            "6543108\n6543020",
+            "안전관리개론(Introduction to Safety Management)\n작업환경공학(Working Environment Engineering)",
+            "3-3-0\n3-3-0",
+            "3-3-0\n3-3-0"
+          ],
+          [
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "경영대학에서 개설되는 모든 전공필수과목",
+            "경영대학에서 개설되는 모든 전공필수과목",
+            "경영대학에서 개설되는 모든 전공필수과목",
+            "경영대학에서 개설되는 모든 전공필수과목",
+            "경영대학에서 개설되는 모든 전공필수과목",
+            "경영대학에서 개설되는 모든 전공필수과목"
+          ]
+        ]
+      },
+      "전선": {
+        "table_index": 2,
+        "credit": 30.0,
+        "rows": [
+          [
+            "학년",
+            "학기",
+            "이수구분",
+            "교과목번  호",
+            "교과목번  호",
+            "교   과   목   명",
+            "교   과   목   명",
+            "교   과   목   명",
+            "교   과   목   명",
+            "학점"
+          ],
+          [
+            "1",
+            "1",
+            "전필",
+            "6208028\n6208035",
+            "6208028\n6208035",
+            "회계원리(Principles of Accounting)\n경영통계학(Business Statistics)",
+            "회계원리(Principles of Accounting)\n경영통계학(Business Statistics)",
+            "회계원리(Principles of Accounting)\n경영통계학(Business Statistics)",
+            "회계원리(Principles of Accounting)\n경영통계학(Business Statistics)",
+            "3-3-0\n3-3-0"
+          ],
+          [
+            "1",
+            "1",
+            "전선",
+            "6208003\n6208066",
+            "6208003\n6208066",
+            "경영학원론(Principles of Management)\n비즈니스 커뮤니케이션 실무(Practices in Business Communication)",
+            "경영학원론(Principles of Management)\n비즈니스 커뮤니케이션 실무(Practices in Business Communication)",
+            "경영학원론(Principles of Management)\n비즈니스 커뮤니케이션 실무(Practices in Business Communication)",
+            "경영학원론(Principles of Management)\n비즈니스 커뮤니케이션 실무(Practices in Business Communication)",
+            "3-3-0\n3-3-0"
+          ],
+          [
+            "1",
+            "2",
+            "전필",
+            "6208028\n6208035",
+            "6208028\n6208035",
+            "회계원리(Principles of Accounting)\n경영통계학(Business Statistics)",
+            "회계원리(Principles of Accounting)\n경영통계학(Business Statistics)",
+            "회계원리(Principles of Accounting)\n경영통계학(Business Statistics)",
+            "회계원리(Principles of Accounting)\n경영통계학(Business Statistics)",
+            "3-3-0\n3-3-0"
+          ],
+          [
+            "1",
+            "2",
+            "전선",
+            "6208063",
+            "6208063",
+            "경영과 정보기술(Management and IT)",
+            "경영과 정보기술(Management and IT)",
+            "경영과 정보기술(Management and IT)",
+            "경영과 정보기술(Management and IT)",
+            "3-2-2"
+          ],
+          [
+            "2",
+            "1",
+            "전필",
+            "6208033\n6208076\n\n6208019\n6208005",
+            "6208033\n6208076\n\n6208019\n6208005",
+            "데이터베이스시스템(Database Systems)\n비즈니스 프로세스 분석과 응용 소프트웨어 설계\n(Business Process Analysis and Application Software Design)\n재무관리(Financial Management)\n계량경영학(Introduction to Quantitative Management)",
+            "데이터베이스시스템(Database Systems)\n비즈니스 프로세스 분석과 응용 소프트웨어 설계\n(Business Process Analysis and Application Software Design)\n재무관리(Financial Management)\n계량경영학(Introduction to Quantitative Management)",
+            "데이터베이스시스템(Database Systems)\n비즈니스 프로세스 분석과 응용 소프트웨어 설계\n(Business Process Analysis and Application Software Design)\n재무관리(Financial Management)\n계량경영학(Introduction to Quantitative Management)",
+            "데이터베이스시스템(Database Systems)\n비즈니스 프로세스 분석과 응용 소프트웨어 설계\n(Business Process Analysis and Application Software Design)\n재무관리(Financial Management)\n계량경영학(Introduction to Quantitative Management)",
+            "3-3-0\n3-3-0\n\n3-3-0\n3-3-0"
+          ],
+          [
+            "2",
+            "1",
+            "전선",
+            "6208007\n6208024\n6208808",
+            "6208007\n6208024\n6208808",
+            "마케팅관리론(Marketing Management)\n조직행동론(Organizational Behavior)\n디지털산업론 (Introduction to Digital Industry)",
+            "마케팅관리론(Marketing Management)\n조직행동론(Organizational Behavior)\n디지털산업론 (Introduction to Digital Industry)",
+            "마케팅관리론(Marketing Management)\n조직행동론(Organizational Behavior)\n디지털산업론 (Introduction to Digital Industry)",
+            "마케팅관리론(Marketing Management)\n조직행동론(Organizational Behavior)\n디지털산업론 (Introduction to Digital Industry)",
+            "3-3-0\n3-3-0\n3-3-0"
+          ],
+          [
+            "2",
+            "2",
+            "전필",
+            "6208033\n6208076\n\n6208019\n6208005",
+            "6208033\n6208076\n\n6208019\n6208005",
+            "데이터베이스시스템(Database Systems)\n비즈니스 프로세스 분석과 응용 소프트웨어 설계\n(Business Process Analysis and Application Software Design)\n재무관리(Financial Management)\n계량경영학(Introduction to Quantitative Management)",
+            "데이터베이스시스템(Database Systems)\n비즈니스 프로세스 분석과 응용 소프트웨어 설계\n(Business Process Analysis and Application Software Design)\n재무관리(Financial Management)\n계량경영학(Introduction to Quantitative Management)",
+            "데이터베이스시스템(Database Systems)\n비즈니스 프로세스 분석과 응용 소프트웨어 설계\n(Business Process Analysis and Application Software Design)\n재무관리(Financial Management)\n계량경영학(Introduction to Quantitative Management)",
+            "데이터베이스시스템(Database Systems)\n비즈니스 프로세스 분석과 응용 소프트웨어 설계\n(Business Process Analysis and Application Software Design)\n재무관리(Financial Management)\n계량경영학(Introduction to Quantitative Management)",
+            "3-3-0\n3-3-0\n\n3-3-0\n3-3-0"
+          ],
+          [
+            "2",
+            "2",
+            "전선",
+            "6208007\n6208024\n6208037\n6208811",
+            "6208007\n6208024\n6208037\n6208811",
+            "마케팅관리론(Marketing Management)\n조직행동론(Organizational Behavior)\n비즈니스 커뮤니케이션(Business Communication)\n창의적 사고와 디지털 비즈니스(Creative Thinking and Digital Business)",
+            "마케팅관리론(Marketing Management)\n조직행동론(Organizational Behavior)\n비즈니스 커뮤니케이션(Business Communication)\n창의적 사고와 디지털 비즈니스(Creative Thinking and Digital Business)",
+            "마케팅관리론(Marketing Management)\n조직행동론(Organizational Behavior)\n비즈니스 커뮤니케이션(Business Communication)\n창의적 사고와 디지털 비즈니스(Creative Thinking and Digital Business)",
+            "마케팅관리론(Marketing Management)\n조직행동론(Organizational Behavior)\n비즈니스 커뮤니케이션(Business Communication)\n창의적 사고와 디지털 비즈니스(Creative Thinking and Digital Business)",
+            "3-3-0\n3-3-0\n3-3-0\n3-3-0"
+          ],
+          [
+            "3",
+            "1",
+            "전필",
+            "6208039\n6208040\n6208069\n6208004",
+            "6208039\n6208040\n6208069\n6208004",
+            "생산관리(Production Management)\n정보통신경영(Information and Telecommunication Management)\n프로그래밍언어(Programming Language)\n경영정보시스템(Management Information Systems)",
+            "생산관리(Production Management)\n정보통신경영(Information and Telecommunication Management)\n프로그래밍언어(Programming Language)\n경영정보시스템(Management Information Systems)",
+            "생산관리(Production Management)\n정보통신경영(Information and Telecommunication Management)\n프로그래밍언어(Programming Language)\n경영정보시스템(Management Information Systems)",
+            "생산관리(Production Management)\n정보통신경영(Information and Telecommunication Management)\n프로그래밍언어(Programming Language)\n경영정보시스템(Management Information Systems)",
+            "3-3-0\n3-3-0\n3-2-2\n3-3-0"
+          ],
+          [
+            "3",
+            "1",
+            "전선",
+            "6208804\n6208042\n6208071",
+            "6208804\n6208042\n6208071",
+            "객체지향 응용소프트웨어 설계(Object-oriented Application Software Design)\nERP전략과 실천(ERP Strategy and Implementation)\n데이터마이닝(Data Mining)",
+            "객체지향 응용소프트웨어 설계(Object-oriented Application Software Design)\nERP전략과 실천(ERP Strategy and Implementation)\n데이터마이닝(Data Mining)",
+            "객체지향 응용소프트웨어 설계(Object-oriented Application Software Design)\nERP전략과 실천(ERP Strategy and Implementation)\n데이터마이닝(Data Mining)",
+            "객체지향 응용소프트웨어 설계(Object-oriented Application Software Design)\nERP전략과 실천(ERP Strategy and Implementation)\n데이터마이닝(Data Mining)",
+            "3-2-2\n3-2-2\n3-3-0"
+          ],
+          [
+            "3",
+            "2",
+            "전필",
+            "6208039\n6208040\n6208069\n6208004",
+            "6208039\n6208040\n6208069\n6208004",
+            "생산관리(Production Management)\n정보통신경영 (Information and Telecommunication Management)\n프로그래밍언어(Programming Language)\n경영정보시스템(Management Information Systems)",
+            "생산관리(Production Management)\n정보통신경영 (Information and Telecommunication Management)\n프로그래밍언어(Programming Language)\n경영정보시스템(Management Information Systems)",
+            "생산관리(Production Management)\n정보통신경영 (Information and Telecommunication Management)\n프로그래밍언어(Programming Language)\n경영정보시스템(Management Information Systems)",
+            "생산관리(Production Management)\n정보통신경영 (Information and Telecommunication Management)\n프로그래밍언어(Programming Language)\n경영정보시스템(Management Information Systems)",
+            "3-3-0\n3-3-0\n3-2-2\n3-3-0"
+          ],
+          [
+            "3",
+            "2",
+            "전선",
+            "6208044\n6208065\n6208807\n\n6208073\n6208810",
+            "6208044\n6208065\n6208807\n\n6208073\n6208810",
+            "공급사슬관리론(Supply Chain Management)\nERP회계정보활용론(Method of ERP Accounting Information Analysis)\n비즈니스 프로세스 관리(캡스톤디자인)\n(Business Process Management(Capstone Design))\nIT 강독(English Reading on Special Topic of IT)\n인공지능 경영(캡스톤디자인)(AI Management (Capstone Design))",
+            "공급사슬관리론(Supply Chain Management)\nERP회계정보활용론(Method of ERP Accounting Information Analysis)\n비즈니스 프로세스 관리(캡스톤디자인)\n(Business Process Management(Capstone Design))\nIT 강독(English Reading on Special Topic of IT)\n인공지능 경영(캡스톤디자인)(AI Management (Capstone Design))",
+            "공급사슬관리론(Supply Chain Management)\nERP회계정보활용론(Method of ERP Accounting Information Analysis)\n비즈니스 프로세스 관리(캡스톤디자인)\n(Business Process Management(Capstone Design))\nIT 강독(English Reading on Special Topic of IT)\n인공지능 경영(캡스톤디자인)(AI Management (Capstone Design))",
+            "공급사슬관리론(Supply Chain Management)\nERP회계정보활용론(Method of ERP Accounting Information Analysis)\n비즈니스 프로세스 관리(캡스톤디자인)\n(Business Process Management(Capstone Design))\nIT 강독(English Reading on Special Topic of IT)\n인공지능 경영(캡스톤디자인)(AI Management (Capstone Design))",
+            "3-3-0\n3-3-0\n3-3-0\n\n3-3-0\n3-3-0"
+          ],
+          [
+            "4",
+            "1",
+            "전선",
+            "6208046\n6208047\n6208809\n6208050\n6208080\n6208043\n6208038",
+            "6208046\n6208047\n6208809\n6208050\n6208080\n6208043\n6208038",
+            "e-비즈니스론(e-Business Systems)\n정보보호관리(Information Security Management)\n데이터 지식경영(캡스톤디자인)(Data Knowledge Management(Capstone Design))\n경영프로세스통합(Business Process Integration)\n영업 및 운영계획론(Sales and Operation Planning)\n비즈니스 인텔리전스(Business Intelligence)\n비즈니스 프로그래밍(Business Programming)",
+            "e-비즈니스론(e-Business Systems)\n정보보호관리(Information Security Management)\n데이터 지식경영(캡스톤디자인)(Data Knowledge Management(Capstone Design))\n경영프로세스통합(Business Process Integration)\n영업 및 운영계획론(Sales and Operation Planning)\n비즈니스 인텔리전스(Business Intelligence)\n비즈니스 프로그래밍(Business Programming)",
+            "e-비즈니스론(e-Business Systems)\n정보보호관리(Information Security Management)\n데이터 지식경영(캡스톤디자인)(Data Knowledge Management(Capstone Design))\n경영프로세스통합(Business Process Integration)\n영업 및 운영계획론(Sales and Operation Planning)\n비즈니스 인텔리전스(Business Intelligence)\n비즈니스 프로그래밍(Business Programming)",
+            "e-비즈니스론(e-Business Systems)\n정보보호관리(Information Security Management)\n데이터 지식경영(캡스톤디자인)(Data Knowledge Management(Capstone Design))\n경영프로세스통합(Business Process Integration)\n영업 및 운영계획론(Sales and Operation Planning)\n비즈니스 인텔리전스(Business Intelligence)\n비즈니스 프로그래밍(Business Programming)",
+            "3-3-0\n3-3-0\n3-3-0\n3-3-0\n3-3-0\n3-3-0\n3-2-2"
+          ],
+          [
+            "4",
+            "1",
+            "일선",
+            "6208052\n6208053",
+            "6208052\n6208053",
+            "인턴십Ⅰ(InternshipⅠ)\n인턴십Ⅲ(InternshipⅢ)",
+            "인턴십Ⅰ(InternshipⅠ)\n인턴십Ⅲ(InternshipⅢ)",
+            "인턴십Ⅰ(InternshipⅠ)\n인턴십Ⅲ(InternshipⅢ)",
+            "인턴십Ⅰ(InternshipⅠ)\n인턴십Ⅲ(InternshipⅢ)",
+            "15-0-16주\n3-0-4주"
+          ],
+          [
+            "4",
+            "2",
+            "전선",
+            "6208054\n6208057\n6208049\n6208055\n6208062",
+            "6208054\n6208057\n6208049\n6208055\n6208062",
+            "기술경영론(캡스톤디자인)(Technology Management)(Capstone Design)\nERP구축 프로젝트(ERP Implementation Project)\n프로젝트관리(Project Management)\n의사결정론(Decision Making)\n고급 비즈니스 프로그래밍(Advanced Business Programming)",
+            "기술경영론(캡스톤디자인)(Technology Management)(Capstone Design)\nERP구축 프로젝트(ERP Implementation Project)\n프로젝트관리(Project Management)\n의사결정론(Decision Making)\n고급 비즈니스 프로그래밍(Advanced Business Programming)",
+            "기술경영론(캡스톤디자인)(Technology Management)(Capstone Design)\nERP구축 프로젝트(ERP Implementation Project)\n프로젝트관리(Project Management)\n의사결정론(Decision Making)\n고급 비즈니스 프로그래밍(Advanced Business Programming)",
+            "기술경영론(캡스톤디자인)(Technology Management)(Capstone Design)\nERP구축 프로젝트(ERP Implementation Project)\n프로젝트관리(Project Management)\n의사결정론(Decision Making)\n고급 비즈니스 프로그래밍(Advanced Business Programming)",
+            "3-3-0\n3-3-0\n3-3-0\n3-3-0\n3-3-0"
+          ],
+          [
+            "4",
+            "2",
+            "일선",
+            "6208059\n6208060",
+            "6208059\n6208060",
+            "인턴십Ⅱ(InternshipⅡ)\n인턴십Ⅳ(InternshipⅣ)",
+            "인턴십Ⅱ(InternshipⅡ)\n인턴십Ⅳ(InternshipⅣ)",
+            "인턴십Ⅱ(InternshipⅡ)\n인턴십Ⅳ(InternshipⅣ)",
+            "인턴십Ⅱ(InternshipⅡ)\n인턴십Ⅳ(InternshipⅣ)",
+            "15-0-16주\n3-0-4주"
+          ],
+          [
+            "필수   10 과목  30 학점\n\n                                 전공     선택   28 과목  84 학점\n\n                                          계     38 과목 114 학점",
+            "필수   10 과목  30 학점\n\n                                 전공     선택   28 과목  84 학점\n\n                                          계     38 과목 114 학점",
+            "필수   10 과목  30 학점\n\n                                 전공     선택   28 과목  84 학점\n\n                                          계     38 과목 114 학점",
+            "필수   10 과목  30 학점\n\n                                 전공     선택   28 과목  84 학점\n\n                                          계     38 과목 114 학점",
+            "필수   10 과목  30 학점\n\n                                 전공     선택   28 과목  84 학점\n\n                                          계     38 과목 114 학점",
+            "필수   10 과목  30 학점\n\n                                 전공     선택   28 과목  84 학점\n\n                                          계     38 과목 114 학점",
+            "필수   10 과목  30 학점\n\n                                 전공     선택   28 과목  84 학점\n\n                                          계     38 과목 114 학점",
+            "필수   10 과목  30 학점\n\n                                 전공     선택   28 과목  84 학점\n\n                                          계     38 과목 114 학점",
+            "필수   10 과목  30 학점\n\n                                 전공     선택   28 과목  84 학점\n\n                                          계     38 과목 114 학점",
+            "필수   10 과목  30 학점\n\n                                 전공     선택   28 과목  84 학점\n\n                                          계     38 과목 114 학점"
+          ],
+          [
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "경영학부",
+            "경영학부",
+            "6210008\n6210040\n6210045\n6210016\n6210072\n6210021\n6210068\n6210044\n6210071",
+            "경제학원론(Principles of Economics) \n중급회계Ⅰ(Intermediate AccountingⅠ)\n증권시장(Security Market)\n소비자행동론(Consumer Behavior)\n경영조직론(Organizational Theory for Management)\n투자론(Investment Theory)\n경영전략론(캡스톤디자인)(Strategic Management)\n기업윤리(Business Ethics)\n환경경영과 기업의 사회적 책임(Environmental Management and CSR)",
+            "3-3-0\n3-3-0\n3-3-0\n3-3-0\n3-3-0\n3-3-0\n3-3-0\n3-3-0\n3-3-0",
+            "3-3-0\n3-3-0\n3-3-0\n3-3-0\n3-3-0\n3-3-0\n3-3-0\n3-3-0\n3-3-0"
+          ],
+          [
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "국제경영 학과",
+            "국제경영 학과",
+            "6209100\n\n6209044\n6209113",
+            "글로벌비즈니스의 이해\n(Understanding of Global Business)\n경제학원론(Principles of Economics)\n물류 및 운송론(캡스톤디자인) (Logistics and Transportation)",
+            "3-3-0\n\n3-3-0\n3-3-0",
+            "3-3-0\n\n3-3-0\n3-3-0"
+          ],
+          [
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "컴퓨터 공학과",
+            "컴퓨터 공학과",
+            "5110005\n5110007\n5110047\n5110032\n5110026",
+            "이산수학(Discrete Mathematics)\nC/C++프로그래밍(C/C++ Programming)\n데이터통신(Data Communication)\n컴퓨터네트워크(Computer Network)\n수치해석(Numerical Analysis)",
+            "3-3-0\n3-2-2\n3-3-0\n3-3-0\n3-3-0",
+            "3-3-0\n3-2-2\n3-3-0\n3-3-0\n3-3-0"
+          ],
+          [
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "안전\n공학과",
+            "안전\n공학과",
+            "6543108\n6543020",
+            "안전관리개론(Introduction to Safety Management)\n작업환경공학(Working Environment Engineering)",
+            "3-3-0\n3-3-0",
+            "3-3-0\n3-3-0"
+          ],
+          [
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "타 학 과\n\n전공선택\n\n인    정\n\n교 과 목",
+            "경영대학에서 개설되는 모든 전공필수과목",
+            "경영대학에서 개설되는 모든 전공필수과목",
+            "경영대학에서 개설되는 모든 전공필수과목",
+            "경영대학에서 개설되는 모든 전공필수과목",
+            "경영대학에서 개설되는 모든 전공필수과목",
+            "경영대학에서 개설되는 모든 전공필수과목"
+          ]
+        ]
+      }
+    },
+    "paragraph_hits": [],
+    "tables_scanned": 3
+  },
+  {
+    "file": "2023 경영정보학과 교육과정 (홈페이지).docx",
+    "liberal_arts_credits": null,
+    "major_credits": null,
+    "major_requirements": {
+      "전필": {
+        "table_index": 0,
+        "credit": 30.0,
+        "rows": [
+          [
+            "학년",
+            "학기",
+            "이수구분",
+            "교과목번  호",
+            "교 과 목 명(영문)",
+            "교 과 목 명(영문)",
+            "교 과 목 명(영문)",
+            "학점"
+          ],
+          [
+            "1",
+            "1",
+            "전필",
+            "6208028",
+            "회계원리(Principles of Accounting)",
+            "회계원리(Principles of Accounting)",
+            "회계원리(Principles of Accounting)",
+            "3-3-0"
+          ],
+          [
+            "1",
+            "1",
+            "전필",
+            "6208035",
+            "경영통계학(Business Statistics)",
+            "경영통계학(Business Statistics)",
+            "경영통계학(Business Statistics)",
+            "3-3-0"
+          ],
+          [
+            "1",
+            "1",
+            "전선",
+            "6208003",
+            "경영학원론(Principles of Management)",
+            "경영학원론(Principles of Management)",
+            "경영학원론(Principles of Management)",
+            "3-3-0"
+          ],
+          [
+            "1",
+            "1",
+            "전선",
+            "6208066",
+            "비즈니스 커뮤니케이션 실무(Practices in Business Communication)",
+            "비즈니스 커뮤니케이션 실무(Practices in Business Communication)",
+            "비즈니스 커뮤니케이션 실무(Practices in Business Communication)",
+            "3-3-0"
+          ],
+          [
+            "1",
+            "2",
+            "전필",
+            "6208028",
+            "회계원리(Principles of Accounting)",
+            "회계원리(Principles of Accounting)",
+            "회계원리(Principles of Accounting)",
+            "3-3-0"
+          ],
+          [
+            "1",
+            "2",
+            "전필",
+            "6208035",
+            "경영통계학(Business Statistics)",
+            "경영통계학(Business Statistics)",
+            "경영통계학(Business Statistics)",
+            "3-3-0"
+          ],
+          [
+            "1",
+            "2",
+            "전선",
+            "6208063",
+            "경영과 정보기술(Management and IT)",
+            "경영과 정보기술(Management and IT)",
+            "경영과 정보기술(Management and IT)",
+            "3-2-2"
+          ],
+          [
+            "2",
+            "1",
+            "전필",
+            "6208033",
+            "데이터베이스시스템(Database Systems)",
+            "데이터베이스시스템(Database Systems)",
+            "데이터베이스시스템(Database Systems)",
+            "3-3-0"
+          ],
+          [
+            "2",
+            "1",
+            "전필",
+            "6208019",
+            "재무관리(Financial Management)",
+            "재무관리(Financial Management)",
+            "재무관리(Financial Management)",
+            "3-3-0"
+          ],
+          [
+            "2",
+            "1",
+            "전필",
+            "6208005",
+            "계량경영학(Introduction to Quantitative Management)",
+            "계량경영학(Introduction to Quantitative Management)",
+            "계량경영학(Introduction to Quantitative Management)",
+            "3-3-0"
+          ],
+          [
+            "2",
+            "1",
+            "전필",
+            "6208069",
+            "프로그래밍언어(Programming Language)",
+            "프로그래밍언어(Programming Language)",
+            "프로그래밍언어(Programming Language)",
+            "3-2-2"
+          ],
+          [
+            "2",
+            "1",
+            "전필",
+            "6208004",
+            "경영정보시스템(Management Information Systems)",
+            "경영정보시스템(Management Information Systems)",
+            "경영정보시스템(Management Information Systems)",
+            "3-3-0"
+          ],
+          [
+            "2",
+            "1",
+            "전선",
+            "6208007",
+            "마케팅관리론(Marketing Management)",
+            "마케팅관리론(Marketing Management)",
+            "마케팅관리론(Marketing Management)",
+            "3-3-0"
+          ],
+          [
+            "2",
+            "2",
+            "전필",
+            "6208033",
+            "데이터베이스시스템(Database Systems)",
+            "데이터베이스시스템(Database Systems)",
+            "데이터베이스시스템(Database Systems)",
+            "3-3-0"
+          ],
+          [
+            "2",
+            "2",
+            "전필",
+            "6208019",
+            "재무관리(Financial Management)",
+            "재무관리(Financial Management)",
+            "재무관리(Financial Management)",
+            "3-3-0"
+          ],
+          [
+            "2",
+            "2",
+            "전필",
+            "6208005",
+            "계량경영학(Introduction to Quantitative Management)",
+            "계량경영학(Introduction to Quantitative Management)",
+            "계량경영학(Introduction to Quantitative Management)",
+            "3-3-0"
+          ],
+          [
+            "2",
+            "2",
+            "전필",
+            "6208069",
+            "프로그래밍언어(Programming Language)",
+            "프로그래밍언어(Programming Language)",
+            "프로그래밍언어(Programming Language)",
+            "3-2-2"
+          ],
+          [
+            "2",
+            "2",
+            "전필",
+            "6208004",
+            "경영정보시스템(Management Information Systems)",
+            "경영정보시스템(Management Information Systems)",
+            "경영정보시스템(Management Information Systems)",
+            "3-3-0"
+          ],
+          [
+            "2",
+            "2",
+            "전선",
+            "6208024",
+            "조직행동론(Organizational Behavior)",
+            "조직행동론(Organizational Behavior)",
+            "조직행동론(Organizational Behavior)",
+            "3-3-0"
+          ],
+          [
+            "2",
+            "2",
+            "전선",
+            "6208037",
+            "비즈니스 커뮤니케이션(Business Communication)",
+            "비즈니스 커뮤니케이션(Business Communication)",
+            "비즈니스 커뮤니케이션(Business Communication)",
+            "3-3-0"
+          ],
+          [
+            "2",
+            "2",
+            "전선",
+            "6208811",
+            "창의적 사고와 디지털 비즈니스(Creative Thinking and Digital Business)",
+            "창의적 사고와 디지털 비즈니스(Creative Thinking and Digital Business)",
+            "창의적 사고와 디지털 비즈니스(Creative Thinking and Digital Business)",
+            "3-3-0"
+          ],
+          [
+            "3",
+            "1",
+            "전필",
+            "6208039",
+            "생산관리(Production Management)",
+            "생산관리(Production Management)",
+            "생산관리(Production Management)",
+            "3-3-0"
+          ],
+          [
+            "3",
+            "1",
+            "전필",
+            "6208040",
+            "정보통신경영(Information and Telecommunication Management)",
+            "정보통신경영(Information and Telecommunication Management)",
+            "정보통신경영(Information and Telecommunication Management)",
+            "3-3-0"
+          ],
+          [
+            "3",
+            "1",
+            "전필",
+            "6208813",
+            "시스템 분석 및 설계(System Analysis and Design)",
+            "시스템 분석 및 설계(System Analysis and Design)",
+            "시스템 분석 및 설계(System Analysis and Design)",
+            "3-3-0"
+          ],
+          [
+            "3",
+            "1",
+            "전선",
+            "6208804",
+            "객체지향 응용소프트웨어 설계(Object-oriented Application Software Design)",
+            "객체지향 응용소프트웨어 설계(Object-oriented Application Software Design)",
+            "객체지향 응용소프트웨어 설계(Object-oriented Application Software Design)",
+            "3-3-0"
+          ],
+          [
+            "3",
+            "1",
+            "전선",
+            "6208042",
+            "ERP전략과 실천(ERP Strategy and Implementation)",
+            "ERP전략과 실천(ERP Strategy and Implementation)",
+            "ERP전략과 실천(ERP Strategy and Implementation)",
+            "3-2-2"
+          ],
+          [
+            "3",
+            "1",
+            "전선",
+            "6208071",
+            "데이터마이닝(Data Mining)",
+            "데이터마이닝(Data Mining)",
+            "데이터마이닝(Data Mining)",
+            "3-3-0"
+          ],
+          [
+            "3",
+            "1",
+            "전선",
+            "6208808",
+            "디지털산업론 (Introduction to Digital Industry)",
+            "디지털산업론 (Introduction to Digital Industry)",
+            "디지털산업론 (Introduction to Digital Industry)",
+            "3-3-0"
+          ],
+          [
+            "3",
+            "2",
+            "전필",
+            "6208040",
+            "정보통신경영 (Information and Telecommunication Management)",
+            "정보통신경영 (Information and Telecommunication Management)",
+            "정보통신경영 (Information and Telecommunication Management)",
+            "3-3-0"
+          ],
+          [
+            "3",
+            "2",
+            "전필",
+            "6208813",
+            "시스템 분석 및 설계(System Analysis and Design)",
+            "시스템 분석 및 설계(System Analysis and Design)",
+            "시스템 분석 및 설계(System Analysis and Design)",
+            "3-3-0"
+          ],
+          [
+            "3",
+            "2",
+            "전선",
+            "6208044",
+            "공급사슬관리론(Supply Chain Management)",
+            "공급사슬관리론(Supply Chain Management)",
+            "공급사슬관리론(Supply Chain Management)",
+            "3-3-0"
+          ],
+          [
+            "3",
+            "2",
+            "전선",
+            "6208065",
+            "ERP회계정보활용론(Method of ERP Accounting Information Analysis)",
+            "ERP회계정보활용론(Method of ERP Accounting Information Analysis)",
+            "ERP회계정보활용론(Method of ERP Accounting Information Analysis)",
+            "3-3-0"
+          ],
+          [
+            "3",
+            "2",
+            "전선",
+            "6208807",
+            "비즈니스 프로세스 관리(캡스톤디자인)\n(Business Process Management(Capstone Design))",
+            "비즈니스 프로세스 관리(캡스톤디자인)\n(Business Process Management(Capstone Design))",
+            "비즈니스 프로세스 관리(캡스톤디자인)\n(Business Process Management(Capstone Design))",
+            "3-3-0"
+          ],
+          [
+            "3",
+            "2",
+            "전선",
+            "6208073",
+            "IT 강독(English Reading on Special Topic of IT)",
+            "IT 강독(English Reading on Special Topic of IT)",
+            "IT 강독(English Reading on Special Topic of IT)",
+            "3-3-0"
+          ],
+          [
+            "3",
+            "2",
+            "전선",
+            "6208810",
+            "인공지능 경영(캡스톤디자인)(AI Management (Capstone Design))",
+            "인공지능 경영(캡스톤디자인)(AI Management (Capstone Design))",
+            "인공지능 경영(캡스톤디자인)(AI Management (Capstone Design))",
+            "3-3-0"
+          ],
+          [
+            "4",
+            "1",
+            "전선",
+            "6208046",
+            "e-비즈니스론(e-Business Systems)",
+            "e-비즈니스론(e-Business Systems)",
+            "e-비즈니스론(e-Business Systems)",
+            "3-3-0"
+          ],
+          [
+            "4",
+            "1",
+            "전선",
+            "6208047",
+            "정보보호관리(Information Security Management)",
+            "정보보호관리(Information Security Management)",
+            "정보보호관리(Information Security Management)",
+            "3-3-0"
+          ],
+          [
+            "4",
+            "1",
+            "전선",
+            "6208809",
+            "데이터 지식경영(캡스톤디자인)(Data Knowledge Management(Capstone Design))",
+            "데이터 지식경영(캡스톤디자인)(Data Knowledge Management(Capstone Design))",
+            "데이터 지식경영(캡스톤디자인)(Data Knowledge Management(Capstone Design))",
+            "3-3-0"
+          ],
+          [
+            "4",
+            "1",
+            "전선",
+            "6208050",
+            "경영프로세스통합(Business Process Integration)",
+            "경영프로세스통합(Business Process Integration)",
+            "경영프로세스통합(Business Process Integration)",
+            "3-3-0"
+          ],
+          [
+            "4",
+            "1",
+            "전선",
+            "6208080",
+            "영업 및 운영계획론(Sales and Operation Planning)",
+            "영업 및 운영계획론(Sales and Operation Planning)",
+            "영업 및 운영계획론(Sales and Operation Planning)",
+            "3-3-0"
+          ],
+          [
+            "4",
+            "1",
+            "전선",
+            "6208043",
+            "비즈니스 인텔리전스(Business Intelligence)",
+            "비즈니스 인텔리전스(Business Intelligence)",
+            "비즈니스 인텔리전스(Business Intelligence)",
+            "3-3-0"
+          ],
+          [
+            "4",
+            "1",
+            "전선",
+            "6208038",
+            "비즈니스 프로그래밍(Business Programming)",
+            "비즈니스 프로그래밍(Business Programming)",
+            "비즈니스 프로그래밍(Business Programming)",
+            "3-3-0"
+          ],
+          [
+            "4",
+            "1",
+            "일선",
+            "6208052",
+            "인턴십Ⅰ(InternshipⅠ)",
+            "인턴십Ⅰ(InternshipⅠ)",
+            "인턴십Ⅰ(InternshipⅠ)",
+            "15-0-16주"
+          ],
+          [
+            "4",
+            "1",
+            "일선",
+            "6208053",
+            "인턴십Ⅲ(InternshipⅢ)",
+            "인턴십Ⅲ(InternshipⅢ)",
+            "인턴십Ⅲ(InternshipⅢ)",
+            "3-0-4주"
+          ],
+          [
+            "4",
+            "2",
+            "전선",
+            "6208054",
+            "기술경영론(캡스톤디자인)(Technology Management)(Capstone Design)",
+            "기술경영론(캡스톤디자인)(Technology Management)(Capstone Design)",
+            "기술경영론(캡스톤디자인)(Technology Management)(Capstone Design)",
+            "3-3-0"
+          ],
+          [
+            "4",
+            "2",
+            "전선",
+            "6208057",
+            "ERP구축 프로젝트(ERP Implementation Project)",
+            "ERP구축 프로젝트(ERP Implementation Project)",
+            "ERP구축 프로젝트(ERP Implementation Project)",
+            "3-3-0"
+          ],
+          [
+            "4",
+            "2",
+            "전선",
+            "6208049",
+            "프로젝트관리(Project Management)",
+            "프로젝트관리(Project Management)",
+            "프로젝트관리(Project Management)",
+            "3-3-0"
+          ],
+          [
+            "4",
+            "2",
+            "전선",
+            "6208055",
+            "의사결정론(Decision Making)",
+            "의사결정론(Decision Making)",
+            "의사결정론(Decision Making)",
+            "3-3-0"
+          ],
+          [
+            "4",
+            "2",
+            "전선",
+            "6208812",
+            "고급 비즈니스 프로그래밍(캡스톤디자인)(Advanced Business Programming(Capstone Design))",
+            "고급 비즈니스 프로그래밍(캡스톤디자인)(Advanced Business Programming(Capstone Design))",
+            "고급 비즈니스 프로그래밍(캡스톤디자인)(Advanced Business Programming(Capstone Design))",
+            "3-3-0"
+          ],
+          [
+            "4",
+            "2",
+            "일선",
+            "6208059",
+            "인턴십Ⅱ(InternshipⅡ)",
+            "인턴십Ⅱ(InternshipⅡ)",
+            "인턴십Ⅱ(InternshipⅡ)",
+            "15-0-16주"
+          ],
+          [
+            "4",
+            "2",
+            "일선",
+            "6208060",
+            "인턴십Ⅳ(InternshipⅣ)",
+            "인턴십Ⅳ(InternshipⅣ)",
+            "인턴십Ⅳ(InternshipⅣ)",
+            "3-0-4주"
+          ],
+          [
+            "필수      10    과목     30    학점\n전공    선택       28   과목     84    학점\n         계       38    과목     114    학점",
+            "필수      10    과목     30    학점\n전공    선택       28   과목     84    학점\n         계       38    과목     114    학점",
+            "필수      10    과목     30    학점\n전공    선택       28   과목     84    학점\n         계       38    과목     114    학점",
+            "필수      10    과목     30    학점\n전공    선택       28   과목     84    학점\n         계       38    과목     114    학점",
+            "필수      10    과목     30    학점\n전공    선택       28   과목     84    학점\n         계       38    과목     114    학점",
+            "필수      10    과목     30    학점\n전공    선택       28   과목     84    학점\n         계       38    과목     114    학점",
+            "필수      10    과목     30    학점\n전공    선택       28   과목     84    학점\n         계       38    과목     114    학점",
+            "필수      10    과목     30    학점\n전공    선택       28   과목     84    학점\n         계       38    과목     114    학점"
+          ],
+          [
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "경영학부",
+            "경영학부",
+            "6210008",
+            "경제학원론(Principles of Economics)",
+            ""
+          ],
+          [
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "경영학부",
+            "경영학부",
+            "6210040",
+            "중급회계Ⅰ(Intermediate AccountingⅠ)",
+            ""
+          ],
+          [
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "경영학부",
+            "경영학부",
+            "6210045",
+            "증권시장(Security Market)",
+            ""
+          ],
+          [
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "경영학부",
+            "경영학부",
+            "6210016",
+            "소비자행동론(Consumer Behavior)",
+            ""
+          ],
+          [
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "경영학부",
+            "경영학부",
+            "6210072",
+            "경영조직론(Organizational Theory for Management)",
+            ""
+          ],
+          [
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "경영학부",
+            "경영학부",
+            "6210021",
+            "투자론(Investment Theory)",
+            ""
+          ],
+          [
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "경영학부",
+            "경영학부",
+            "6210068",
+            "경영전략론(캡스톤디자인)(Strategic Management)",
+            ""
+          ],
+          [
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "경영학부",
+            "경영학부",
+            "6210044",
+            "기업윤리(Business Ethics)",
+            ""
+          ],
+          [
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "경영학부",
+            "경영학부",
+            "6210071",
+            "환경경영과 기업의 사회적 책임(Environmental Management and CSR)",
+            ""
+          ],
+          [
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "국제경영 학과",
+            "국제경영 학과",
+            "6209100",
+            "글로벌비즈니스의 이해\n(Understanding of Global Business)",
+            ""
+          ],
+          [
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "국제경영 학과",
+            "국제경영 학과",
+            "6209044",
+            "경제학원론(Principles of Economics)",
+            ""
+          ],
+          [
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "국제경영 학과",
+            "국제경영 학과",
+            "6209113",
+            "물류 및 운송론(캡스톤디자인) (Logistics and Transportation)",
+            ""
+          ],
+          [
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "컴퓨터\n공학과",
+            "컴퓨터\n공학과",
+            "5110005",
+            "이산수학(Discrete Mathematics)",
+            ""
+          ],
+          [
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "컴퓨터\n공학과",
+            "컴퓨터\n공학과",
+            "5110007",
+            "C/C++프로그래밍(C/C++ Programming)",
+            ""
+          ],
+          [
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "컴퓨터\n공학과",
+            "컴퓨터\n공학과",
+            "5110047",
+            "데이터통신(Data Communication)",
+            ""
+          ],
+          [
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "컴퓨터\n공학과",
+            "컴퓨터\n공학과",
+            "5110032",
+            "컴퓨터네트워크(Computer Network)",
+            ""
+          ],
+          [
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "컴퓨터\n공학과",
+            "컴퓨터\n공학과",
+            "5110026",
+            "수치해석(Numerical Analysis)",
+            ""
+          ],
+          [
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "안전\n공학과",
+            "안전\n공학과",
+            "6543108",
+            "안전관리개론(Introduction to Safety Management)",
+            ""
+          ],
+          [
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "안전\n공학과",
+            "안전\n공학과",
+            "6543020",
+            "작업환경공학(Working Environment Engineering)",
+            ""
+          ],
+          [
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "경영대학에서 개설되는 모든 전공필수과목",
+            "경영대학에서 개설되는 모든 전공필수과목",
+            "경영대학에서 개설되는 모든 전공필수과목",
+            "경영대학에서 개설되는 모든 전공필수과목",
+            "경영대학에서 개설되는 모든 전공필수과목"
+          ]
+        ]
+      },
+      "전선": {
+        "table_index": 0,
+        "credit": 30.0,
+        "rows": [
+          [
+            "학년",
+            "학기",
+            "이수구분",
+            "교과목번  호",
+            "교 과 목 명(영문)",
+            "교 과 목 명(영문)",
+            "교 과 목 명(영문)",
+            "학점"
+          ],
+          [
+            "1",
+            "1",
+            "전필",
+            "6208028",
+            "회계원리(Principles of Accounting)",
+            "회계원리(Principles of Accounting)",
+            "회계원리(Principles of Accounting)",
+            "3-3-0"
+          ],
+          [
+            "1",
+            "1",
+            "전필",
+            "6208035",
+            "경영통계학(Business Statistics)",
+            "경영통계학(Business Statistics)",
+            "경영통계학(Business Statistics)",
+            "3-3-0"
+          ],
+          [
+            "1",
+            "1",
+            "전선",
+            "6208003",
+            "경영학원론(Principles of Management)",
+            "경영학원론(Principles of Management)",
+            "경영학원론(Principles of Management)",
+            "3-3-0"
+          ],
+          [
+            "1",
+            "1",
+            "전선",
+            "6208066",
+            "비즈니스 커뮤니케이션 실무(Practices in Business Communication)",
+            "비즈니스 커뮤니케이션 실무(Practices in Business Communication)",
+            "비즈니스 커뮤니케이션 실무(Practices in Business Communication)",
+            "3-3-0"
+          ],
+          [
+            "1",
+            "2",
+            "전필",
+            "6208028",
+            "회계원리(Principles of Accounting)",
+            "회계원리(Principles of Accounting)",
+            "회계원리(Principles of Accounting)",
+            "3-3-0"
+          ],
+          [
+            "1",
+            "2",
+            "전필",
+            "6208035",
+            "경영통계학(Business Statistics)",
+            "경영통계학(Business Statistics)",
+            "경영통계학(Business Statistics)",
+            "3-3-0"
+          ],
+          [
+            "1",
+            "2",
+            "전선",
+            "6208063",
+            "경영과 정보기술(Management and IT)",
+            "경영과 정보기술(Management and IT)",
+            "경영과 정보기술(Management and IT)",
+            "3-2-2"
+          ],
+          [
+            "2",
+            "1",
+            "전필",
+            "6208033",
+            "데이터베이스시스템(Database Systems)",
+            "데이터베이스시스템(Database Systems)",
+            "데이터베이스시스템(Database Systems)",
+            "3-3-0"
+          ],
+          [
+            "2",
+            "1",
+            "전필",
+            "6208019",
+            "재무관리(Financial Management)",
+            "재무관리(Financial Management)",
+            "재무관리(Financial Management)",
+            "3-3-0"
+          ],
+          [
+            "2",
+            "1",
+            "전필",
+            "6208005",
+            "계량경영학(Introduction to Quantitative Management)",
+            "계량경영학(Introduction to Quantitative Management)",
+            "계량경영학(Introduction to Quantitative Management)",
+            "3-3-0"
+          ],
+          [
+            "2",
+            "1",
+            "전필",
+            "6208069",
+            "프로그래밍언어(Programming Language)",
+            "프로그래밍언어(Programming Language)",
+            "프로그래밍언어(Programming Language)",
+            "3-2-2"
+          ],
+          [
+            "2",
+            "1",
+            "전필",
+            "6208004",
+            "경영정보시스템(Management Information Systems)",
+            "경영정보시스템(Management Information Systems)",
+            "경영정보시스템(Management Information Systems)",
+            "3-3-0"
+          ],
+          [
+            "2",
+            "1",
+            "전선",
+            "6208007",
+            "마케팅관리론(Marketing Management)",
+            "마케팅관리론(Marketing Management)",
+            "마케팅관리론(Marketing Management)",
+            "3-3-0"
+          ],
+          [
+            "2",
+            "2",
+            "전필",
+            "6208033",
+            "데이터베이스시스템(Database Systems)",
+            "데이터베이스시스템(Database Systems)",
+            "데이터베이스시스템(Database Systems)",
+            "3-3-0"
+          ],
+          [
+            "2",
+            "2",
+            "전필",
+            "6208019",
+            "재무관리(Financial Management)",
+            "재무관리(Financial Management)",
+            "재무관리(Financial Management)",
+            "3-3-0"
+          ],
+          [
+            "2",
+            "2",
+            "전필",
+            "6208005",
+            "계량경영학(Introduction to Quantitative Management)",
+            "계량경영학(Introduction to Quantitative Management)",
+            "계량경영학(Introduction to Quantitative Management)",
+            "3-3-0"
+          ],
+          [
+            "2",
+            "2",
+            "전필",
+            "6208069",
+            "프로그래밍언어(Programming Language)",
+            "프로그래밍언어(Programming Language)",
+            "프로그래밍언어(Programming Language)",
+            "3-2-2"
+          ],
+          [
+            "2",
+            "2",
+            "전필",
+            "6208004",
+            "경영정보시스템(Management Information Systems)",
+            "경영정보시스템(Management Information Systems)",
+            "경영정보시스템(Management Information Systems)",
+            "3-3-0"
+          ],
+          [
+            "2",
+            "2",
+            "전선",
+            "6208024",
+            "조직행동론(Organizational Behavior)",
+            "조직행동론(Organizational Behavior)",
+            "조직행동론(Organizational Behavior)",
+            "3-3-0"
+          ],
+          [
+            "2",
+            "2",
+            "전선",
+            "6208037",
+            "비즈니스 커뮤니케이션(Business Communication)",
+            "비즈니스 커뮤니케이션(Business Communication)",
+            "비즈니스 커뮤니케이션(Business Communication)",
+            "3-3-0"
+          ],
+          [
+            "2",
+            "2",
+            "전선",
+            "6208811",
+            "창의적 사고와 디지털 비즈니스(Creative Thinking and Digital Business)",
+            "창의적 사고와 디지털 비즈니스(Creative Thinking and Digital Business)",
+            "창의적 사고와 디지털 비즈니스(Creative Thinking and Digital Business)",
+            "3-3-0"
+          ],
+          [
+            "3",
+            "1",
+            "전필",
+            "6208039",
+            "생산관리(Production Management)",
+            "생산관리(Production Management)",
+            "생산관리(Production Management)",
+            "3-3-0"
+          ],
+          [
+            "3",
+            "1",
+            "전필",
+            "6208040",
+            "정보통신경영(Information and Telecommunication Management)",
+            "정보통신경영(Information and Telecommunication Management)",
+            "정보통신경영(Information and Telecommunication Management)",
+            "3-3-0"
+          ],
+          [
+            "3",
+            "1",
+            "전필",
+            "6208813",
+            "시스템 분석 및 설계(System Analysis and Design)",
+            "시스템 분석 및 설계(System Analysis and Design)",
+            "시스템 분석 및 설계(System Analysis and Design)",
+            "3-3-0"
+          ],
+          [
+            "3",
+            "1",
+            "전선",
+            "6208804",
+            "객체지향 응용소프트웨어 설계(Object-oriented Application Software Design)",
+            "객체지향 응용소프트웨어 설계(Object-oriented Application Software Design)",
+            "객체지향 응용소프트웨어 설계(Object-oriented Application Software Design)",
+            "3-3-0"
+          ],
+          [
+            "3",
+            "1",
+            "전선",
+            "6208042",
+            "ERP전략과 실천(ERP Strategy and Implementation)",
+            "ERP전략과 실천(ERP Strategy and Implementation)",
+            "ERP전략과 실천(ERP Strategy and Implementation)",
+            "3-2-2"
+          ],
+          [
+            "3",
+            "1",
+            "전선",
+            "6208071",
+            "데이터마이닝(Data Mining)",
+            "데이터마이닝(Data Mining)",
+            "데이터마이닝(Data Mining)",
+            "3-3-0"
+          ],
+          [
+            "3",
+            "1",
+            "전선",
+            "6208808",
+            "디지털산업론 (Introduction to Digital Industry)",
+            "디지털산업론 (Introduction to Digital Industry)",
+            "디지털산업론 (Introduction to Digital Industry)",
+            "3-3-0"
+          ],
+          [
+            "3",
+            "2",
+            "전필",
+            "6208040",
+            "정보통신경영 (Information and Telecommunication Management)",
+            "정보통신경영 (Information and Telecommunication Management)",
+            "정보통신경영 (Information and Telecommunication Management)",
+            "3-3-0"
+          ],
+          [
+            "3",
+            "2",
+            "전필",
+            "6208813",
+            "시스템 분석 및 설계(System Analysis and Design)",
+            "시스템 분석 및 설계(System Analysis and Design)",
+            "시스템 분석 및 설계(System Analysis and Design)",
+            "3-3-0"
+          ],
+          [
+            "3",
+            "2",
+            "전선",
+            "6208044",
+            "공급사슬관리론(Supply Chain Management)",
+            "공급사슬관리론(Supply Chain Management)",
+            "공급사슬관리론(Supply Chain Management)",
+            "3-3-0"
+          ],
+          [
+            "3",
+            "2",
+            "전선",
+            "6208065",
+            "ERP회계정보활용론(Method of ERP Accounting Information Analysis)",
+            "ERP회계정보활용론(Method of ERP Accounting Information Analysis)",
+            "ERP회계정보활용론(Method of ERP Accounting Information Analysis)",
+            "3-3-0"
+          ],
+          [
+            "3",
+            "2",
+            "전선",
+            "6208807",
+            "비즈니스 프로세스 관리(캡스톤디자인)\n(Business Process Management(Capstone Design))",
+            "비즈니스 프로세스 관리(캡스톤디자인)\n(Business Process Management(Capstone Design))",
+            "비즈니스 프로세스 관리(캡스톤디자인)\n(Business Process Management(Capstone Design))",
+            "3-3-0"
+          ],
+          [
+            "3",
+            "2",
+            "전선",
+            "6208073",
+            "IT 강독(English Reading on Special Topic of IT)",
+            "IT 강독(English Reading on Special Topic of IT)",
+            "IT 강독(English Reading on Special Topic of IT)",
+            "3-3-0"
+          ],
+          [
+            "3",
+            "2",
+            "전선",
+            "6208810",
+            "인공지능 경영(캡스톤디자인)(AI Management (Capstone Design))",
+            "인공지능 경영(캡스톤디자인)(AI Management (Capstone Design))",
+            "인공지능 경영(캡스톤디자인)(AI Management (Capstone Design))",
+            "3-3-0"
+          ],
+          [
+            "4",
+            "1",
+            "전선",
+            "6208046",
+            "e-비즈니스론(e-Business Systems)",
+            "e-비즈니스론(e-Business Systems)",
+            "e-비즈니스론(e-Business Systems)",
+            "3-3-0"
+          ],
+          [
+            "4",
+            "1",
+            "전선",
+            "6208047",
+            "정보보호관리(Information Security Management)",
+            "정보보호관리(Information Security Management)",
+            "정보보호관리(Information Security Management)",
+            "3-3-0"
+          ],
+          [
+            "4",
+            "1",
+            "전선",
+            "6208809",
+            "데이터 지식경영(캡스톤디자인)(Data Knowledge Management(Capstone Design))",
+            "데이터 지식경영(캡스톤디자인)(Data Knowledge Management(Capstone Design))",
+            "데이터 지식경영(캡스톤디자인)(Data Knowledge Management(Capstone Design))",
+            "3-3-0"
+          ],
+          [
+            "4",
+            "1",
+            "전선",
+            "6208050",
+            "경영프로세스통합(Business Process Integration)",
+            "경영프로세스통합(Business Process Integration)",
+            "경영프로세스통합(Business Process Integration)",
+            "3-3-0"
+          ],
+          [
+            "4",
+            "1",
+            "전선",
+            "6208080",
+            "영업 및 운영계획론(Sales and Operation Planning)",
+            "영업 및 운영계획론(Sales and Operation Planning)",
+            "영업 및 운영계획론(Sales and Operation Planning)",
+            "3-3-0"
+          ],
+          [
+            "4",
+            "1",
+            "전선",
+            "6208043",
+            "비즈니스 인텔리전스(Business Intelligence)",
+            "비즈니스 인텔리전스(Business Intelligence)",
+            "비즈니스 인텔리전스(Business Intelligence)",
+            "3-3-0"
+          ],
+          [
+            "4",
+            "1",
+            "전선",
+            "6208038",
+            "비즈니스 프로그래밍(Business Programming)",
+            "비즈니스 프로그래밍(Business Programming)",
+            "비즈니스 프로그래밍(Business Programming)",
+            "3-3-0"
+          ],
+          [
+            "4",
+            "1",
+            "일선",
+            "6208052",
+            "인턴십Ⅰ(InternshipⅠ)",
+            "인턴십Ⅰ(InternshipⅠ)",
+            "인턴십Ⅰ(InternshipⅠ)",
+            "15-0-16주"
+          ],
+          [
+            "4",
+            "1",
+            "일선",
+            "6208053",
+            "인턴십Ⅲ(InternshipⅢ)",
+            "인턴십Ⅲ(InternshipⅢ)",
+            "인턴십Ⅲ(InternshipⅢ)",
+            "3-0-4주"
+          ],
+          [
+            "4",
+            "2",
+            "전선",
+            "6208054",
+            "기술경영론(캡스톤디자인)(Technology Management)(Capstone Design)",
+            "기술경영론(캡스톤디자인)(Technology Management)(Capstone Design)",
+            "기술경영론(캡스톤디자인)(Technology Management)(Capstone Design)",
+            "3-3-0"
+          ],
+          [
+            "4",
+            "2",
+            "전선",
+            "6208057",
+            "ERP구축 프로젝트(ERP Implementation Project)",
+            "ERP구축 프로젝트(ERP Implementation Project)",
+            "ERP구축 프로젝트(ERP Implementation Project)",
+            "3-3-0"
+          ],
+          [
+            "4",
+            "2",
+            "전선",
+            "6208049",
+            "프로젝트관리(Project Management)",
+            "프로젝트관리(Project Management)",
+            "프로젝트관리(Project Management)",
+            "3-3-0"
+          ],
+          [
+            "4",
+            "2",
+            "전선",
+            "6208055",
+            "의사결정론(Decision Making)",
+            "의사결정론(Decision Making)",
+            "의사결정론(Decision Making)",
+            "3-3-0"
+          ],
+          [
+            "4",
+            "2",
+            "전선",
+            "6208812",
+            "고급 비즈니스 프로그래밍(캡스톤디자인)(Advanced Business Programming(Capstone Design))",
+            "고급 비즈니스 프로그래밍(캡스톤디자인)(Advanced Business Programming(Capstone Design))",
+            "고급 비즈니스 프로그래밍(캡스톤디자인)(Advanced Business Programming(Capstone Design))",
+            "3-3-0"
+          ],
+          [
+            "4",
+            "2",
+            "일선",
+            "6208059",
+            "인턴십Ⅱ(InternshipⅡ)",
+            "인턴십Ⅱ(InternshipⅡ)",
+            "인턴십Ⅱ(InternshipⅡ)",
+            "15-0-16주"
+          ],
+          [
+            "4",
+            "2",
+            "일선",
+            "6208060",
+            "인턴십Ⅳ(InternshipⅣ)",
+            "인턴십Ⅳ(InternshipⅣ)",
+            "인턴십Ⅳ(InternshipⅣ)",
+            "3-0-4주"
+          ],
+          [
+            "필수      10    과목     30    학점\n전공    선택       28   과목     84    학점\n         계       38    과목     114    학점",
+            "필수      10    과목     30    학점\n전공    선택       28   과목     84    학점\n         계       38    과목     114    학점",
+            "필수      10    과목     30    학점\n전공    선택       28   과목     84    학점\n         계       38    과목     114    학점",
+            "필수      10    과목     30    학점\n전공    선택       28   과목     84    학점\n         계       38    과목     114    학점",
+            "필수      10    과목     30    학점\n전공    선택       28   과목     84    학점\n         계       38    과목     114    학점",
+            "필수      10    과목     30    학점\n전공    선택       28   과목     84    학점\n         계       38    과목     114    학점",
+            "필수      10    과목     30    학점\n전공    선택       28   과목     84    학점\n         계       38    과목     114    학점",
+            "필수      10    과목     30    학점\n전공    선택       28   과목     84    학점\n         계       38    과목     114    학점"
+          ],
+          [
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "경영학부",
+            "경영학부",
+            "6210008",
+            "경제학원론(Principles of Economics)",
+            ""
+          ],
+          [
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "경영학부",
+            "경영학부",
+            "6210040",
+            "중급회계Ⅰ(Intermediate AccountingⅠ)",
+            ""
+          ],
+          [
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "경영학부",
+            "경영학부",
+            "6210045",
+            "증권시장(Security Market)",
+            ""
+          ],
+          [
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "경영학부",
+            "경영학부",
+            "6210016",
+            "소비자행동론(Consumer Behavior)",
+            ""
+          ],
+          [
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "경영학부",
+            "경영학부",
+            "6210072",
+            "경영조직론(Organizational Theory for Management)",
+            ""
+          ],
+          [
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "경영학부",
+            "경영학부",
+            "6210021",
+            "투자론(Investment Theory)",
+            ""
+          ],
+          [
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "경영학부",
+            "경영학부",
+            "6210068",
+            "경영전략론(캡스톤디자인)(Strategic Management)",
+            ""
+          ],
+          [
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "경영학부",
+            "경영학부",
+            "6210044",
+            "기업윤리(Business Ethics)",
+            ""
+          ],
+          [
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "경영학부",
+            "경영학부",
+            "6210071",
+            "환경경영과 기업의 사회적 책임(Environmental Management and CSR)",
+            ""
+          ],
+          [
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "국제경영 학과",
+            "국제경영 학과",
+            "6209100",
+            "글로벌비즈니스의 이해\n(Understanding of Global Business)",
+            ""
+          ],
+          [
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "국제경영 학과",
+            "국제경영 학과",
+            "6209044",
+            "경제학원론(Principles of Economics)",
+            ""
+          ],
+          [
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "국제경영 학과",
+            "국제경영 학과",
+            "6209113",
+            "물류 및 운송론(캡스톤디자인) (Logistics and Transportation)",
+            ""
+          ],
+          [
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "컴퓨터\n공학과",
+            "컴퓨터\n공학과",
+            "5110005",
+            "이산수학(Discrete Mathematics)",
+            ""
+          ],
+          [
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "컴퓨터\n공학과",
+            "컴퓨터\n공학과",
+            "5110007",
+            "C/C++프로그래밍(C/C++ Programming)",
+            ""
+          ],
+          [
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "컴퓨터\n공학과",
+            "컴퓨터\n공학과",
+            "5110047",
+            "데이터통신(Data Communication)",
+            ""
+          ],
+          [
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "컴퓨터\n공학과",
+            "컴퓨터\n공학과",
+            "5110032",
+            "컴퓨터네트워크(Computer Network)",
+            ""
+          ],
+          [
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "컴퓨터\n공학과",
+            "컴퓨터\n공학과",
+            "5110026",
+            "수치해석(Numerical Analysis)",
+            ""
+          ],
+          [
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "안전\n공학과",
+            "안전\n공학과",
+            "6543108",
+            "안전관리개론(Introduction to Safety Management)",
+            ""
+          ],
+          [
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "안전\n공학과",
+            "안전\n공학과",
+            "6543020",
+            "작업환경공학(Working Environment Engineering)",
+            ""
+          ],
+          [
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "타학과(부, 전공)전공선택\n인정 교과목",
+            "경영대학에서 개설되는 모든 전공필수과목",
+            "경영대학에서 개설되는 모든 전공필수과목",
+            "경영대학에서 개설되는 모든 전공필수과목",
+            "경영대학에서 개설되는 모든 전공필수과목",
+            "경영대학에서 개설되는 모든 전공필수과목"
+          ]
+        ]
+      }
+    },
+    "paragraph_hits": [],
+    "tables_scanned": 1
+  }
+]

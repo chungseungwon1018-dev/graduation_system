@@ -1,0 +1,2070 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>학생 대시보드 - 졸업학점 관리 시스템</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f6fa;
+            color: #2c3e50;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header h1 {
+            font-size: 1.8em;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .notification-icon {
+            position: relative;
+            cursor: pointer;
+            padding: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transition: all 0.3s;
+        }
+
+        .notification-icon:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .notification-badge {
+            position: absolute;
+            top: -2px;
+            right: -2px;
+            background: #e74c3c;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            font-size: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            min-width: 20px;
+        }
+
+        .notification-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            width: 350px;
+            max-height: 400px;
+            overflow-y: auto;
+            z-index: 1000;
+            display: none;
+        }
+
+        .notification-header {
+            padding: 15px 20px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .notification-item {
+            padding: 15px 20px;
+            border-bottom: 1px solid #f8f9fa;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .notification-item:hover {
+            background: #f8f9fa;
+        }
+
+        .notification-item.unread {
+            background: #ebf8ff;
+            border-left: 4px solid #667eea;
+        }
+
+        .notification-item.urgent {
+            border-left: 4px solid #e74c3c;
+        }
+
+        .notification-title {
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #2c3e50;
+        }
+
+        .notification-message {
+            font-size: 0.9em;
+            color: #7f8c8d;
+            line-height: 1.4;
+            margin-bottom: 5px;
+        }
+
+        .notification-time {
+            font-size: 0.8em;
+            color: #95a5a6;
+        }
+
+        .notification-empty {
+            text-align: center;
+            padding: 40px 20px;
+            color: #7f8c8d;
+        }
+
+        .nav {
+            background: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #2c3e50;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .nav a:hover, .nav a.active {
+            background: #667eea;
+            color: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .upload-section {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .upload-area {
+            border: 2px dashed #667eea;
+            border-radius: 10px;
+            padding: 40px;
+            margin: 20px 0;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        .upload-area:hover {
+            border-color: #5a67d8;
+            background: rgba(102, 126, 234, 0.05);
+        }
+
+        .upload-area.dragover {
+            border-color: #5a67d8;
+            background: rgba(102, 126, 234, 0.1);
+        }
+
+        .upload-icon {
+            font-size: 3em;
+            color: #667eea;
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            background: #667eea;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+        }
+
+        .btn-success {
+            background: #2ecc71;
+        }
+
+        .btn-success:hover {
+            background: #27ae60;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .info-card, .analysis-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .card-title {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .progress-container {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .progress-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .progress-item:last-child {
+            border-bottom: none;
+        }
+
+        .progress-bar {
+            width: 200px;
+            height: 8px;
+            background: #eee;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 0 15px;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #667eea;
+            transition: width 0.3s;
+        }
+
+        .progress-fill.completed {
+            background: #2ecc71;
+        }
+
+        .progress-fill.warning {
+            background: #f39c12;
+        }
+
+        .progress-fill.danger {
+            background: #e74c3c;
+        }
+
+        .chart-container {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .recommendations {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .recommendation-item {
+            padding: 15px;
+            background: #f8f9fa;
+            border-left: 4px solid #667eea;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+
+        .recommendation-item.urgent {
+            border-left-color: #e74c3c;
+            background: #fdf2f2;
+        }
+
+        .alert {
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .alert-info {
+            background: #ebf8ff;
+            color: #2c5282;
+            border: 1px solid #bee3f8;
+        }
+
+        .alert-success {
+            background: #f0fff4;
+            color: #2d7738;
+            border: 1px solid #c6f6d5;
+        }
+
+        .alert-warning {
+            background: #fffaf0;
+            color: #c05621;
+            border: 1px solid #fbd38d;
+        }
+
+        .alert-error {
+            background: #fee;
+            color: #c53030;
+            border: 1px solid #fed7d7;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #7f8c8d;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* 모달 스타일 */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 30px;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            width: 80%;
+            max-width: 600px;
+            animation: modalSlideIn 0.3s ease-out;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            line-height: 1;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+        }
+
+        .profile-section {
+            margin-bottom: 25px;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+
+        .profile-section h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .profile-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            line-height: 1.6;
+        }
+
+        .profile-info p {
+            margin: 8px 0;
+        }
+
+        .edit-btn {
+            background: #f39c12;
+            color: white;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9em;
+            margin-top: 15px;
+            transition: all 0.3s;
+        }
+
+        .edit-btn:hover {
+            background: #e67e22;
+        }
+
+        @media (max-width: 768px) {
+            .modal-content {
+                width: 95%;
+                margin: 10% auto;
+                padding: 20px;
+            }
+            
+            .profile-info {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .file-info {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            text-align: left;
+        }
+
+        @media (max-width: 768px) {
+            .dashboard-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .progress-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .progress-bar {
+                width: 100%;
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <h1>📊 학점 분석 대시보드</h1>
+            <div class="user-info">
+                <span>{{ user.user_id }}님 환영합니다</span>
+                <div class="notification-icon" onclick="toggleNotificationDropdown()">
+                    <span style="font-size: 1.2em;">🔔</span>
+                    <div id="notificationBadge" class="notification-badge" style="display: none;">0</div>
+                    
+                    <div id="notificationDropdown" class="notification-dropdown">
+                        <div class="notification-header">
+                            <h4 style="margin: 0; color: #2c3e50;">알림</h4>
+                            <button onclick="markAllNotificationsRead()" style="background: none; border: none; color: #667eea; cursor: pointer; font-size: 0.9em;">모두 읽음</button>
+                        </div>
+                        <div id="notificationList">
+                            <div class="notification-empty">
+                                <div style="font-size: 2em; margin-bottom: 10px;">📭</div>
+                                <div>알림을 불러오는 중...</div>
+                            </div>
+                        </div>
+                        <div style="padding: 10px; text-align: center; border-top: 1px solid #eee;">
+                            <a href="#" onclick="showAllNotifications()" style="color: #667eea; text-decoration: none; font-size: 0.9em;">모든 알림 보기</a>
+                        </div>
+                    </div>
+                </div>
+                <a href="/logout" class="btn" style="padding: 8px 16px; font-size: 0.9em;">로그아웃</a>
+            </div>
+        </div>
+    </div>
+
+    <nav class="nav">
+        <div class="nav-content">
+            <ul>
+                <li><a href="/student/dashboard" class="active">대시보드</a></li>
+                <li><a href="#" onclick="showStudentProfile()">내 정보</a></li>
+                <li><a href="#" onclick="showAllNotifications()">알림</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 학생 정보 모달 -->
+    <div id="profileModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeProfileModal()">&times;</span>
+            <h2 style="color: #2c3e50; margin-bottom: 25px;">👤 내 정보</h2>
+            
+            <div class="profile-section">
+                <h4>📝 기본 정보</h4>
+                <div class="profile-info" id="basicInfo">
+                    <div class="loading">정보를 불러오는 중...</div>
+                </div>
+            </div>
+
+            <div class="profile-section">
+                <h4>🎓 학업 정보</h4>
+                <div class="profile-info" id="academicInfo">
+                    <div class="loading">정보를 불러오는 중...</div>
+                </div>
+            </div>
+
+            <div class="profile-section">
+                <h4>📊 최근 분석 기록</h4>
+                <div id="recentAnalysis">
+                    <div class="loading">분석 기록을 불러오는 중...</div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin-top: 25px;">
+                <button class="edit-btn" onclick="editProfile()">정보 수정</button>
+                <button class="btn" onclick="closeProfileModal()" style="margin-left: 10px;">닫기</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div id="alertContainer"></div>
+
+        <!-- 파일 업로드 섹션 -->
+        <div class="upload-section">
+            <h2>📄 성적표 업로드</h2>
+            <p style="color: #7f8c8d; margin-bottom: 20px;">Excel 파일(.xlsx)을 업로드하여 졸업요건 분석을 받아보세요</p>
+            
+            <div class="upload-area" id="uploadArea">
+                <div class="upload-icon">📁</div>
+                <p><strong>클릭하거나 파일을 드래그하여 업로드</strong></p>
+                <p style="color: #7f8c8d; font-size: 0.9em;">지원 형식: .xlsx (최대 10MB)</p>
+            </div>
+            
+            <input type="file" id="fileInput" accept=".xlsx" style="display: none;">
+            <div id="fileInfo" class="file-info hidden"></div>
+            
+            <button id="uploadBtn" class="btn btn-success" style="margin-top: 15px;" disabled>
+                업로드 및 분석 시작
+            </button>
+        </div>
+
+        <!-- 분석 현황 -->
+        <div class="dashboard-grid">
+            <div class="info-card">
+                <h3 class="card-title">📋 내 정보</h3>
+                <div id="studentInfo">
+                    <div class="loading">학생 정보를 불러오는 중...</div>
+                </div>
+            </div>
+            
+            <div class="analysis-card">
+                <h3 class="card-title">📊 분석 현황</h3>
+                <div id="analysisStatus">
+                    <div class="loading">분석 상태를 확인하는 중...</div>
+                </div>
+                <div id="parsingWarningsContainer"></div>
+            </div>
+        </div>
+
+
+
+
+        <!-- 진행률 표시 -->
+        <div class="progress-container">
+            <h3 class="card-title">🎯 졸업요건 달성률</h3>
+            <div id="progressContainer">
+                <div class="loading">진행률 정보를 불러오는 중...</div>
+            </div>
+        </div>
+
+        <!-- 차트 -->
+        <div class="chart-container">
+            <h3 class="card-title">📈 상세 분석 차트</h3>
+            <div id="chartContainer">
+                <div class="loading">차트를 생성하는 중...</div>
+            </div>
+        </div>
+
+        <!-- 추천사항 -->
+        <div class="recommendations">
+            <h3 class="card-title">💡 추천사항</h3>
+            <div id="recommendationsContainer">
+                <div class="loading">추천사항을 생성하는 중...</div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        let currentAnalysis = null;
+
+        // 페이지 로드 시 초기화
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeUpload();
+            loadStudentData();
+            loadNotifications();
+            
+            // 주기적으로 알림 확인 (5분마다)
+            setInterval(loadNotifications, 5 * 60 * 1000);
+        });
+
+        // 파일 업로드 초기화
+        function initializeUpload() {
+            const uploadArea = document.getElementById('uploadArea');
+            const fileInput = document.getElementById('fileInput');
+            const uploadBtn = document.getElementById('uploadBtn');
+            const fileInfo = document.getElementById('fileInfo');
+
+            // 클릭 업로드
+            uploadArea.addEventListener('click', () => fileInput.click());
+
+            // 드래그 앤 드롭
+            uploadArea.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                uploadArea.classList.add('dragover');
+            });
+
+            uploadArea.addEventListener('dragleave', () => {
+                uploadArea.classList.remove('dragover');
+            });
+
+            uploadArea.addEventListener('drop', (e) => {
+                e.preventDefault();
+                uploadArea.classList.remove('dragover');
+                
+                const files = e.dataTransfer.files;
+                if (files.length > 0) {
+                    handleFileSelect(files[0]);
+                }
+            });
+
+            // 파일 선택
+            fileInput.addEventListener('change', (e) => {
+                if (e.target.files.length > 0) {
+                    handleFileSelect(e.target.files[0]);
+                }
+            });
+
+            // 업로드 버튼
+            uploadBtn.addEventListener('click', uploadFile);
+        }
+
+        function handleFileSelect(file) {
+            const fileInfo = document.getElementById('fileInfo');
+            const uploadBtn = document.getElementById('uploadBtn');
+
+            if (!file.name.endsWith('.xlsx')) {
+                showAlert('Excel 파일(.xlsx)만 업로드 가능합니다.', 'error');
+                return;
+            }
+
+            if (file.size > 10 * 1024 * 1024) {
+                showAlert('파일 크기는 10MB 이하여야 합니다.', 'error');
+                return;
+            }
+
+            fileInfo.innerHTML = `
+                <strong>선택된 파일:</strong> ${file.name}<br>
+                <strong>크기:</strong> ${(file.size / 1024).toFixed(1)} KB<br>
+                <strong>수정일:</strong> ${new Date(file.lastModified).toLocaleString()}
+            `;
+            fileInfo.classList.remove('hidden');
+            uploadBtn.disabled = false;
+        }
+
+        async function uploadFile() {
+            const fileInput = document.getElementById('fileInput');
+            const uploadBtn = document.getElementById('uploadBtn');
+            
+            if (!fileInput.files.length) {
+                showAlert('파일을 선택해주세요.', 'warning');
+                return;
+            }
+
+            const formData = new FormData();
+            formData.append('file', fileInput.files[0]);
+
+            uploadBtn.disabled = true;
+            uploadBtn.textContent = '업로드 중...';
+            
+            // 분석 중 상태로 UI 업데이트
+            showAnalysisProgress();
+
+            try {
+                const response = await fetch('/api/student/upload', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    showAlert('파일 업로드 및 분석이 완료되었습니다!', 'success');
+                    
+                    // 업로드 성공 후 파일 정보 초기화
+                    resetUploadForm();
+                    
+                    // 잠시 대기 후 데이터 새로고침 (서버에서 분석 완료 대기)
+                    setTimeout(async () => {
+                        await loadStudentData();
+                        hideAnalysisProgress();
+                        showAlert('분석 결과가 업데이트되었습니다!', 'success');
+                    }, 1000);
+                    
+                } else {
+                    showAlert(result.error || '업로드에 실패했습니다.', 'error');
+                    hideAnalysisProgress();
+                }
+            } catch (error) {
+                console.error('Upload error:', error);
+                showAlert('업로드 중 오류가 발생했습니다.', 'error');
+                hideAnalysisProgress();
+            } finally {
+                uploadBtn.disabled = false;
+                uploadBtn.textContent = '업로드 및 분석 시작';
+            }
+        }
+
+        function resetUploadForm() {
+            const fileInput = document.getElementById('fileInput');
+            const fileInfo = document.getElementById('fileInfo');
+            const uploadBtn = document.getElementById('uploadBtn');
+            
+            fileInput.value = '';
+            fileInfo.classList.add('hidden');
+            uploadBtn.disabled = true;
+        }
+
+        function showAnalysisProgress() {
+            document.getElementById('analysisStatus').innerHTML = `
+                <div style="text-align: center; padding: 30px;">
+                    <div style="font-size: 2em; margin-bottom: 15px;">⏳</div>
+                    <div style="font-weight: bold; margin-bottom: 10px;">분석 진행 중...</div>
+                    <div style="color: #7f8c8d;">파일을 분석하고 졸업요건을 확인하고 있습니다.</div>
+                </div>
+            `;
+            
+            document.getElementById('progressContainer').innerHTML = `
+                <div style="text-align: center; padding: 30px; color: #7f8c8d;">
+                    <div style="font-size: 1.5em; margin-bottom: 10px;">📊</div>
+                    <div>졸업요건 분석 중...</div>
+                </div>
+            `;
+            
+            document.getElementById('chartContainer').innerHTML = `
+                <div style="text-align: center; padding: 30px; color: #7f8c8d;">
+                    <div style="font-size: 1.5em; margin-bottom: 10px;">📈</div>
+                    <div>차트 생성 중...</div>
+                </div>
+            `;
+            
+            document.getElementById('recommendationsContainer').innerHTML = `
+                <div style="text-align: center; padding: 30px; color: #7f8c8d;">
+                    <div style="font-size: 1.5em; margin-bottom: 10px;">💡</div>
+                    <div>추천사항 생성 중...</div>
+                </div>
+            `;
+        }
+
+        function hideAnalysisProgress() {
+            // 진행률 표시를 숨기는 함수 (필요시 사용)
+        }
+
+        async function loadStudentData() {
+            try {
+                // 학생 정보 로드
+                const infoResponse = await fetch('/api/student/info');
+                const infoData = await infoResponse.json();
+
+                if (infoData.success) {
+                    displayStudentInfo(infoData.student);
+                } else {
+                    console.warn('학생 정보 로드 실패:', infoData);
+                }
+
+                // 분석 결과 로드 (캐시 방지를 위해 타임스탬프 추가)
+                const timestamp = new Date().getTime();
+                const analysisResponse = await fetch(`/api/student/analysis?t=${timestamp}`);
+                const analysisData = await analysisResponse.json();
+
+                console.log('분석 데이터 응답:', analysisData); // 디버깅용
+
+                if (analysisData.success && analysisData.analysis) {
+                    currentAnalysis = analysisData.analysis;
+                    console.log('분석 결과 표시 시작:', analysisData.analysis); // 디버깅용
+                    displayAnalysisResults(analysisData.analysis);
+                } else {
+                    console.log('분석 데이터 없음, 기본 화면 표시'); // 디버깅용
+                    displayNoAnalysis();
+                }
+            } catch (error) {
+                console.error('Data loading error:', error);
+                showAlert('데이터를 불러오는 중 오류가 발생했습니다.', 'error');
+                displayNoAnalysis();
+            }
+        }
+
+        function displayStudentInfo(student) {
+            const container = document.getElementById('studentInfo');
+            container.innerHTML = `
+                <div style="line-height: 1.6;">
+                    <p><strong>학번:</strong> ${student.student_id || '-'}</p>
+                    <p><strong>이름:</strong> ${student.name || '-'}</p>
+                    <p><strong>학과:</strong> ${student.department || '-'}</p>
+                    <p><strong>학년:</strong> ${student.grade || '-'}학년</p>
+                    <p><strong>전공:</strong> ${student.major || '-'}</p>
+                </div>
+            `;
+        }
+
+        function displayAnalysisResults(analysis) {
+            console.log('분석 결과 표시 함수 실행:', analysis); // 디버깅용
+            
+            try {
+                displayAnalysisStatus(analysis);
+                console.log('분석 상태 표시 완료'); // 디버깅용
+
+
+
+                displayParsingWarnings(analysis);
+                displayProgress(analysis);
+                console.log('진행률 표시 완료'); // 디버깅용
+
+                displayChart(analysis);
+                console.log('차트 표시 완료'); // 디버깅용
+
+                displayRecommendations(analysis);
+                console.log('추천사항 표시 완료'); // 디버깅용
+
+            } catch (error) {
+                console.error('분석 결과 표시 중 오류:', error);
+                showAlert('분석 결과를 표시하는 중 오류가 발생했습니다.', 'error');
+            }
+        }
+
+        // 파싱 경고 표시 (프론트에 분명히 노출)
+        function displayParsingWarnings(analysis) {
+            const warnings = analysis.parsing_warnings || [];
+            const container = document.getElementById('parsingWarningsContainer');
+            if (!container) return;
+            if (warnings.length === 0) {
+                container.innerHTML = '';
+                return;
+            }
+            let html = `<div style="background:#fff3cd;border:1px solid #ffeeba;padding:10px;border-radius:6px;margin-bottom:10px;color:#856404;">
+                <strong>파일 파싱 경고:</strong>
+                <ul style="margin:6px 0 0 18px;">`;
+            for (const w of warnings) {
+                html += `<li>${w}</li>`;
+            }
+            html += `</ul></div>`;
+            container.innerHTML = html;
+        }
+
+        // 교양 상세(OCU/기타 등) 테이블 표시 함수
+        function displayLiberalArtsDetail(analysis) {
+            const detail = analysis.liberal_arts_detail || {};
+            const cap = analysis.liberal_arts_cap;
+            const overflow = analysis.liberal_arts_overflow;
+            const container = document.getElementById('liberalArtsDetailContainer');
+            if (!container) return;
+            let html = `<div style="margin:18px 0 24px 0;">
+                <h4 style="color:#764ba2; margin-bottom:10px;">교양 세부 이수내역 (OCU/기타 포함)</h4>
+                <table style="width:100%; border-collapse:collapse; background:#fafbfc;">
+                <thead><tr style="background:#f0f0fa;"><th style="padding:6px 8px;">영역</th><th style="padding:6px 8px;">이수학점</th></tr></thead><tbody>`;
+            let hasDetail = false;
+            for (const [area, credits] of Object.entries(detail)) {
+                html += `<tr><td style="padding:6px 8px;">${area}</td><td style="padding:6px 8px;">${credits}학점</td></tr>`;
+                hasDetail = true;
+            }
+            html += `</tbody></table>`;
+            html += `<div style="margin-top:8px; color:#7f8c8d; font-size:0.95em;">* 교양 상한: ${cap}학점, 초과분: ${overflow}학점</div>`;
+            html += `</div>`;
+            container.innerHTML = hasDetail ? html : '<div style="color:#7f8c8d; margin:12px 0;">교양 세부 내역이 없습니다.</div>';
+        }
+
+        function displayAnalysisStatus(analysis) {
+            const container = document.getElementById('analysisStatus');
+            const analysisDate = new Date(analysis.analysis_date).toLocaleString();
+            const remainingCredits = analysis.total_required_credits - analysis.total_completed_credits;
+            const progressColor = analysis.overall_completion_rate >= 90 ? '#27ae60' : 
+                                 analysis.overall_completion_rate >= 70 ? '#2ecc71' :
+                                 analysis.overall_completion_rate >= 50 ? '#f39c12' : '#e74c3c';
+            
+            container.innerHTML = `
+                <div style="line-height: 1.8;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                        <span><strong>분석일시:</strong></span>
+                        <span style="color: #7f8c8d; font-size: 0.9em;">${analysisDate}</span>
+                    </div>
+                    
+                    <div style="text-align: center; margin: 20px 0;">
+                        <div style="font-size: 2.5em; font-weight: bold; color: ${progressColor}; margin-bottom: 5px;">
+                            ${analysis.overall_completion_rate}%
+                        </div>
+                        <div style="color: #7f8c8d; font-size: 0.9em;">전체 이수율</div>
+                    </div>
+                    
+                    <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-top: 15px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                            <span>이수학점</span>
+                            <span style="font-weight: bold; color: #27ae60;">${analysis.total_completed_credits}학점</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                            <span>필요학점</span>
+                            <span style="font-weight: bold;">${analysis.total_required_credits}학점</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; border-top: 1px solid #ddd; padding-top: 8px; margin-top: 8px;">
+                            <span style="color: ${remainingCredits <= 0 ? '#27ae60' : '#e74c3c'};">
+                                ${remainingCredits <= 0 ? '졸업 요건 충족' : '부족학점'}
+                            </span>
+                            <span style="font-weight: bold; color: ${remainingCredits <= 0 ? '#27ae60' : '#e74c3c'};">
+                                ${remainingCredits <= 0 ? '완료!' : `${remainingCredits}학점`}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            // 개신기초교양 체크리스트는 진행률 섹션에서 배치합니다.
+        }
+
+        function displayProgress(analysis) {
+            // 교양 상세 테이블 아래에 표시될 수 있도록 위치 조정
+            // (liberalArtsDetailContainer는 displayAnalysisResults에서 먼저 채워짐)
+            const container = document.getElementById('progressContainer');
+            const requirements = analysis.requirements_analysis || [];
+            
+            if (requirements.length === 0) {
+                container.innerHTML = '<p style="text-align: center; color: #7f8c8d; padding: 20px;">분석 데이터가 없습니다.</p>';
+                return;
+            }
+            
+            let progressHtml = '';
+            
+            // 영역명 정규화 함수 (접미사 제거)
+            const normalizeArea = (area) => {
+                if (!area) return '';
+                // '(총합)' 등 접미사 제거
+                return String(area).replace(/\s*\(총합\)\s*$/,'');
+            };
+            
+            // 카테고리별로 그룹화 (총교양학점, 총학점, 개신기초교양(총합) 제외)
+            const groupedRequirements = {};
+            requirements.forEach(req => {
+                // 총교양학점, 총학점, 개신기초교양(총합)은 제외 (칩으로만 표시)
+                if (req.area === '총교양학점' || req.area === '총학점' || normalizeArea(req.area) === '개신기초교양') {
+                    return;
+                }
+                const category = req.category;
+                if (!groupedRequirements[category]) {
+                    groupedRequirements[category] = [];
+                }
+                groupedRequirements[category].push(req);
+            });
+            
+            // 교양 영역 정렬 순서 정의
+            const liberalArtsOrder = ['개신기초교양', '일반교양', '확대교양', 'OCU기타'];
+            
+            // 전공 영역 정렬 순서 정의
+            const majorOrder = ['전공필수', '전공선택'];
+            
+            // 각 카테고리별로 표시
+            Object.keys(groupedRequirements).forEach(category => {
+                let categoryReqs = groupedRequirements[category];
+                
+                // 교양 카테고리인 경우 순서대로 정렬
+                if (category === '교양') {
+                    categoryReqs = categoryReqs.sort((a, b) => {
+                        const indexA = liberalArtsOrder.indexOf(normalizeArea(a.area));
+                        const indexB = liberalArtsOrder.indexOf(normalizeArea(b.area));
+                        // 순서에 없는 항목은 뒤로
+                        if (indexA === -1) return 1;
+                        if (indexB === -1) return -1;
+                        return indexA - indexB;
+                    });
+                }
+                // 전공 카테고리인 경우 순서대로 정렬 (전공필수 -> 전공선택)
+                else if (category === '전공') {
+                    categoryReqs = categoryReqs.sort((a, b) => {
+                        const indexA = majorOrder.indexOf(a.area);
+                        const indexB = majorOrder.indexOf(b.area);
+                        // 순서에 없는 항목은 뒤로
+                        if (indexA === -1) return 1;
+                        if (indexB === -1) return -1;
+                        return indexA - indexB;
+                    });
+                }
+                const categoryEmoji = getCategoryEmoji(category);
+                
+                progressHtml += `
+                    <div style="margin-bottom: 25px;">
+                        <h4 style="color: #2c3e50; margin-bottom: 15px; padding-bottom: 8px; border-bottom: 2px solid #667eea;">
+                            ${categoryEmoji} ${category}
+                        </h4>
+                `;
+
+                // 교양 카테고리 상단에 개신기초교양 칩 4개만 배치 (총합 카드는 제외)
+                if (category === '교양') {
+                    const detail = analysis.gsin_basic_detail || null;
+                    if (detail && Object.keys(detail).length > 0) {
+                        const fmtInt = (n) => {
+                            const v = parseFloat(n || 0);
+                            return Math.round(v);
+                        };
+                        const partsOrder = [
+                            '인성과 비판적 사고',
+                            '의사소통',
+                            '영어',
+                            '정보문해'
+                        ];
+                        const partLabels = {
+                            '인성과 비판적 사고': '인성과 비판적 사고',
+                            '의사소통': '의사소통',
+                            '영어': '영어',
+                            '정보문해': '정보문해'
+                        };
+                        progressHtml += `
+                            <div style="background:#ffffff;border:1px solid #e5e7eb;border-radius:12px;padding:14px;margin-bottom:12px;">
+                                <div style="font-weight:bold;color:#111827;margin-bottom:10px;">📚 개신기초교양</div>
+                                <div style="display:flex;flex-wrap:wrap;gap:8px;">
+                        `;
+                        partsOrder.forEach(p => {
+                            const part = detail[p] || { completed_credits: 0, required_credits: 3 };
+                            const comp = fmtInt(part.completed_credits);
+                            const req = fmtInt(part.required_credits);
+                            const done = comp >= req;
+                            const bg = done ? '#dcfce7' : '#fee2e2';
+                            const border = done ? '#86efac' : '#fecaca';
+                            const text = done ? '#166534' : '#7f1d1d';
+                            progressHtml += `
+                                <span style="background:${bg};color:${text};border:1px solid ${border};padding:6px 10px;border-radius:16px;font-size:0.95em;display:inline-flex;align-items:center;gap:6px;">
+                                    <span>${partLabels[p]}</span>
+                                    <strong>${comp}/${req}</strong>
+                                </span>
+                            `;
+                        });
+                        progressHtml += `
+                                </div>
+                            </div>
+                        `;
+                    }
+                }
+                
+                categoryReqs.forEach(req => {
+                    const percentage = Math.min(100, req.completion_rate);
+                    const isComplete = percentage >= 100;
+                    const statusColor = isComplete ? '#27ae60' : 
+                                       percentage >= 70 ? '#f39c12' : '#e74c3c';
+                    const statusIcon = isComplete ? '✅' : 
+                                      percentage >= 70 ? '⚠️' : '❌';
+                    
+                    progressHtml += `
+                        <div class="progress-item" style="background: ${isComplete ? '#f0fff4' : '#fefefe'}; border-left: 4px solid ${statusColor}; margin-bottom: 10px; padding: 15px; border-radius: 8px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                                <div style="flex: 1;">
+                                    <div style="font-weight: bold; color: #2c3e50;">
+                                        ${statusIcon} ${req.area || '기본 영역'}
+                                    </div>
+                                    <div style="font-size: 0.9em; color: #7f8c8d; margin-top: 5px;">
+                                        ${req.completed_credits}학점 / ${req.required_credits}학점 이수
+                                        ${req.missing_credits > 0 ? `(${req.missing_credits}학점 부족)` : ''}
+                                    </div>
+                                </div>
+                                <div style="text-align: right; min-width: 80px;">
+                                    <div style="font-size: 1.2em; font-weight: bold; color: ${statusColor};">
+                                        ${percentage.toFixed(1)}%
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="progress-bar" style="width: 100%; height: 12px; background: #eee; border-radius: 6px; overflow: hidden;">
+                                <div style="height: 100%; background: ${statusColor}; width: ${percentage}%; transition: width 0.5s ease; border-radius: 6px;"></div>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                progressHtml += '</div>';
+            });
+
+            container.innerHTML = progressHtml;
+        }
+        
+        function getCategoryEmoji(category) {
+            const emojiMap = {
+                '교양': '📚',
+                '전공': '🎓',
+                '기타': '📋',
+                '일반': '📝'
+            };
+            return emojiMap[category] || '📖';
+        }
+
+        function displayChart(analysis) {
+            const container = document.getElementById('chartContainer');
+            // requirements_analysis에 이미 교양 하위영역(OCU/기타 등)이 포함되어 있다고 가정
+            const requirements = analysis.requirements_analysis || [];
+            
+            if (requirements.length === 0) {
+                container.innerHTML = '<p style="text-align: center; color: #7f8c8d; padding: 40px;">분석 후 차트를 확인할 수 있습니다.</p>';
+                return;
+            }
+
+            // 탭 네비게이션과 차트 컨테이너 생성
+            container.innerHTML = `
+                <div class="chart-tabs" style="display: flex; margin-bottom: 20px; border-bottom: 2px solid #eee;">
+                    <button class="chart-tab active" onclick="showChart('completion')" style="flex: 1; padding: 12px; border: none; background: #667eea; color: white; cursor: pointer; border-radius: 5px 5px 0 0;">
+                        📊 이수율 현황
+                    </button>
+                    <button class="chart-tab" onclick="showChart('credits')" style="flex: 1; padding: 12px; border: none; background: #f8f9fa; color: #2c3e50; cursor: pointer; border-radius: 5px 5px 0 0; margin-left: 2px;">
+                        📈 학점 현황
+                    </button>
+                    <button class="chart-tab" onclick="showChart('donut')" style="flex: 1; padding: 12px; border: none; background: #f8f9fa; color: #2c3e50; cursor: pointer; border-radius: 5px 5px 0 0; margin-left: 2px;">
+                        🍩 전체 비율
+                    </button>
+                </div>
+                <div style="height: 400px; position: relative;">
+                    <canvas id="analysisChart" style="max-height: 100%;"></canvas>
+                </div>
+            `;
+
+            currentChart = null;
+            currentAnalysisData = analysis;
+            
+            // 기본적으로 이수율 차트 표시
+            showChart('completion');
+        }
+
+        let currentChart = null;
+        let currentAnalysisData = null;
+
+        function showChart(type, evt = null) {
+            if (!currentAnalysisData) return;
+            
+            // 탭 활성화 상태 변경
+            document.querySelectorAll('.chart-tab').forEach(tab => {
+                tab.style.background = '#f8f9fa';
+                tab.style.color = '#2c3e50';
+                tab.classList.remove('active');
+            });
+            // 이벤트 기반 호출이면 해당 탭 활성화, 아니면 타입에 맞는 탭을 활성화
+            if (evt && evt.target) {
+                evt.target.style.background = '#667eea';
+                evt.target.style.color = 'white';
+                evt.target.classList.add('active');
+            } else {
+                const tabs = document.querySelectorAll('.chart-tab');
+                // type에 따라 인덱스 선택: completion=0, credits=1, donut=2
+                const typeIndexMap = { completion: 0, credits: 1, donut: 2 };
+                const idx = typeIndexMap[type] ?? 0;
+                const tab = tabs[idx];
+                if (tab) {
+                    tab.style.background = '#667eea';
+                    tab.style.color = 'white';
+                    tab.classList.add('active');
+                }
+            }
+
+            // 기존 차트 제거
+            if (currentChart) {
+                currentChart.destroy();
+            }
+
+            const ctx = document.getElementById('analysisChart').getContext('2d');
+            const requirements = currentAnalysisData.requirements_analysis || [];
+
+            if (type === 'completion') {
+                // 이수율 막대 차트
+                currentChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: requirements.map(req => `${req.category}\n${req.area || ''}`),
+                        datasets: [{
+                            label: '이수율 (%)',
+                            data: requirements.map(req => req.completion_rate),
+                            backgroundColor: requirements.map(req => 
+                                req.completion_rate >= 100 ? '#27ae60' :
+                                req.completion_rate >= 70 ? '#f39c12' : '#e74c3c'
+                            ),
+                            borderColor: requirements.map(req => 
+                                req.completion_rate >= 100 ? '#229954' :
+                                req.completion_rate >= 70 ? '#d68910' : '#c0392b'
+                            ),
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            title: {
+                                display: true,
+                                text: '영역별 졸업요건 이수율',
+                                font: { size: 16 }
+                            },
+                            legend: {
+                                display: false
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                max: 120,
+                                ticks: {
+                                    callback: function(value) {
+                                        return value + '%';
+                                    }
+                                }
+                            },
+                            x: {
+                                ticks: {
+                                    maxRotation: 45,
+                                    minRotation: 0
+                                }
+                            }
+                        }
+                    }
+                });
+            } else if (type === 'credits') {
+                // 학점 현황 차트
+                currentChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: requirements.map(req => `${req.category}\n${req.area || ''}`),
+                        datasets: [
+                            {
+                                label: '이수학점',
+                                data: requirements.map(req => req.completed_credits),
+                                backgroundColor: '#3498db',
+                                borderColor: '#2980b9',
+                                borderWidth: 2
+                            },
+                            {
+                                label: '필요학점',
+                                data: requirements.map(req => req.required_credits),
+                                backgroundColor: '#ecf0f1',
+                                borderColor: '#95a5a6',
+                                borderWidth: 2
+                            }
+                        ]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            title: {
+                                display: true,
+                                text: '영역별 학점 이수 현황',
+                                font: { size: 16 }
+                            }
+                        },
+                        scales: {
+                            y: {
+                                beginAtZero: true,
+                                ticks: {
+                                    callback: function(value) {
+                                        return value + '학점';
+                                    }
+                                }
+                            },
+                            x: {
+                                ticks: {
+                                    maxRotation: 45,
+                                    minRotation: 0
+                                }
+                            }
+                        }
+                    }
+                });
+            } else if (type === 'donut') {
+                // 전체 비율 도넛 차트
+                const totalCompleted = currentAnalysisData.total_completed_credits;
+                const totalRequired = currentAnalysisData.total_required_credits;
+                const remaining = Math.max(0, totalRequired - totalCompleted);
+                
+                currentChart = new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['이수완료', '미이수'],
+                        datasets: [{
+                            data: [totalCompleted, remaining],
+                            backgroundColor: ['#27ae60', '#ecf0f1'],
+                            borderColor: ['#229954', '#bdc3c7'],
+                            borderWidth: 3
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        plugins: {
+                            title: {
+                                display: true,
+                                text: '전체 학점 이수 현황',
+                                font: { size: 16 }
+                            },
+                            legend: {
+                                position: 'bottom'
+                            }
+                        }
+                    }
+                });
+            }
+        }
+
+        function displayRecommendations(analysis) {
+            const container = document.getElementById('recommendationsContainer');
+            const recommendations = analysis.recommendations || [];
+            const missingRequirements = analysis.missing_requirements || [];
+            
+            // 개신기초교양 부족 여부 확인
+            const gsinDetail = analysis.gsin_basic_detail || {};
+            const hasGsinMissing = Object.values(gsinDetail).some(part => 
+                part.completed_credits < part.required_credits
+            );
+            
+            if (recommendations.length === 0 && missingRequirements.length === 0 && !hasGsinMissing) {
+                container.innerHTML = `
+                    <div style="text-align: center; padding: 40px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 15px; color: white;">
+                        <div style="font-size: 3em; margin-bottom: 15px;">🎉</div>
+                        <h3 style="margin-bottom: 10px;">축하합니다!</h3>
+                        <p style="font-size: 1.1em; opacity: 0.9;">모든 졸업 요건을 충족하였습니다!</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            let html = '';
+            // 부족 학점 표기는 정수로 표시
+            const fmtCredits = (num) => {
+                const n = parseFloat(num || 0);
+                return Math.round(n);
+            };
+            
+            // 긴급도별 분류
+            const urgentRecommendations = [];
+            const normalRecommendations = [];
+            
+            recommendations.forEach(rec => {
+                if (rec.includes('부족') || rec.includes('미충족') || rec.includes('필요')) {
+                    urgentRecommendations.push(rec);
+                } else {
+                    normalRecommendations.push(rec);
+                }
+            });
+            
+            // 개신기초교양 부족한 파트 확인 (위에서 이미 선언된 gsinDetail 사용)
+            const missingGsinParts = [];
+            const partsOrder = ['인성과 비판적 사고', '의사소통', '영어', '정보문해'];
+            partsOrder.forEach(part => {
+                const partData = gsinDetail[part];
+                if (partData && partData.completed_credits < partData.required_credits) {
+                    missingGsinParts.push({
+                        part: part,
+                        completed: partData.completed_credits,
+                        required: partData.required_credits,
+                        missing: partData.missing_credits
+                    });
+                }
+            });
+            
+            // 개신기초교양 부족한 파트 표시
+            if (missingGsinParts.length > 0) {
+                html += `
+                    <div style="margin-bottom: 25px;">
+                        <h4 style="color: #e74c3c; margin-bottom: 15px; display: flex; align-items: center;">
+                            <span style="font-size: 1.2em; margin-right: 8px;">📚</span>
+                            개신기초교양 미이수 파트 (${missingGsinParts.length}개)
+                        </h4>
+                `;
+                
+                missingGsinParts.forEach(part => {
+                    const completionRate = (part.completed / part.required) * 100;
+                    const isLowCompletion = completionRate < 50;
+                    const bgColor = isLowCompletion ? '#fdf2f2' : '#fef9e7';
+                    const borderColor = isLowCompletion ? '#e74c3c' : '#f39c12';
+                    const badgeColor = isLowCompletion ? '#e74c3c' : '#f39c12';
+                    const icon = isLowCompletion ? '🚨' : '💡';
+                    
+                    html += `
+                        <div style="background: ${bgColor}; border-left: 4px solid ${borderColor}; padding: 15px; margin-bottom: 12px; border-radius: 8px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                                <div style="font-weight: bold; color: #2c3e50;">
+                                    ${icon} ${part.part}
+                                </div>
+                                <div style="background: ${badgeColor}; color: white; padding: 4px 12px; border-radius: 12px; font-size: 0.9em; font-weight: bold;">
+                                    ${fmtCredits(part.missing)}학점 부족
+                                </div>
+                            </div>
+                            <div style="color: #7f8c8d; font-size: 0.9em;">
+                                현재 ${fmtCredits(part.completed)}학점 / 필요 ${fmtCredits(part.required)}학점
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                html += '</div>';
+            }
+            
+            // 부족한 영역별 상세 정보
+            if (missingRequirements.length > 0) {
+                html += `
+                    <div style="margin-bottom: 25px;">
+                        <h4 style="color: #e74c3c; margin-bottom: 15px; display: flex; align-items: center;">
+                            <span style="font-size: 1.2em; margin-right: 8px;">⚠️</span>
+                            부족한 영역 (${missingRequirements.length}개)
+                        </h4>
+                `;
+                
+                missingRequirements.forEach(req => {
+                    const completionRate = req.required_credits > 0 ? (req.completed_credits / req.required_credits) * 100 : 0;
+                    const isLowCompletion = completionRate < 50;
+                    const urgencyColor = isLowCompletion ? '#e74c3c' : '#f39c12';
+                    const urgencyIcon = isLowCompletion ? '🚨' : '⚠️';
+                    const urgencyBg = isLowCompletion ? '#fdf2f2' : '#fef9e7';
+                    
+                    html += `
+                        <div style="background: ${urgencyBg}; 
+                                    border-left: 4px solid ${urgencyColor}; 
+                                    padding: 15px; margin-bottom: 12px; border-radius: 8px;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                                <div style="font-weight: bold; color: #2c3e50;">
+                                    ${urgencyIcon} ${req.category} ${req.area ? `- ${req.area}` : ''}
+                                </div>
+                                <div style="background: ${urgencyColor}; color: white; padding: 4px 12px; border-radius: 12px; font-size: 0.9em; font-weight: bold;">
+                                    ${fmtCredits(req.missing_credits)}학점 부족
+                                </div>
+                            </div>
+                            <div style="color: #7f8c8d; font-size: 0.9em;">
+                                현재 ${fmtCredits(req.completed_credits)}학점 / 필요 ${fmtCredits(req.required_credits)}학점
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                html += '</div>';
+            }
+            
+            // 추천 행동사항: 전필/전선 구분하여 카드+칩으로 표시
+            const parseCourses = (rec) => {
+                const idx = rec.indexOf('→');
+                if (idx === -1) return [];
+                const list = rec.substring(idx + 1).trim();
+                return list.split(',').map(s => s.trim()).filter(Boolean);
+            };
+
+            const renderCourseChips = (courses) => {
+                if (!courses || courses.length === 0) return '';
+                const circledDigits = { '0':'⓪','1':'①','2':'②','3':'③','4':'④','5':'⑤','6':'⑥','7':'⑦','8':'⑧','9':'⑨' };
+                const toCircled = (n) => String(n).split('').map(d => circledDigits[d] || d).join('');
+                return `
+                    <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:8px;">
+                        ${courses.map(c => `
+                            <span style="background:#eef2ff;color:#1f2937;border:1px solid #c7d2fe;padding:6px 10px;border-radius:16px;font-size:0.95em;">
+                                ${(() => {
+                                    // 형식: "1학년|회계원리" → "①회계원리"
+                                    const parts = c.split('|');
+                                    if (parts.length === 2) {
+                                        const gradeMatch = parts[0].match(/(\d+)학년/);
+                                        const grade = gradeMatch ? gradeMatch[1] : '';
+                                        const courseName = parts[1].replace(/\([^)]*\)/g, '').trim();
+                                        return (grade ? toCircled(grade) : '') + courseName;
+                                    }
+                                    // 구분자가 없으면 괄호만 제거
+                                    return c.replace(/\([^)]*\)/g, '').trim();
+                                })()}
+                            </span>
+                        `).join('')}
+                    </div>
+                `;
+            };
+
+            const requiredRec = recommendations.find(r => r.startsWith('전공필수'));
+            const electiveRec = recommendations.find(r => r.startsWith('전공선택'));
+
+            if (requiredRec) {
+                const mr = missingRequirements.find(r => r.category === '전공' && r.area === '전공필수');
+                const courses = parseCourses(requiredRec);
+                html += `
+                    <div style="margin-bottom:20px; background:#ffffff; border:1px solid #e5e7eb; border-radius:12px; padding:16px;">
+                        <div style="display:flex; align-items:center; justify-content:space-between;">
+                            <div style="font-weight:bold; color:#111827;">🎓 전공필수</div>
+                            <div style="background:#fde68a;color:#7c2d12;padding:4px 10px;border-radius:12px;font-size:0.85em;">
+                                부족 ${fmtCredits(mr?.missing_credits || 0)}학점
+                            </div>
+                        </div>
+                        ${renderCourseChips(courses)}
+                    </div>
+                `;
+            }
+
+            if (electiveRec) {
+                const mr2 = missingRequirements.find(r => r.category === '전공' && r.area === '전공선택');
+                const courses2 = parseCourses(electiveRec);
+                html += `
+                    <div style="margin-bottom:20px; background:#ffffff; border:1px solid #e5e7eb; border-radius:12px; padding:16px;">
+                        <div style="display:flex; align-items:center; justify-content:space-between;">
+                            <div style="font-weight:bold; color:#111827;">🎓 전공선택</div>
+                            <div style="background:#dbeafe;color:#1e40af;padding:4px 10px;border-radius:12px;font-size:0.85em;">
+                                부족 ${fmtCredits(mr2?.missing_credits || 0)}학점
+                            </div>
+                        </div>
+                        ${renderCourseChips(courses2)}
+                    </div>
+                `;
+            }
+
+            // 기타 문장형 추천(총 부족 학점 등)은 간단 배지로 표시
+            const misc = recommendations.filter(r => !r.startsWith('전공필수') && !r.startsWith('전공선택'));
+            if (misc.length > 0) {
+                html += `
+                    <div style="background:#f8fafc;border:1px dashed #cbd5e1;border-radius:10px;padding:12px;">
+                        ${misc.map(m => `<div style="color:#334155; font-size:0.95em;">${m.replace(/(\d+\.\d+)학점/g, (m,g1)=>`${fmtCredits(g1)}학점`)}</div>`).join('')}
+                    </div>
+                `;
+            }
+            
+            container.innerHTML = html;
+        }
+
+        function displayNoAnalysis() {
+            document.getElementById('analysisStatus').innerHTML = '<p>아직 분석 데이터가 없습니다.<br>Excel 파일을 업로드해주세요.</p>';
+            document.getElementById('progressContainer').innerHTML = '<p>분석 후 진행률을 확인할 수 있습니다.</p>';
+            document.getElementById('chartContainer').innerHTML = '<p>분석 후 차트를 확인할 수 있습니다.</p>';
+            document.getElementById('recommendationsContainer').innerHTML = '<p>분석 후 추천사항을 확인할 수 있습니다.</p>';
+        }
+
+        function showAlert(message, type = 'info') {
+            const container = document.getElementById('alertContainer');
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert alert-${type}`;
+            alertDiv.textContent = message;
+            
+            container.appendChild(alertDiv);
+            
+            setTimeout(() => {
+                alertDiv.remove();
+            }, 5000);
+        }
+
+        // 학생 프로필 모달 관련 함수들
+        async function showStudentProfile() {
+            const modal = document.getElementById('profileModal');
+            modal.style.display = 'block';
+            
+            // 모달 배경 클릭 시 닫기
+            modal.onclick = function(event) {
+                if (event.target === modal) {
+                    closeProfileModal();
+                }
+            };
+            
+            // 프로필 데이터 로드
+            await loadProfileData();
+        }
+
+        function closeProfileModal() {
+            document.getElementById('profileModal').style.display = 'none';
+        }
+
+        async function loadProfileData() {
+            try {
+                const response = await fetch('/api/student/profile');
+                const data = await response.json();
+                
+                if (data.success) {
+                    displayProfileData(data.profile);
+                } else {
+                    showAlert('프로필 정보를 불러오는데 실패했습니다.', 'error');
+                }
+            } catch (error) {
+                console.error('Profile loading error:', error);
+                showAlert('프로필 정보를 불러오는 중 오류가 발생했습니다.', 'error');
+            }
+        }
+
+        function displayProfileData(profile) {
+            const basicInfo = profile.basic_info;
+            const recentAnalyses = profile.recent_analyses;
+            const uploadInfo = profile.upload_info;
+
+                // 기본 정보 표시
+            document.getElementById('basicInfo').innerHTML = `
+                <div>
+                    <p><strong>학번:</strong> ${basicInfo.student_id || '-'}</p>
+                    <p><strong>성명:</strong> ${basicInfo.name || '-'}</p>
+                    <p><strong>전화번호:</strong> ${basicInfo.phone || '정보 없음'}</p>
+                    <p><strong>이메일:</strong> ${basicInfo.email || '정보 없음'}</p>
+                </div>
+                <div>
+                    <p><strong>생년월일:</strong> ${basicInfo.birth_date ? new Date(basicInfo.birth_date).toLocaleDateString('ko-KR', { year: 'numeric', month: '2-digit', day: '2-digit' }).replace(/\s/g, '').replace(/\./g, '. ') : '정보 없음'}</p>
+                    <p><strong>교과적용년도:</strong> ${basicInfo.curriculum_year || '정보 없음'}</p>
+                    <p><strong>이수학기:</strong> ${basicInfo.semester || '정보 없음'}</p>
+                    <p><strong>학적상태:</strong> ${basicInfo.status || '정보 없음'}</p>
+                </div>
+            `;
+
+            // 학업 정보 표시
+            document.getElementById('academicInfo').innerHTML = `
+                <div>
+                    <p><strong>대학:</strong> ${basicInfo.university || '-'}</p>
+                    <p><strong>학과:</strong> ${basicInfo.department || '-'}</p>
+                    <p><strong>학년:</strong> ${basicInfo.grade || '-'}학년</p>
+                </div>
+                <div>
+                    <p><strong>과정:</strong> ${basicInfo.course_type || '-'}</p>
+                    <p><strong>부전공:</strong> ${basicInfo.minor || '없음'}</p>
+                    <p><strong>다전공:</strong> ${basicInfo.double_major || '없음'}</p>
+                </div>
+            `;            // 최근 분석 기록 표시
+            let analysisHtml = '';
+            if (recentAnalyses && recentAnalyses.length > 0) {
+                analysisHtml = '<div style="max-height: 200px; overflow-y: auto;">';
+                recentAnalyses.forEach((analysis, index) => {
+                    const analysisDate = new Date(analysis.analysis_date).toLocaleString();
+                    const completionColor = analysis.overall_completion_rate >= 80 ? '#27ae60' : 
+                                           analysis.overall_completion_rate >= 60 ? '#f39c12' : '#e74c3c';
+                    
+                    analysisHtml += `
+                        <div style="padding: 10px; border-bottom: 1px solid #eee; ${index === 0 ? 'border-top: 1px solid #eee;' : ''}">
+                            <div style="display: flex; justify-content: space-between; align-items: center;">
+                                <span><strong>${analysisDate}</strong></span>
+                                <span style="color: ${completionColor}; font-weight: bold;">${analysis.overall_completion_rate}%</span>
+                            </div>
+                            <div style="font-size: 0.9em; color: #7f8c8d; margin-top: 5px;">
+                                이수학점: ${analysis.total_completed_credits}/${analysis.total_required_credits}
+                            </div>
+                        </div>
+                    `;
+                });
+                analysisHtml += '</div>';
+            } else {
+                analysisHtml = '<p style="color: #7f8c8d; text-align: center; padding: 20px;">아직 분석 기록이 없습니다.</p>';
+            }
+            
+            document.getElementById('recentAnalysis').innerHTML = analysisHtml;
+        }
+
+        function editProfile() {
+            // 현재 프로필 데이터 가져오기
+            const basicInfo = document.getElementById('basicInfo').querySelector('.profile-info');
+            const academicInfo = document.getElementById('academicInfo').querySelector('.profile-info');
+
+            // 수정 가능한 필드만 선택
+            const editableFields = ['phone', 'email'];
+            
+            // 수정 모달 생성
+            const modal = document.createElement('div');
+            modal.className = 'modal';
+            modal.style.display = 'block';
+            
+            modal.innerHTML = `
+                <div class="modal-content" style="max-width: 600px;">
+                    <span class="close" onclick="this.parentElement.parentElement.remove()">&times;</span>
+                    <h2 style="color: #2c3e50; margin-bottom: 25px;">✏️ 내 정보 수정</h2>
+                    
+                    <form id="profileEditForm" onsubmit="saveProfileChanges(event)" style="display: grid; gap: 15px;">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                            <div class="form-group">
+                                <label for="phone" style="display: block; margin-bottom: 5px;">전화번호</label>
+                                <input type="tel" id="phone" name="phone" 
+                                       pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}" 
+                                       placeholder="010-1234-5678"
+                                       style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                            </div>
+                            <div class="form-group">
+                                <label for="email" style="display: block; margin-bottom: 5px;">이메일</label>
+                                <input type="email" id="email" name="email" 
+                                       placeholder="example@example.com"
+                                       style="width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px;">
+                            </div>
+                        </div>
+                        <div style="text-align: center; margin-top: 20px;">
+                            <button type="submit" class="btn" style="background: #27ae60;">저장</button>
+                            <button type="button" onclick="this.closest('.modal').remove()" class="btn" style="background: #95a5a6; margin-left: 10px;">취소</button>
+                        </div>
+                    </form>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+            
+            // 현재 값 설정
+            const phoneInput = document.getElementById('phone');
+            const emailInput = document.getElementById('email');
+            
+            phoneInput.value = document.querySelector('[data-field="phone"]')?.textContent.trim() || '';
+            emailInput.value = document.querySelector('[data-field="email"]')?.textContent.trim() || '';
+            
+            // 모달 외부 클릭 시 닫기
+            modal.onclick = function(event) {
+                if (event.target === modal) {
+                    modal.remove();
+                }
+            };
+        }
+
+        async function saveProfileChanges(event) {
+            event.preventDefault();
+            
+            const formData = new FormData(event.target);
+            const data = {
+                phone: formData.get('phone'),
+                email: formData.get('email')
+            };
+            
+            try {
+                const response = await fetch('/api/student/profile/update', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    showAlert('프로필이 성공적으로 업데이트되었습니다.', 'success');
+                    event.target.closest('.modal').remove();
+                    loadProfileData(); // 프로필 데이터 새로고침
+                } else {
+                    showAlert(result.error || '프로필 업데이트에 실패했습니다.', 'error');
+                }
+            } catch (error) {
+                console.error('Profile update error:', error);
+                showAlert('프로필 업데이트 중 오류가 발생했습니다.', 'error');
+            }
+        }
+
+        // ESC 키로 모달 닫기
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeProfileModal();
+            }
+        });
+
+        // 알림 관련 함수들
+        async function loadNotifications() {
+            try {
+                // 읽지 않은 알림 개수 조회
+                const countResponse = await fetch('/api/student/notifications/unread-count');
+                const countData = await countResponse.json();
+                
+                if (countData.success) {
+                    updateNotificationBadge(countData.unread_count);
+                }
+                
+                // 최근 알림 목록 조회 (드롭다운용)
+                const notificationsResponse = await fetch('/api/student/notifications?limit=5');
+                const notificationsData = await notificationsResponse.json();
+                
+                if (notificationsData.success) {
+                    updateNotificationDropdown(notificationsData.notifications);
+                }
+            } catch (error) {
+                console.error('알림 로드 오류:', error);
+            }
+        }
+
+        function updateNotificationBadge(count) {
+            const badge = document.getElementById('notificationBadge');
+            
+            if (count > 0) {
+                badge.textContent = count > 99 ? '99+' : count;
+                badge.style.display = 'flex';
+            } else {
+                badge.style.display = 'none';
+            }
+        }
+
+        function updateNotificationDropdown(notifications) {
+            const container = document.getElementById('notificationList');
+            
+            if (notifications.length === 0) {
+                container.innerHTML = `
+                    <div class="notification-empty">
+                        <div style="font-size: 2em; margin-bottom: 10px;">📭</div>
+                        <div>새로운 알림이 없습니다</div>
+                    </div>
+                `;
+                return;
+            }
+            
+            let html = '';
+            notifications.forEach(notification => {
+                const isUnread = !notification.is_read;
+                const isUrgent = notification.is_urgent;
+                const sentTime = new Date(notification.sent_at).toLocaleString();
+                const timeAgo = getTimeAgo(new Date(notification.sent_at));
+                
+                html += `
+                    <div class="notification-item ${isUnread ? 'unread' : ''} ${isUrgent ? 'urgent' : ''}" 
+                         onclick="markNotificationAsRead(${notification.id})">
+                        <div class="notification-title">
+                            ${isUrgent ? '🚨 ' : ''}${notification.title}
+                            ${isUnread ? '<span style="color: #667eea; font-size: 0.8em; margin-left: 5px;">●</span>' : ''}
+                        </div>
+                        <div class="notification-message">
+                            ${notification.message.length > 100 ? 
+                              notification.message.substring(0, 100) + '...' : 
+                              notification.message}
+                        </div>
+                        <div class="notification-time">${timeAgo}</div>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+        }
+
+        function toggleNotificationDropdown() {
+            const dropdown = document.getElementById('notificationDropdown');
+            const isVisible = dropdown.style.display === 'block';
+            
+            if (isVisible) {
+                dropdown.style.display = 'none';
+            } else {
+                dropdown.style.display = 'block';
+                loadNotifications(); // 드롭다운을 열 때 최신 알림 로드
+            }
+        }
+
+        async function markNotificationAsRead(notificationId) {
+            try {
+                const response = await fetch(`/api/student/notifications/${notificationId}/read`, {
+                    method: 'POST'
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    // 알림 목록 새로고침
+                    loadNotifications();
+                } else {
+                    console.error('알림 읽음 처리 실패:', data.error);
+                }
+            } catch (error) {
+                console.error('알림 읽음 처리 오류:', error);
+            }
+        }
+
+        async function markAllNotificationsRead() {
+            try {
+                const response = await fetch('/api/student/notifications/mark-all-read', {
+                    method: 'POST'
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    // 알림 목록 새로고침
+                    loadNotifications();
+                    showAlert(data.message, 'success');
+                } else {
+                    showAlert(data.error || '알림 처리에 실패했습니다.', 'error');
+                }
+            } catch (error) {
+                console.error('전체 알림 읽음 처리 오류:', error);
+                showAlert('알림 처리 중 오류가 발생했습니다.', 'error');
+            }
+        }
+
+        function showAllNotifications() {
+            // 알림 목록 페이지로 이동하는 모달 생성
+            const modal = document.createElement('div');
+            modal.className = 'modal';
+            modal.style.display = 'block';
+            modal.innerHTML = `
+                <div class="modal-content" style="max-width: 800px;">
+                    <span class="close" onclick="this.parentElement.parentElement.remove()">&times;</span>
+                    <h2 style="color: #2c3e50; margin-bottom: 25px;">📢 전체 알림 목록</h2>
+                    
+                    <div style="margin-bottom: 20px;">
+                        <button onclick="loadAllNotifications('all')" class="btn" style="margin-right: 10px;">전체</button>
+                        <button onclick="loadAllNotifications('unread')" class="btn" style="background: #e74c3c;">읽지 않음</button>
+                        <button onclick="markAllNotificationsRead()" class="btn" style="background: #27ae60; margin-left: 10px;">모두 읽음 처리</button>
+                    </div>
+                    
+                    <div id="allNotificationsList" style="max-height: 400px; overflow-y: auto;">
+                        <div style="text-align: center; padding: 40px; color: #7f8c8d;">
+                            알림을 불러오는 중...
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            document.body.appendChild(modal);
+            
+            // 전체 알림 로드
+            loadAllNotifications('all');
+            
+            // 모달 외부 클릭 시 닫기
+            modal.onclick = function(event) {
+                if (event.target === modal) {
+                    modal.remove();
+                }
+            };
+            
+            // 드롭다운 닫기
+            document.getElementById('notificationDropdown').style.display = 'none';
+        }
+
+        async function loadAllNotifications(filter = 'all') {
+            try {
+                const unreadOnly = filter === 'unread';
+                const response = await fetch(`/api/student/notifications?unread_only=${unreadOnly}&limit=50`);
+                const data = await response.json();
+                
+                if (data.success) {
+                    displayAllNotifications(data.notifications);
+                } else {
+                    document.getElementById('allNotificationsList').innerHTML = `
+                        <div style="text-align: center; padding: 40px; color: #e74c3c;">
+                            알림을 불러오는데 실패했습니다.
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                console.error('전체 알림 로드 오류:', error);
+                document.getElementById('allNotificationsList').innerHTML = `
+                    <div style="text-align: center; padding: 40px; color: #e74c3c;">
+                        알림을 불러오는 중 오류가 발생했습니다.
+                    </div>
+                `;
+            }
+        }
+
+        function displayAllNotifications(notifications) {
+            const container = document.getElementById('allNotificationsList');
+            
+            if (notifications.length === 0) {
+                container.innerHTML = `
+                    <div style="text-align: center; padding: 40px; color: #7f8c8d;">
+                        <div style="font-size: 3em; margin-bottom: 15px;">📭</div>
+                        <div>알림이 없습니다</div>
+                    </div>
+                `;
+                return;
+            }
+            
+            let html = '';
+            notifications.forEach(notification => {
+                const isUnread = !notification.is_read;
+                const isUrgent = notification.is_urgent;
+                const sentTime = new Date(notification.sent_at).toLocaleString();
+                
+                html += `
+                    <div class="notification-item ${isUnread ? 'unread' : ''} ${isUrgent ? 'urgent' : ''}" 
+                         onclick="markNotificationAsRead(${notification.id})"
+                         style="margin-bottom: 10px; border-radius: 8px; border: 1px solid #eee;">
+                        <div class="notification-title">
+                            ${isUrgent ? '🚨 ' : ''}${notification.title}
+                            ${isUnread ? '<span style="color: #667eea; font-size: 0.8em; margin-left: 5px;">● 새 알림</span>' : ''}
+                        </div>
+                        <div class="notification-message" style="white-space: pre-wrap; margin: 10px 0;">
+                            ${notification.message}
+                        </div>
+                        <div class="notification-time">
+                            📅 ${sentTime}
+                            ${notification.read_at ? ` • 읽음: ${new Date(notification.read_at).toLocaleString()}` : ''}
+                        </div>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+        }
+
+        function getTimeAgo(date) {
+            const now = new Date();
+            const diffInSeconds = Math.floor((now - date) / 1000);
+            
+            if (diffInSeconds < 60) {
+                return '방금 전';
+            } else if (diffInSeconds < 3600) {
+                return `${Math.floor(diffInSeconds / 60)}분 전`;
+            } else if (diffInSeconds < 86400) {
+                return `${Math.floor(diffInSeconds / 3600)}시간 전`;
+            } else if (diffInSeconds < 2592000) {
+                return `${Math.floor(diffInSeconds / 86400)}일 전`;
+            } else {
+                return date.toLocaleDateString();
+            }
+        }
+
+        // 외부 클릭 시 알림 드롭다운 닫기
+        document.addEventListener('click', function(event) {
+            const notificationIcon = document.querySelector('.notification-icon');
+            const dropdown = document.getElementById('notificationDropdown');
+            
+            if (!notificationIcon.contains(event.target)) {
+                dropdown.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

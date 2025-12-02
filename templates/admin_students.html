@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>학생 관리 - 졸업학점 관리 시스템</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f6fa;
+            color: #2c3e50;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .nav {
+            background: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #2c3e50;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .nav a:hover, .nav a.active {
+            background: #667eea;
+            color: white;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .controls {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        .search-bar {
+            display: grid;
+            grid-template-columns: 1fr auto auto auto auto auto;
+            gap: 15px;
+            align-items: end;
+            margin-bottom: 20px;
+        }
+
+        .search-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .search-group label {
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #2c3e50;
+        }
+
+        .search-group input,
+        .search-group select {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .btn {
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background: #5a67d8;
+        }
+
+        .btn-success {
+            background: #2ecc71;
+        }
+
+        .btn-success:hover {
+            background: #27ae60;
+        }
+
+        .btn-danger {
+            background: #e74c3c;
+        }
+
+        .btn-danger:hover {
+            background: #c0392b;
+        }
+
+        .btn-warning {
+            background: #f39c12;
+        }
+
+        .btn-warning:hover {
+            background: #e67e22;
+        }
+
+        .btn-sm {
+            padding: 5px 10px;
+            font-size: 0.9em;
+        }
+
+        .bulk-actions {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .students-table {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .table-header {
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #2c3e50;
+            position: sticky;
+            top: 0;
+        }
+
+        th input[type="checkbox"] {
+            transform: scale(1.2);
+        }
+
+        tr:hover {
+            background: #f8f9fa;
+        }
+
+        .progress-bar {
+            width: 80px;
+            height: 8px;
+            background: #eee;
+            border-radius: 4px;
+            overflow: hidden;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: #667eea;
+            transition: width 0.3s;
+        }
+
+        .progress-fill.high {
+            background: #27ae60;
+        }
+
+        .progress-fill.medium {
+            background: #f39c12;
+        }
+
+        .progress-fill.low {
+            background: #e74c3c;
+        }
+
+        .badge {
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: bold;
+            color: white;
+        }
+
+        .badge-success {
+            background: #27ae60;
+        }
+
+        .badge-warning {
+            background: #f39c12;
+        }
+
+        .badge-danger {
+            background: #e74c3c;
+        }
+
+        .badge-info {
+            background: #3498db;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 2% auto;
+            padding: 30px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 900px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: #000;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #2c3e50;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .form-group textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .student-detail {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .detail-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .detail-section h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #667eea;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+            padding: 20px;
+        }
+
+        .pagination button {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .pagination button:hover:not(:disabled) {
+            background: #667eea;
+            color: white;
+        }
+
+        .pagination button:disabled {
+            background: #f8f9fa;
+            color: #ccc;
+            cursor: not-allowed;
+        }
+
+        .pagination .current {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #7f8c8d;
+        }
+
+        .error {
+            background: #fee;
+            color: #c53030;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #c53030;
+        }
+
+        .success {
+            background: #f0fff4;
+            color: #2d7738;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #2ecc71;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2em;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            .search-bar {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+            
+            .nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .student-detail {
+                grid-template-columns: 1fr;
+            }
+            
+            table {
+                font-size: 0.9em;
+            }
+            
+            th, td {
+                padding: 10px 8px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>학생 관리</h1>
+        <p style="text-align: center; opacity: 0.9;">학생 정보 조회, 수정 및 일괄 관리</p>
+    </div>
+
+    <nav class="nav">
+        <ul>
+            <li><a href="/admin/dashboard">대시보드</a></li>
+            <li><a href="/admin/requirements">졸업요건 관리</a></li>
+            <li><a href="/admin/students" class="active">학생 관리</a></li>
+            <li><a href="/admin/notifications">알림 관리</a></li>
+            <li><a href="/logout">로그아웃</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div id="alertContainer"></div>
+
+        <!-- 통계 카드 -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value" id="totalStudents">0</div>
+                <div class="stat-label">총 학생 수</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="activeStudents">0</div>
+                <div class="stat-label">분석 완료</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="averageCompletion">0%</div>
+                <div class="stat-label">평균 이수율</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="departmentCount">0</div>
+                <div class="stat-label">학과 수</div>
+            </div>
+        </div>
+
+        <!-- 검색 및 필터 -->
+        <div class="controls">
+            <div class="search-bar">
+                <div class="search-group">
+                    <label for="searchInput">검색</label>
+                    <input type="text" id="searchInput" placeholder="학번, 이름, 학과 검색">
+                </div>
+                <div class="search-group">
+                    <label for="filterDepartment">학과</label>
+                    <select id="filterDepartment">
+                        <option value="">전체</option>
+                    </select>
+                </div>
+                <div class="search-group">
+                    <label for="filterGrade">학년</label>
+                    <select id="filterGrade">
+                        <option value="">전체</option>
+                        <option value="1">1학년</option>
+                        <option value="2">2학년</option>
+                        <option value="3">3학년</option>
+                        <option value="4">4학년</option>
+                    </select>
+                </div>
+                <div class="search-group">
+                    <label>&nbsp;</label>
+                    <button class="btn" onclick="searchStudents()">검색</button>
+                </div>
+                <div class="search-group">
+                    <label>&nbsp;</label>
+                    <button class="btn btn-success" onclick="openNotificationModal()">알림 발송</button>
+                </div>
+                <div class="search-group">
+                    <label>&nbsp;</label>
+                    <button class="btn btn-warning" onclick="refreshData()">새로고침</button>
+                </div>
+            </div>
+
+            <!-- 일괄 작업 -->
+            <div class="bulk-actions">
+                <span>선택된 학생:</span>
+                <button class="btn btn-sm" onclick="bulkReanalyze()">일괄 재분석</button>
+                <button class="btn btn-sm btn-warning" onclick="bulkUpdateGrade()">학년 일괄 변경</button>
+                <button class="btn btn-sm btn-success" onclick="bulkSendNotification()">선택 학생 알림</button>
+                <span id="selectedCount">0명 선택</span>
+            </div>
+        </div>
+
+        <!-- 학생 목록 테이블 -->
+        <div class="students-table">
+            <div class="table-header">
+                <h3>학생 목록</h3>
+                <div>
+                    <span id="studentsCount">총 0명</span>
+                </div>
+            </div>
+            <div id="studentsTableContainer">
+                <div class="loading">학생 목록을 불러오는 중...</div>
+            </div>
+            
+            <!-- 페이지네이션 -->
+            <div class="pagination" id="pagination">
+                <button onclick="changePage(currentPage - 1)" id="prevPage" disabled>이전</button>
+                <span id="pageInfo">1 / 1</span>
+                <button onclick="changePage(currentPage + 1)" id="nextPage" disabled>다음</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 학생 상세 정보 모달 -->
+    <div id="studentDetailModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeStudentDetailModal()">&times;</span>
+            <h2 id="studentDetailTitle">학생 상세 정보</h2>
+            <div id="studentDetailContent">
+                <div class="loading">학생 정보를 불러오는 중...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 학생 정보 수정 모달 -->
+    <div id="editStudentModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeEditStudentModal()">&times;</span>
+            <h2>학생 정보 수정</h2>
+            
+            <form id="editStudentForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="editName">이름 *</label>
+                        <input type="text" id="editName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editDepartment">학과 *</label>
+                        <select id="editDepartment" required>
+                            <option value="">선택하세요</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="editMajor">전공</label>
+                        <input type="text" id="editMajor">
+                    </div>
+                    <div class="form-group">
+                        <label for="editGrade">학년</label>
+                        <select id="editGrade">
+                            <option value="">선택하세요</option>
+                            <option value="1">1학년</option>
+                            <option value="2">2학년</option>
+                            <option value="3">3학년</option>
+                            <option value="4">4학년</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="editMinor">부전공</label>
+                        <input type="text" id="editMinor">
+                    </div>
+                    <div class="form-group">
+                        <label for="editDoubleMajor">다전공</label>
+                        <input type="text" id="editDoubleMajor">
+                    </div>
+                </div>
+                
+                <div style="text-align: right; margin-top: 20px;">
+                    <button type="button" class="btn" onclick="closeEditStudentModal()">취소</button>
+                    <button type="submit" class="btn btn-success">저장</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- 알림 발송 모달 -->
+    <div id="notificationModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeNotificationModal()">&times;</span>
+            <h2>학생 알림 발송</h2>
+            
+            <form id="notificationForm">
+                <div class="form-group">
+                    <label for="notificationTarget">발송 대상</label>
+                    <select id="notificationTarget" onchange="toggleTargetOptions()">
+                        <option value="all">전체 학생</option>
+                        <option value="group">조건별 그룹</option>
+                        <option value="selected">선택된 학생</option>
+                    </select>
+                </div>
+
+                <div id="groupTargetOptions" style="display: none;">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="targetDepartment">대상 학과</label>
+                            <select id="targetDepartment">
+                                <option value="">전체</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="targetGrade">대상 학년</label>
+                            <select id="targetGrade">
+                                <option value="">전체</option>
+                                <option value="1">1학년</option>
+                                <option value="2">2학년</option>
+                                <option value="3">3학년</option>
+                                <option value="4">4학년</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="notificationTitle">제목 *</label>
+                    <input type="text" id="notificationTitle" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="notificationMessage">내용 *</label>
+                    <textarea id="notificationMessage" required placeholder="알림 내용을 입력하세요"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="isUrgent"> 긴급 알림
+                    </label>
+                </div>
+                
+                <div style="text-align: right; margin-top: 20px;">
+                    <button type="button" class="btn" onclick="closeNotificationModal()">취소</button>
+                    <button type="submit" class="btn btn-success">발송</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        let currentPage = 1;
+        let totalPages = 1;
+        let currentStudents = [];
+        let selectedStudents = new Set();
+        let currentEditStudentId = null;
+
+        // 페이지 로드 시 초기화
+        document.addEventListener('DOMContentLoaded', function() {
+            loadStudents();
+            loadDepartments();
+        });
+
+        async function loadStudents(page = 1) {
+            try {
+                console.log('loadStudents 함수 시작, page:', page);
+                
+                // 로딩 표시
+                const container = document.getElementById('studentsTableContainer');
+                container.innerHTML = '<div class="loading">학생 목록을 불러오는 중...</div>';
+                
+                const search = document.getElementById('searchInput').value;
+                const department = document.getElementById('filterDepartment').value;
+                const grade = document.getElementById('filterGrade').value;
+                
+                const params = new URLSearchParams({
+                    page: page,
+                    limit: 20
+                });
+                
+                if (search) params.append('search', search);
+                if (department) params.append('department', department);
+                if (grade) params.append('grade', grade);
+                
+                const apiUrl = `/api/admin/students?${params}`;
+                console.log('API 요청 URL:', apiUrl);
+                
+                const response = await fetch(apiUrl, {
+                    method: 'GET',
+                    credentials: 'same-origin',
+                    headers: {
+                        'Accept': 'application/json',
+                        'Content-Type': 'application/json'
+                    }
+                });
+                
+                console.log('API Response Status:', response.status);
+                console.log('API Response StatusText:', response.statusText);
+                console.log('API Response Headers:', [...response.headers.entries()]);
+                
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    console.error('API Error Response:', errorText);
+                    
+                    let errorMessage = `API 오류 (${response.status})`;
+                    if (response.status === 401) {
+                        errorMessage = '로그인이 필요합니다. 다시 로그인해주세요.';
+                        // 로그인 페이지로 리다이렉트 옵션 제공
+                        if (confirm('로그인이 필요합니다. 로그인 페이지로 이동하시겠습니까?')) {
+                            window.location.href = '/login';
+                            return;
+                        }
+                    } else if (response.status === 403) {
+                        errorMessage = '관리자 권한이 필요합니다.';
+                    } else if (response.status === 500) {
+                        errorMessage = '서버 내부 오류가 발생했습니다.';
+                    }
+                    
+                    showError(`${errorMessage}: ${errorText.substring(0, 200)}`);
+                    container.innerHTML = `<div class="loading">오류가 발생했습니다: ${errorMessage}</div>`;
+                    return;
+                }
+                
+                const contentType = response.headers.get('content-type');
+                console.log('Response Content-Type:', contentType);
+                
+                if (!contentType || !contentType.includes('application/json')) {
+                    const responseText = await response.text();
+                    console.error('비-JSON 응답 받음:', responseText.substring(0, 500));
+                    showError('서버에서 올바르지 않은 응답을 받았습니다.');
+                    container.innerHTML = '<div class="loading">서버 응답 오류</div>';
+                    return;
+                }
+                
+                const data = await response.json();
+                console.log('API Response Data:', data);
+                
+                if (data.success) {
+                    console.log(`학생 데이터 로드 성공: ${data.students.length}명`);
+                    
+                    currentStudents = data.students || [];
+                    currentPage = data.page || page;
+                    totalPages = Math.ceil((data.total || 0) / (data.limit || 20));
+                    
+                    displayStudents(data.students || []);
+                    updatePagination();
+                    updateStats(data);
+                    
+                    console.log('학생 목록 표시 완료');
+                } else {
+                    const errorMsg = data.error || '알 수 없는 오류';
+                    console.error('API 오류:', errorMsg);
+                    showError(`학생 목록 조회 실패: ${errorMsg}`);
+                    container.innerHTML = `<div class="loading">조회 실패: ${errorMsg}</div>`;
+                }
+            } catch (error) {
+                console.error('loadStudents 함수에서 예외 발생:', error);
+                console.error('Error stack:', error.stack);
+                
+                const container = document.getElementById('studentsTableContainer');
+                container.innerHTML = '<div class="loading">네트워크 오류가 발생했습니다.</div>';
+                
+                showError(`학생 목록을 불러오는 중 오류가 발생했습니다: ${error.message}`);
+            }
+        }
+
+        function displayStudents(students) {
+            const container = document.getElementById('studentsTableContainer');
+            
+            if (students.length === 0) {
+                container.innerHTML = '<div class="loading">검색 결과가 없습니다.</div>';
+                return;
+            }
+
+            const tableHtml = `
+                <table>
+                    <thead>
+                        <tr>
+                            <th><input type="checkbox" onchange="toggleAllStudents(this)"></th>
+                            <th>학번</th>
+                            <th>이름</th>
+                            <th>학과</th>
+                            <th>학년</th>
+                            <th>이수율</th>
+                            <th>이수학점</th>
+                            <th>분석일</th>
+                            <th>관리</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${students.map(student => {
+                            // 안전한 숫자 변환
+                            const completionRate = parseFloat(student.overall_completion_rate) || 0;
+                            const totalCompleted = parseInt(student.total_completed_credits) || 0;
+                            const totalRequired = parseInt(student.total_required_credits) || 0;
+                            
+                            const progressClass = completionRate >= 80 ? 'high' : 
+                                                 completionRate >= 60 ? 'medium' : 'low';
+                            const badgeClass = completionRate >= 80 ? 'badge-success' : 
+                                              completionRate >= 60 ? 'badge-warning' : 'badge-danger';
+                            
+                            return `
+                                <tr>
+                                    <td><input type="checkbox" onchange="toggleStudent('${student.student_id}', this)" ${selectedStudents.has(student.student_id) ? 'checked' : ''}></td>
+                                    <td>${student.student_id}</td>
+                                    <td>${student.name || '-'}</td>
+                                    <td>${student.department || '-'}</td>
+                                    <td>${student.grade ? student.grade + '학년' : '-'}</td>
+                                    <td>
+                                        <div class="progress-bar">
+                                            <div class="progress-fill ${progressClass}" style="width: ${completionRate}%"></div>
+                                        </div>
+                                        <span class="badge ${badgeClass}">${completionRate.toFixed(1)}%</span>
+                                    </td>
+                                    <td>${totalCompleted} / ${totalRequired}</td>
+                                    <td>${student.analysis_date ? new Date(student.analysis_date).toLocaleDateString() : '미분석'}</td>
+                                    <td>
+                                        <button class="btn btn-sm" onclick="viewStudentDetail('${student.student_id}')">상세</button>
+                                        <button class="btn btn-sm btn-warning" onclick="editStudent('${student.student_id}')">수정</button>
+                                        <button class="btn btn-sm btn-success" onclick="reanalyzeStudent('${student.student_id}')">재분석</button>
+                                    </td>
+                                </tr>
+                            `;
+                        }).join('')}
+                    </tbody>
+                </table>
+            `;
+
+            container.innerHTML = tableHtml;
+            document.getElementById('studentsCount').textContent = `총 ${students.length}명`;
+        }
+
+        function updateStats(data) {
+            document.getElementById('totalStudents').textContent = data.total || 0;
+            
+            const analyzed = data.students.filter(s => s.analysis_date).length;
+            document.getElementById('activeStudents').textContent = analyzed;
+            
+            // 안전한 평균 계산
+            const avgCompletion = data.students.length > 0 ? 
+                data.students.reduce((sum, s) => {
+                    const rate = parseFloat(s.overall_completion_rate) || 0;
+                    return sum + rate;
+                }, 0) / data.students.length : 0;
+            document.getElementById('averageCompletion').textContent = avgCompletion.toFixed(1) + '%';
+            
+            document.getElementById('departmentCount').textContent = data.departments?.length || 0;
+        }
+
+        function updatePagination() {
+            document.getElementById('pageInfo').textContent = `${currentPage} / ${totalPages}`;
+            document.getElementById('prevPage').disabled = currentPage <= 1;
+            document.getElementById('nextPage').disabled = currentPage >= totalPages;
+        }
+
+        function changePage(page) {
+            if (page >= 1 && page <= totalPages) {
+                loadStudents(page);
+            }
+        }
+
+        async function loadDepartments() {
+            try {
+                const response = await fetch('/api/admin/students?limit=1');
+                const data = await response.json();
+                
+                if (data.success && data.departments) {
+                    const selects = ['filterDepartment', 'editDepartment', 'targetDepartment'];
+                    
+                    selects.forEach(selectId => {
+                        const select = document.getElementById(selectId);
+                        const currentValue = select.value;
+                        
+                        // 기존 옵션 유지하고 새 옵션 추가
+                        const existingOptions = Array.from(select.children).map(opt => opt.value);
+                        
+                        data.departments.forEach(dept => {
+                            if (!existingOptions.includes(dept)) {
+                                const option = document.createElement('option');
+                                option.value = dept;
+                                option.textContent = dept;
+                                select.appendChild(option);
+                            }
+                        });
+                        
+                        select.value = currentValue;
+                    });
+                }
+            } catch (error) {
+                console.error('Error loading departments:', error);
+            }
+        }
+
+        function searchStudents() {
+            currentPage = 1;
+            selectedStudents.clear();
+            updateSelectedCount();
+            loadStudents();
+        }
+
+        function refreshData() {
+            loadStudents(currentPage);
+        }
+
+        function toggleAllStudents(checkbox) {
+            const checkboxes = document.querySelectorAll('tbody input[type="checkbox"]');
+            checkboxes.forEach(cb => {
+                cb.checked = checkbox.checked;
+                const studentId = cb.getAttribute('onchange').match(/'([^']+)'/)[1];
+                if (checkbox.checked) {
+                    selectedStudents.add(studentId);
+                } else {
+                    selectedStudents.delete(studentId);
+                }
+            });
+            updateSelectedCount();
+        }
+
+        function toggleStudent(studentId, checkbox) {
+            if (checkbox.checked) {
+                selectedStudents.add(studentId);
+            } else {
+                selectedStudents.delete(studentId);
+            }
+            updateSelectedCount();
+        }
+
+        function updateSelectedCount() {
+            document.getElementById('selectedCount').textContent = `${selectedStudents.size}명 선택`;
+        }
+
+        async function viewStudentDetail(studentId) {
+            try {
+                const response = await fetch(`/api/admin/students/${studentId}`);
+                const data = await response.json();
+                
+                if (data.success) {
+                    displayStudentDetail(data);
+                    document.getElementById('studentDetailModal').style.display = 'block';
+                } else {
+                    showError(data.error || '학생 정보를 불러올 수 없습니다.');
+                }
+            } catch (error) {
+                console.error('Error loading student detail:', error);
+                showError('학생 정보를 불러오는 중 오류가 발생했습니다.');
+            }
+        }
+
+        function displayStudentDetail(data) {
+            const student = data.student;
+            const analyses = data.analyses || [];
+            const courseSummary = data.course_summary || [];
+            const notificationStats = data.notification_stats || {};
+            
+            document.getElementById('studentDetailTitle').textContent = `${student.name || '이름 없음'} (${student.student_id}) 상세 정보`;
+            
+            const content = `
+                <div class="student-detail">
+                    <div>
+                        <div class="detail-section">
+                            <h4>📋 기본 정보</h4>
+                            <p><strong>학번:</strong> ${student.student_id}</p>
+                            <p><strong>이름:</strong> ${student.name || '-'}</p>
+                            <p><strong>학과:</strong> ${student.department || '-'}</p>
+                            <p><strong>학년:</strong> ${student.grade ? student.grade + '학년' : '-'}</p>
+                            <p><strong>전공:</strong> ${student.major || '-'}</p>
+                            <p><strong>부전공:</strong> ${student.minor || '-'}</p>
+                            <p><strong>다전공:</strong> ${student.double_major || '-'}</p>
+                            <p><strong>입학일:</strong> ${student.admission_date ? new Date(student.admission_date).toLocaleDateString() : '-'}</p>
+                        </div>
+                        
+                        <div class="detail-section">
+                            <h4>📊 수강 기록 요약</h4>
+                            ${courseSummary.length > 0 ? courseSummary.map(cs => `
+                                <p><strong>${cs.category}:</strong> ${cs.course_count}과목, ${cs.total_credits}학점</p>
+                            `).join('') : '<p>수강 기록이 없습니다.</p>'}
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div class="detail-section">
+                            <h4>🎯 분석 결과</h4>
+                            ${analyses.length > 0 ? `
+                                <p><strong>최근 분석일:</strong> ${new Date(analyses[0].analysis_date).toLocaleString()}</p>
+                                <p><strong>전체 이수율:</strong> ${analyses[0].overall_completion_rate}%</p>
+                                <p><strong>이수학점:</strong> ${analyses[0].total_completed_credits} / ${analyses[0].total_required_credits}</p>
+                                <div style="margin-top: 15px;">
+                                    <button class="btn btn-sm btn-success" onclick="reanalyzeStudent('${student.student_id}')">재분석 실행</button>
+                                </div>
+                            ` : '<p>분석 결과가 없습니다.</p>'}
+                        </div>
+                        
+                        <div class="detail-section">
+                            <h4>🔔 알림 통계</h4>
+                            <p><strong>총 수신 알림:</strong> ${notificationStats.total_notifications || 0}개</p>
+                            <p><strong>읽지 않은 알림:</strong> ${notificationStats.unread_count || 0}개</p>
+                            <div style="margin-top: 15px;">
+                                <button class="btn btn-sm btn-success" onclick="sendIndividualNotification('${student.student_id}')">개별 알림 발송</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                ${analyses.length > 1 ? `
+                    <div class="detail-section">
+                        <h4>📈 분석 이력</h4>
+                        <div style="max-height: 200px; overflow-y: auto;">
+                            ${analyses.slice(1).map(analysis => `
+                                <div style="padding: 10px; border-bottom: 1px solid #eee;">
+                                    <strong>${new Date(analysis.analysis_date).toLocaleString()}</strong> - 
+                                    이수율: ${analysis.overall_completion_rate}%, 
+                                    학점: ${analysis.total_completed_credits}/${analysis.total_required_credits}
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                ` : ''}
+            `;
+            
+            document.getElementById('studentDetailContent').innerHTML = content;
+        }
+
+        function closeStudentDetailModal() {
+            document.getElementById('studentDetailModal').style.display = 'none';
+        }
+
+        async function editStudent(studentId) {
+            try {
+                const response = await fetch(`/api/admin/students/${studentId}`);
+                const data = await response.json();
+                
+                if (data.success) {
+                    currentEditStudentId = studentId;
+                    const student = data.student;
+                    
+                    document.getElementById('editName').value = student.name || '';
+                    document.getElementById('editDepartment').value = student.department || '';
+                    document.getElementById('editMajor').value = student.major || '';
+                    document.getElementById('editGrade').value = student.grade || '';
+                    document.getElementById('editMinor').value = student.minor || '';
+                    document.getElementById('editDoubleMajor').value = student.double_major || '';
+                    
+                    document.getElementById('editStudentModal').style.display = 'block';
+                } else {
+                    showError(data.error || '학생 정보를 불러올 수 없습니다.');
+                }
+            } catch (error) {
+                console.error('Error loading student for edit:', error);
+                showError('학생 정보를 불러오는 중 오류가 발생했습니다.');
+            }
+        }
+
+        function closeEditStudentModal() {
+            document.getElementById('editStudentModal').style.display = 'none';
+            currentEditStudentId = null;
+        }
+
+        async function submitEditStudent(event) {
+            event.preventDefault();
+            
+            if (!currentEditStudentId) return;
+            
+            const formData = {
+                name: document.getElementById('editName').value,
+                department: document.getElementById('editDepartment').value,
+                major: document.getElementById('editMajor').value,
+                grade: document.getElementById('editGrade').value ? parseInt(document.getElementById('editGrade').value) : null,
+                minor: document.getElementById('editMinor').value,
+                double_major: document.getElementById('editDoubleMajor').value
+            };
+            
+            // 빈 값 제거
+            Object.keys(formData).forEach(key => {
+                if (formData[key] === '' || formData[key] === null) {
+                    delete formData[key];
+                }
+            });
+            
+            try {
+                const response = await fetch(`/api/admin/students/${currentEditStudentId}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    showSuccess('학생 정보가 수정되었습니다.');
+                    closeEditStudentModal();
+                    loadStudents(currentPage);
+                } else {
+                    showError(data.error || '학생 정보 수정에 실패했습니다.');
+                }
+            } catch (error) {
+                console.error('Error updating student:', error);
+                showError('학생 정보 수정 중 오류가 발생했습니다.');
+            }
+        }
+
+        async function reanalyzeStudent(studentId) {
+            if (!confirm('해당 학생의 졸업요건을 재분석하시겠습니까?')) return;
+            
+            try {
+                const response = await fetch(`/api/admin/students/${studentId}/reanalyze`, {
+                    method: 'POST'
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    showSuccess(data.message);
+                    loadStudents(currentPage);
+                } else {
+                    showError(data.error || '재분석에 실패했습니다.');
+                }
+            } catch (error) {
+                console.error('Error reanalyzing student:', error);
+                showError('재분석 중 오류가 발생했습니다.');
+            }
+        }
+
+        function openNotificationModal() {
+            document.getElementById('notificationModal').style.display = 'block';
+        }
+
+        function closeNotificationModal() {
+            document.getElementById('notificationModal').style.display = 'none';
+            document.getElementById('notificationForm').reset();
+        }
+
+        function toggleTargetOptions() {
+            const target = document.getElementById('notificationTarget').value;
+            const groupOptions = document.getElementById('groupTargetOptions');
+            
+            if (target === 'group') {
+                groupOptions.style.display = 'block';
+            } else {
+                groupOptions.style.display = 'none';
+            }
+        }
+
+        async function submitNotification(event) {
+            event.preventDefault();
+            
+            const target = document.getElementById('notificationTarget').value;
+            const title = document.getElementById('notificationTitle').value;
+            const message = document.getElementById('notificationMessage').value;
+            const isUrgent = document.getElementById('isUrgent').checked;
+            
+            let requestData = {
+                title: title,
+                message: message,
+                target_type: target,
+                is_urgent: isUrgent
+            };
+            
+            if (target === 'group') {
+                requestData.filter_criteria = {};
+                const dept = document.getElementById('targetDepartment').value;
+                const grade = document.getElementById('targetGrade').value;
+                
+                if (dept) requestData.filter_criteria.department = dept;
+                if (grade) requestData.filter_criteria.grade = parseInt(grade);
+            } else if (target === 'selected') {
+                if (selectedStudents.size === 0) {
+                    showError('선택된 학생이 없습니다.');
+                    return;
+                }
+                requestData.target_type = 'individual';
+                requestData.student_ids = Array.from(selectedStudents);
+            }
+            
+            try {
+                const response = await fetch('/api/admin/students/send-notification', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(requestData)
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    showSuccess(data.message);
+                    closeNotificationModal();
+                } else {
+                    showError(data.error || '알림 발송에 실패했습니다.');
+                }
+            } catch (error) {
+                console.error('Error sending notification:', error);
+                showError('알림 발송 중 오류가 발생했습니다.');
+            }
+        }
+
+        async function bulkReanalyze() {
+            if (selectedStudents.size === 0) {
+                showError('선택된 학생이 없습니다.');
+                return;
+            }
+            
+            if (!confirm(`선택된 ${selectedStudents.size}명의 학생을 일괄 재분석하시겠습니까?`)) return;
+            
+            try {
+                const response = await fetch('/api/admin/students/bulk-action', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        action: 'reanalyze',
+                        student_ids: Array.from(selectedStudents)
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    showSuccess(data.message);
+                    loadStudents(currentPage);
+                } else {
+                    showError(data.error || '일괄 재분석에 실패했습니다.');
+                }
+            } catch (error) {
+                console.error('Error bulk reanalyzing:', error);
+                showError('일괄 재분석 중 오류가 발생했습니다.');
+            }
+        }
+
+        async function bulkUpdateGrade() {
+            if (selectedStudents.size === 0) {
+                showError('선택된 학생이 없습니다.');
+                return;
+            }
+            
+            const newGrade = prompt('새 학년을 입력하세요 (1-4):');
+            if (!newGrade || ![1,2,3,4].includes(parseInt(newGrade))) {
+                showError('올바른 학년을 입력하세요 (1-4).');
+                return;
+            }
+            
+            try {
+                const response = await fetch('/api/admin/students/bulk-action', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        action: 'update_grade',
+                        student_ids: Array.from(selectedStudents),
+                        new_grade: parseInt(newGrade)
+                    })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    showSuccess(data.message);
+                    loadStudents(currentPage);
+                } else {
+                    showError(data.error || '학년 일괄 변경에 실패했습니다.');
+                }
+            } catch (error) {
+                console.error('Error bulk updating grade:', error);
+                showError('학년 일괄 변경 중 오류가 발생했습니다.');
+            }
+        }
+
+        function bulkSendNotification() {
+            if (selectedStudents.size === 0) {
+                showError('선택된 학생이 없습니다.');
+                return;
+            }
+            
+            document.getElementById('notificationTarget').value = 'selected';
+            toggleTargetOptions();
+            openNotificationModal();
+        }
+
+        function sendIndividualNotification(studentId) {
+            selectedStudents.clear();
+            selectedStudents.add(studentId);
+            bulkSendNotification();
+        }
+
+        function showError(message) {
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'error';
+            errorDiv.textContent = message;
+            document.getElementById('alertContainer').appendChild(errorDiv);
+            
+            setTimeout(() => errorDiv.remove(), 5000);
+        }
+
+        function showSuccess(message) {
+            const successDiv = document.createElement('div');
+            successDiv.className = 'success';
+            successDiv.textContent = message;
+            document.getElementById('alertContainer').appendChild(successDiv);
+            
+            setTimeout(() => successDiv.remove(), 5000);
+        }
+
+        // 이벤트 리스너
+        document.getElementById('editStudentForm').addEventListener('submit', submitEditStudent);
+        document.getElementById('notificationForm').addEventListener('submit', submitNotification);
+
+        // 검색 엔터키 지원
+        document.getElementById('searchInput').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                searchStudents();
+            }
+        });
+
+        // 모달 외부 클릭 시 닫기
+        window.addEventListener('click', function(event) {
+            const modals = ['studentDetailModal', 'editStudentModal', 'notificationModal'];
+            modals.forEach(modalId => {
+                const modal = document.getElementById(modalId);
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                    if (modalId === 'editStudentModal') {
+                        currentEditStudentId = null;
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

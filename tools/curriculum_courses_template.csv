@@ -1,0 +1,5 @@
+department,admission_year_from,admission_year_to,grade_year,term,required_type,course_code,course_name,credits,is_active
+경영정보학과,2018,2021,1,1,전필,6208028,회계원리(Principles of Accounting),3,1
+경영정보학과,2018,2021,1,1,전선,6208003,경영학원론(Principles of Management),3,1
+경영정보학과,2022,2022,2,1,전필,6208033,데이터베이스시스템(Database Systems),3,1
+경영정보학과,2023,9999,3,2,전필,6208004,경영정보시스템(Management Information Systems),3,1

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API 테스트</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-result { margin: 10px 0; padding: 10px; border-radius: 5px; }
+        .success { background: #d4edda; color: #155724; }
+        .error { background: #f8d7da; color: #721c24; }
+        .info { background: #d1ecf1; color: #0c5460; }
+        button { padding: 10px 20px; margin: 5px; }
+        pre { background: #f8f9fa; padding: 10px; border-radius: 5px; overflow: auto; }
+    </style>
+</head>
+<body>
+    <h1>🔍 API 테스트 페이지</h1>
+    
+    <div>
+        <h3>1. 로그인 상태 확인</h3>
+        <button onclick="checkLoginStatus()">로그인 상태 확인</button>
+        <div id="loginStatus"></div>
+    </div>
+    
+    <div>
+        <h3>2. 관리자 로그인</h3>
+        <button onclick="adminLogin()">관리자 로그인</button>
+        <div id="loginResult"></div>
+    </div>
+    
+    <div>
+        <h3>3. 학생 목록 API 테스트</h3>
+        <button onclick="testStudentsAPI()">학생 목록 조회</button>
+        <div id="studentsResult"></div>
+    </div>
+    
+    <div>
+        <h3>4. 브라우저 정보</h3>
+        <div id="browserInfo" class="test-result info"></div>
+    </div>
+
+    <script>
+        // 페이지 로드 시 브라우저 정보 표시
+        document.addEventListener('DOMContentLoaded', function() {
+            const browserInfo = document.getElementById('browserInfo');
+            browserInfo.innerHTML = `
+                <strong>브라우저 정보:</strong><br>
+                User Agent: ${navigator.userAgent}<br>
+                현재 URL: ${window.location.href}<br>
+                쿠키 사용 가능: ${navigator.cookieEnabled}<br>
+                현재 시간: ${new Date().toLocaleString()}
+            `;
+        });
+
+        async function checkLoginStatus() {
+            const resultDiv = document.getElementById('loginStatus');
+            resultDiv.innerHTML = '<div class="test-result info">확인 중...</div>';
+            
+            try {
+                // 현재 페이지가 관리자 페이지에 접근 가능한지 확인
+                const response = await fetch('/admin/dashboard');
+                
+                if (response.ok) {
+                    resultDiv.innerHTML = '<div class="test-result success">✅ 로그인 상태: 관리자로 로그인됨</div>';
+                } else if (response.status === 302 || response.redirected) {
+                    resultDiv.innerHTML = '<div class="test-result error">❌ 로그인 상태: 로그인되지 않음 (리다이렉트)</div>';
+                } else {
+                    resultDiv.innerHTML = `<div class="test-result error">❌ 로그인 상태: 알 수 없음 (HTTP ${response.status})</div>`;
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `<div class="test-result error">❌ 오류: ${error.message}</div>`;
+            }
+        }
+
+        async function adminLogin() {
+            const resultDiv = document.getElementById('loginResult');
+            resultDiv.innerHTML = '<div class="test-result info">로그인 중...</div>';
+            
+            try {
+                const formData = new FormData();
+                formData.append('username', 'admin');
+                formData.append('password', 'admin123');
+                
+                const response = await fetch('/login', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                if (response.ok) {
+                    resultDiv.innerHTML = '<div class="test-result success">✅ 관리자 로그인 성공</div>';
+                    
+                    // 로그인 성공 후 자동으로 로그인 상태 확인
+                    setTimeout(checkLoginStatus, 1000);
+                } else {
+                    resultDiv.innerHTML = `<div class="test-result error">❌ 로그인 실패: HTTP ${response.status}</div>`;
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `<div class="test-result error">❌ 로그인 오류: ${error.message}</div>`;
+            }
+        }
+
+        async function testStudentsAPI() {
+            const resultDiv = document.getElementById('studentsResult');
+            resultDiv.innerHTML = '<div class="test-result info">API 호출 중...</div>';
+            
+            try {
+                const response = await fetch('/api/admin/students?page=1&limit=5');
+                const data = await response.json();
+                
+                if (response.ok && data.success) {
+                    const students = data.students || [];
+                    let resultHTML = `<div class="test-result success">
+                        ✅ 학생 목록 조회 성공<br>
+                        총 학생 수: ${data.total}<br>
+                        조회된 학생: ${students.length}명<br>
+                        학과 목록: ${(data.departments || []).join(', ')}<br><br>
+                        <strong>학생 목록:</strong>
+                    `;
+                    
+                    if (students.length > 0) {
+                        resultHTML += '<pre>';
+                        students.forEach(student => {
+                            resultHTML += `${student.student_id} | ${student.name || '이름없음'} | ${student.department || '학과없음'} | 이수율: ${student.overall_completion_rate || 0}%\\n`;
+                        });
+                        resultHTML += '</pre>';
+                    } else {
+                        resultHTML += '<br>조회된 학생이 없습니다.';
+                    }
+                    
+                    resultHTML += '</div>';
+                    resultDiv.innerHTML = resultHTML;
+                    
+                } else {
+                    resultDiv.innerHTML = `<div class="test-result error">
+                        ❌ API 오류: ${data.error || '알 수 없는 오류'}<br>
+                        HTTP 상태: ${response.status}<br>
+                        응답 데이터: <pre>${JSON.stringify(data, null, 2)}</pre>
+                    </div>`;
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `<div class="test-result error">❌ API 호출 오류: ${error.message}</div>`;
+            }
+        }
+
+        // 페이지 로드 시 자동으로 로그인 상태 확인
+        window.addEventListener('load', function() {
+            setTimeout(checkLoginStatus, 500);
+        });
+    </script>
+</body>
+</html>

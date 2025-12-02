@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>관리자 대시보드 - 졸업학점 관리 시스템</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f6fa;
+            color: #2c3e50;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .nav {
+            background: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #2c3e50;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .nav a:hover, .nav a.active {
+            background: #667eea;
+            color: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-value {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: #7f8c8d;
+            font-size: 1.1em;
+        }
+
+        .charts-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .chart-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .chart-title {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .recent-activity {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .activity-item {
+            padding: 15px;
+            border-left: 4px solid #667eea;
+            margin-bottom: 15px;
+            background: #f8f9fa;
+        }
+
+        .activity-time {
+            color: #7f8c8d;
+            font-size: 0.9em;
+        }
+
+        .quick-actions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .action-btn {
+            background: #667eea;
+            color: white;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: all 0.3s;
+            text-decoration: none;
+            text-align: center;
+            display: block;
+        }
+
+        .action-btn:hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+        }
+
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: #7f8c8d;
+        }
+
+        .error {
+            background: #fee;
+            color: #c53030;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #c53030;
+        }
+
+        @media (max-width: 768px) {
+            .charts-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="header">
+        <h1>관리자 대시보드</h1>
+        <p style="text-align: center; opacity: 0.9;">졸업학점 관리 시스템</p>
+    </div>
+
+    <nav class="nav">
+        <ul>
+            <li><a href="/admin/dashboard" class="active">대시보드</a></li>
+            <li><a href="/admin/requirements">졸업요건 관리</a></li>
+            <li><a href="/admin/students">학생 관리</a></li>
+            <li><a href="/admin/notifications">알림 관리</a></li>
+            <li><a href="/logout">로그아웃</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="dashboard-grid" id="statsGrid">
+            <div class="loading">통계 데이터를 불러오는 중...</div>
+        </div>
+
+        <div class="charts-section">
+            <div class="chart-card">
+                <h3 class="chart-title">학과별 학생 분포</h3>
+                <canvas id="departmentChart"></canvas>
+            </div>
+            <div class="chart-card">
+                <h3 class="chart-title">이수율 분포</h3>
+                <canvas id="completionChart"></canvas>
+            </div>
+        </div>
+
+        <div class="recent-activity">
+            <h3 class="chart-title">최근 활동</h3>
+            <div id="recentActivity">
+                <div class="loading">활동 내역을 불러오는 중...</div>
+            </div>
+        </div>
+
+        <div class="quick-actions">
+            <a href="/admin/requirements" class="action-btn">졸업요건 추가</a>
+            <a href="/admin/students" class="action-btn">학생 검색</a>
+            <a href="/admin/notifications" class="action-btn">알림 전송</a>
+            <button class="action-btn" onclick="refreshData()">데이터 새로고침</button>
+        </div>
+    </div>
+
+    <script>
+        let departmentChart = null;
+        let completionChart = null;
+
+        async function loadStatistics() {
+            try {
+                const response = await fetch('/api/admin/statistics');
+                const data = await response.json();
+
+                if (data.success) {
+                    displayStatistics(data.statistics);
+                    createCharts(data.statistics);
+                } else {
+                    showError('통계 데이터를 불러올 수 없습니다.');
+                }
+            } catch (error) {
+                console.error('Error loading statistics:', error);
+                showError('통계 데이터를 불러오는 중 오류가 발생했습니다.');
+            }
+        }
+
+        function displayStatistics(stats) {
+            const statsGrid = document.getElementById('statsGrid');
+            
+            const statCards = [
+                { label: '총 학생 수', value: stats.total_students || 0, color: '#667eea' },
+                { label: '학과 수', value: stats.students_by_department?.length || 0, color: '#764ba2' },
+                { label: '분석 완료', value: stats.completion_rate_distribution?.reduce((sum, item) => sum + item.count, 0) || 0, color: '#2ecc71' },
+                { label: '평균 이수율', value: calculateAverageCompletion(stats.completion_rate_distribution) + '%', color: '#e74c3c' }
+            ];
+
+            statsGrid.innerHTML = statCards.map(stat => `
+                <div class="stat-card">
+                    <div class="stat-value" style="color: ${stat.color}">${stat.value}</div>
+                    <div class="stat-label">${stat.label}</div>
+                </div>
+            `).join('');
+        }
+
+        function calculateAverageCompletion(distribution) {
+            if (!distribution || distribution.length === 0) return 0;
+            
+            let totalWeighted = 0;
+            let totalCount = 0;
+            
+            distribution.forEach(item => {
+                let midpoint;
+                switch(item.completion_range) {
+                    case '90% 이상': midpoint = 95; break;
+                    case '70-89%': midpoint = 79.5; break;
+                    case '50-69%': midpoint = 59.5; break;
+                    case '50% 미만': midpoint = 25; break;
+                    default: midpoint = 0;
+                }
+                totalWeighted += midpoint * item.count;
+                totalCount += item.count;
+            });
+            
+            return totalCount > 0 ? Math.round(totalWeighted / totalCount) : 0;
+        }
+
+        function createCharts(stats) {
+            // 학과별 분포 차트
+            if (departmentChart) {
+                departmentChart.destroy();
+            }
+
+            const deptCtx = document.getElementById('departmentChart').getContext('2d');
+            const deptData = stats.students_by_department || [];
+            
+            departmentChart = new Chart(deptCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: deptData.map(item => item.department),
+                    datasets: [{
+                        data: deptData.map(item => item.count),
+                        backgroundColor: [
+                            '#667eea', '#764ba2', '#f093fb', '#f5576c',
+                            '#4facfe', '#00f2fe', '#43e97b', '#38f9d7'
+                        ]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'bottom'
+                        }
+                    }
+                }
+            });
+
+            // 이수율 분포 차트
+            if (completionChart) {
+                completionChart.destroy();
+            }
+
+            const compCtx = document.getElementById('completionChart').getContext('2d');
+            const compData = stats.completion_rate_distribution || [];
+            
+            completionChart = new Chart(compCtx, {
+                type: 'bar',
+                data: {
+                    labels: compData.map(item => item.completion_range),
+                    datasets: [{
+                        label: '학생 수',
+                        data: compData.map(item => item.count),
+                        backgroundColor: '#667eea',
+                        borderColor: '#5a67d8',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                stepSize: 1
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function loadRecentActivity() {
+            // 실제 구현에서는 시스템 로그에서 최근 활동을 가져옴
+            const activities = [
+                { action: '졸업요건 추가', user: '관리자', time: '2025-06-02 10:30', details: '컴퓨터공학과 2025년 요건' },
+                { action: '학생 분석 실행', user: '시스템', time: '2025-06-02 09:15', details: '학번 2023001' },
+                { action: '알림 전송', user: '관리자', time: '2025-06-02 08:45', details: '전체 학생 대상' },
+                { action: '졸업요건 수정', user: '관리자', time: '2025-06-01 16:20', details: '전산학과 교양 요건' }
+            ];
+
+            const activityHtml = activities.map(activity => `
+                <div class="activity-item">
+                    <strong>${activity.action}</strong> - ${activity.details}
+                    <div class="activity-time">${activity.time} | ${activity.user}</div>
+                </div>
+            `).join('');
+
+            document.getElementById('recentActivity').innerHTML = activityHtml;
+        }
+
+        function showError(message) {
+            const errorHtml = `<div class="error">${message}</div>`;
+            document.getElementById('statsGrid').innerHTML = errorHtml;
+        }
+
+        function refreshData() {
+            loadStatistics();
+            loadRecentActivity();
+        }
+
+        // 페이지 로드 시 데이터 로드
+        document.addEventListener('DOMContentLoaded', function() {
+            loadStatistics();
+            loadRecentActivity();
+        });
+    </script>
+</body>
+</html>

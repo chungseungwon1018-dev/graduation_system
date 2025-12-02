@@ -1,0 +1,151 @@
+department,admission_year_from,admission_year_to,grade_year,term,required_type,course_code,course_name,credits,is_active
+경영정보학과,2018,2021,1,1,전필,6208028,회계원리(Principles of Accounting),3,1
+경영정보학과,2018,2021,1,1,전필,6208035,경영통계학(Business Statistics),3,1
+경영정보학과,2018,2021,1,1,전선,6208003,경영학원론(Principles of Management),3,1
+경영정보학과,2018,2021,1,1,전선,6208066,비즈니스 커뮤니케이션 실무(Practices in Business Communication),3,1
+경영정보학과,2018,2021,1,2,전필,6208028,회계원리(Principles of Accounting),3,1
+경영정보학과,2018,2021,1,2,전필,6208035,경영통계학(Business Statistics),3,1
+경영정보학과,2018,2021,1,2,전선,6208063,경영과 정보기술(Management and IT),3,1
+경영정보학과,2018,2021,2,1,전필,6208033,데이터베이스시스템(Database Systems),3,1
+경영정보학과,2018,2021,2,1,전필,6208076,비즈니스 프로세스 분석과 응용 소프트웨어 설계(Business Process Analysis and Application Software Design),3,1
+경영정보학과,2018,2021,2,1,전필,6208019,재무관리(Financial Management),3,1
+경영정보학과,2018,2021,2,1,전필,6208005,계량경영학(Introduction to Quantitative Management),3,1
+경영정보학과,2018,2021,2,1,전선,6208007,마케팅관리론(Marketing Management),3,1
+경영정보학과,2018,2021,2,1,전선,6208024,조직행동론(Organizational Behavior),3,1
+경영정보학과,2018,2021,2,1,전선,6208808,디지털산업론 (Introduction to Digital Industry),3,1
+경영정보학과,2018,2021,2,2,전필,6208033,데이터베이스시스템(Database Systems),3,1
+경영정보학과,2018,2021,2,2,전필,6208076,비즈니스 프로세스 분석과 응용 소프트웨어 설계(Business Process Analysis and Application Software Design),3,1
+경영정보학과,2018,2021,2,2,전필,6208019,재무관리(Financial Management),3,1
+경영정보학과,2018,2021,2,2,전필,6208005,계량경영학(Introduction to Quantitative Management),3,1
+경영정보학과,2018,2021,2,2,전선,6208007,마케팅관리론(Marketing Management),3,1
+경영정보학과,2018,2021,2,2,전선,6208024,조직행동론(Organizational Behavior),3,1
+경영정보학과,2018,2021,2,2,전선,6208037,비즈니스 커뮤니케이션(Business Communication),3,1
+경영정보학과,2018,2021,2,2,전선,6208070,창조적 사고의 기술(Creativity Technology),3,1
+경영정보학과,2018,2021,3,1,전필,6208039,생산관리(Production Management),3,1
+경영정보학과,2018,2021,3,1,전필,6208040,정보통신경영(Information and Telecommunication Management),3,1
+경영정보학과,2018,2021,3,1,전필,6208069,프로그래밍언어(Programming Language),3,1
+경영정보학과,2018,2021,3,1,전필,6208004,경영정보시스템(Management Information Systems),3,1
+경영정보학과,2018,2021,3,1,전필,6208804,객체지향 응용소프트웨어 설계(Object-oriented Application Software Design),3,1
+경영정보학과,2018,2021,3,1,전선,6208041,시스템 시뮬레이션(System Simulation),3,1
+경영정보학과,2018,2021,3,1,전선,6208042,ERP전략과 실천(ERP Strategy and Implementation),3,1
+경영정보학과,2018,2021,3,1,전선,6208071,데이터마이닝(Data Mining),3,1
+경영정보학과,2018,2021,3,2,전필,6208039,생산관리(Production Management),3,1
+경영정보학과,2018,2021,3,2,전필,6208040,정보통신경영 (Information and Telecommunication Management),3,1
+경영정보학과,2018,2021,3,2,전필,6208069,프로그래밍언어(Programming Language),3,1
+경영정보학과,2018,2021,3,2,전필,6208004,경영정보시스템(Management Information Systems),3,1
+경영정보학과,2018,2021,3,2,전선,6208044,공급사슬관리론(Supply Chain Management),3,1
+경영정보학과,2018,2021,3,2,전선,6208065,ERP회계정보활용론(Method of ERP Accounting Information Analysis),3,1
+경영정보학과,2018,2021,3,2,전선,6208807,비즈니스 프로세스 관리(캡스톤디자인)(Business Process Management(Capstone Design)),3,1
+경영정보학과,2018,2021,3,2,전선,6208073,IT 강독(English Reading on Special Topic of IT),3,1
+경영정보학과,2018,2021,3,2,전선,6208810,인공지능 경영(캡스톤디자인)(AI Management (Capstone Design)),3,1
+경영정보학과,2018,2021,4,1,전선,6208046,e-비즈니스론(e-Business Systems),3,1
+경영정보학과,2018,2021,4,1,전선,6208047,정보보호관리(Information Security Management),3,1
+경영정보학과,2018,2021,4,1,전선,6208809,데이터 지식경영(캡스톤디자인)(Data Knowledge Management(Capstone Design)),3,1
+경영정보학과,2018,2021,4,1,전선,6208050,경영프로세스통합(Business Process Integration),3,1
+경영정보학과,2018,2021,4,1,전선,6208080,영업 및 운영계획론(Sales and Operation Planning),3,1
+경영정보학과,2018,2021,4,1,전선,6208043,비즈니스 인텔리전스(Business Intelligence),3,1
+경영정보학과,2018,2021,4,1,전선,6208038,비즈니스 프로그래밍(Business Programming),3,1
+경영정보학과,2018,2021,4,1,전선,6208078,MIS 프로젝트(캡스톤디자인)Ⅰ(MIS Project(Capstone Design)Ⅰ),1,1
+경영정보학과,2018,2021,4,2,전선,6208054,기술경영론(캡스톤디자인)(Technology Management)(Capstone Design),3,1
+경영정보학과,2018,2021,4,2,전선,6208057,ERP구축 프로젝트(ERP Implementation Project),3,1
+경영정보학과,2018,2021,4,2,전선,6208049,프로젝트관리(Project Management),3,1
+경영정보학과,2018,2021,4,2,전선,6208055,의사결정론(Decision Making),3,1
+경영정보학과,2018,2021,4,2,전선,6208062,고급 비즈니스 프로그래밍(Advanced Business Programming),3,1
+경영정보학과,2018,2021,4,2,전선,6208079,MIS 프로젝트(캡스톤디자인)Ⅱ(MIS Project(Capstone Design)Ⅱ),1,1
+경영정보학과,2022,2022,1,1,전필,6208028,회계원리(Principles of Accounting),3,1
+경영정보학과,2022,2022,1,1,전필,6208035,경영통계학(Business Statistics),3,1
+경영정보학과,2022,2022,1,1,전선,6208003,경영학원론(Principles of Management),3,1
+경영정보학과,2022,2022,1,1,전선,6208066,비즈니스 커뮤니케이션 실무(Practices in Business Communication),3,1
+경영정보학과,2022,2022,1,2,전필,6208028,회계원리(Principles of Accounting),3,1
+경영정보학과,2022,2022,1,2,전필,6208035,경영통계학(Business Statistics),3,1
+경영정보학과,2022,2022,1,2,전선,6208063,경영과 정보기술(Management and IT),3,1
+경영정보학과,2022,2022,2,1,전필,6208033,데이터베이스시스템(Database Systems),3,1
+경영정보학과,2022,2022,2,1,전필,6208076,비즈니스 프로세스 분석과 응용 소프트웨어 설계(Business Process Analysis and Application Software Design),3,1
+경영정보학과,2022,2022,2,1,전필,6208019,재무관리(Financial Management),3,1
+경영정보학과,2022,2022,2,1,전필,6208005,계량경영학(Introduction to Quantitative Management),3,1
+경영정보학과,2022,2022,2,1,전선,6208007,마케팅관리론(Marketing Management),3,1
+경영정보학과,2022,2022,2,1,전선,6208024,조직행동론(Organizational Behavior),3,1
+경영정보학과,2022,2022,2,1,전선,6208808,디지털산업론 (Introduction to Digital Industry),3,1
+경영정보학과,2022,2022,2,2,전필,6208033,데이터베이스시스템(Database Systems),3,1
+경영정보학과,2022,2022,2,2,전필,6208076,비즈니스 프로세스 분석과 응용 소프트웨어 설계(Business Process Analysis and Application Software Design),3,1
+경영정보학과,2022,2022,2,2,전필,6208019,재무관리(Financial Management),3,1
+경영정보학과,2022,2022,2,2,전필,6208005,계량경영학(Introduction to Quantitative Management),3,1
+경영정보학과,2022,2022,2,2,전선,6208007,마케팅관리론(Marketing Management),3,1
+경영정보학과,2022,2022,2,2,전선,6208024,조직행동론(Organizational Behavior),3,1
+경영정보학과,2022,2022,2,2,전선,6208037,비즈니스 커뮤니케이션(Business Communication),3,1
+경영정보학과,2022,2022,2,2,전선,6208811,창의적 사고와 디지털 비즈니스(Creative Thinking and Digital Business),3,1
+경영정보학과,2022,2022,3,1,전필,6208039,생산관리(Production Management),3,1
+경영정보학과,2022,2022,3,1,전필,6208040,정보통신경영(Information and Telecommunication Management),3,1
+경영정보학과,2022,2022,3,1,전필,6208069,프로그래밍언어(Programming Language),3,1
+경영정보학과,2022,2022,3,1,전필,6208004,경영정보시스템(Management Information Systems),3,1
+경영정보학과,2022,2022,3,1,전선,6208804,객체지향 응용소프트웨어 설계(Object-oriented Application Software Design),3,1
+경영정보학과,2022,2022,3,1,전선,6208042,ERP전략과 실천(ERP Strategy and Implementation),3,1
+경영정보학과,2022,2022,3,1,전선,6208071,데이터마이닝(Data Mining),3,1
+경영정보학과,2022,2022,3,2,전필,6208039,생산관리(Production Management),3,1
+경영정보학과,2022,2022,3,2,전필,6208040,정보통신경영 (Information and Telecommunication Management),3,1
+경영정보학과,2022,2022,3,2,전필,6208069,프로그래밍언어(Programming Language),3,1
+경영정보학과,2022,2022,3,2,전필,6208004,경영정보시스템(Management Information Systems),3,1
+경영정보학과,2022,2022,3,2,전선,6208044,공급사슬관리론(Supply Chain Management),3,1
+경영정보학과,2022,2022,3,2,전선,6208065,ERP회계정보활용론(Method of ERP Accounting Information Analysis),3,1
+경영정보학과,2022,2022,3,2,전선,6208807,비즈니스 프로세스 관리(캡스톤디자인)(Business Process Management(Capstone Design)),3,1
+경영정보학과,2022,2022,3,2,전선,6208073,IT 강독(English Reading on Special Topic of IT),3,1
+경영정보학과,2022,2022,3,2,전선,6208810,인공지능 경영(캡스톤디자인)(AI Management (Capstone Design)),3,1
+경영정보학과,2022,2022,4,1,전선,6208046,e-비즈니스론(e-Business Systems),3,1
+경영정보학과,2022,2022,4,1,전선,6208047,정보보호관리(Information Security Management),3,1
+경영정보학과,2022,2022,4,1,전선,6208809,데이터 지식경영(캡스톤디자인)(Data Knowledge Management(Capstone Design)),3,1
+경영정보학과,2022,2022,4,1,전선,6208050,경영프로세스통합(Business Process Integration),3,1
+경영정보학과,2022,2022,4,1,전선,6208080,영업 및 운영계획론(Sales and Operation Planning),3,1
+경영정보학과,2022,2022,4,1,전선,6208043,비즈니스 인텔리전스(Business Intelligence),3,1
+경영정보학과,2022,2022,4,1,전선,6208038,비즈니스 프로그래밍(Business Programming),3,1
+경영정보학과,2022,2022,4,1,전선,6208054,기술경영론(캡스톤디자인)(Technology Management)(Capstone Design),3,1
+경영정보학과,2022,2022,4,2,전선,6208057,ERP구축 프로젝트(ERP Implementation Project),3,1
+경영정보학과,2022,2022,4,2,전선,6208049,프로젝트관리(Project Management),3,1
+경영정보학과,2022,2022,4,2,전선,6208055,의사결정론(Decision Making),3,1
+경영정보학과,2022,2022,4,2,전선,6208062,고급 비즈니스 프로그래밍(Advanced Business Programming),3,1
+경영정보학과,2023,9999,1,1,전필,6208028,회계원리(Principles of Accounting),3,1
+경영정보학과,2023,9999,1,1,전필,6208035,경영통계학(Business Statistics),3,1
+경영정보학과,2023,9999,1,1,전선,6208003,경영학원론(Principles of Management),3,1
+경영정보학과,2023,9999,1,1,전선,6208066,비즈니스 커뮤니케이션 실무(Practices in Business Communication),3,1
+경영정보학과,2023,9999,1,2,전필,6208028,회계원리(Principles of Accounting),3,1
+경영정보학과,2023,9999,1,2,전필,6208035,경영통계학(Business Statistics),3,1
+경영정보학과,2023,9999,1,2,전선,6208063,경영과 정보기술(Management and IT),3,1
+경영정보학과,2023,9999,2,1,전필,6208033,데이터베이스시스템(Database Systems),3,1
+경영정보학과,2023,9999,2,1,전필,6208019,재무관리(Financial Management),3,1
+경영정보학과,2023,9999,2,1,전필,6208005,계량경영학(Introduction to Quantitative Management),3,1
+경영정보학과,2023,9999,2,1,전필,6208069,프로그래밍언어(Programming Language),3,1
+경영정보학과,2023,9999,2,1,전필,6208004,경영정보시스템(Management Information Systems),3,1
+경영정보학과,2023,9999,2,1,전선,6208007,마케팅관리론(Marketing Management),3,1
+경영정보학과,2023,9999,2,2,전필,6208033,데이터베이스시스템(Database Systems),3,1
+경영정보학과,2023,9999,2,2,전필,6208019,재무관리(Financial Management),3,1
+경영정보학과,2023,9999,2,2,전필,6208005,계량경영학(Introduction to Quantitative Management),3,1
+경영정보학과,2023,9999,2,2,전필,6208069,프로그래밍언어(Programming Language),3,1
+경영정보학과,2023,9999,2,2,전필,6208004,경영정보시스템(Management Information Systems),3,1
+경영정보학과,2023,9999,2,2,전선,6208024,조직행동론(Organizational Behavior),3,1
+경영정보학과,2023,9999,2,2,전선,6208037,비즈니스 커뮤니케이션(Business Communication),3,1
+경영정보학과,2023,9999,2,2,전선,6208811,창의적 사고와 디지털 비즈니스(Creative Thinking and Digital Business),3,1
+경영정보학과,2023,9999,3,1,전필,6208039,생산관리(Production Management),3,1
+경영정보학과,2023,9999,3,1,전필,6208040,정보통신경영(Information and Telecommunication Management),3,1
+경영정보학과,2023,9999,3,1,전필,6208813,시스템 분석 및 설계(System Analysis and Design),3,1
+경영정보학과,2023,9999,3,1,전선,6208804,객체지향 응용소프트웨어 설계(Object-oriented Application Software Design),3,1
+경영정보학과,2023,9999,3,1,전선,6208042,ERP전략과 실천(ERP Strategy and Implementation),3,1
+경영정보학과,2023,9999,3,1,전선,6208071,데이터마이닝(Data Mining),3,1
+경영정보학과,2023,9999,3,1,전선,6208808,디지털산업론 (Introduction to Digital Industry),3,1
+경영정보학과,2023,9999,3,2,전필,6208040,정보통신경영 (Information and Telecommunication Management),3,1
+경영정보학과,2023,9999,3,2,전필,6208813,시스템 분석 및 설계(System Analysis and Design),3,1
+경영정보학과,2023,9999,3,2,전선,6208044,공급사슬관리론(Supply Chain Management),3,1
+경영정보학과,2023,9999,3,2,전선,6208065,ERP회계정보활용론(Method of ERP Accounting Information Analysis),3,1
+경영정보학과,2023,9999,3,2,전선,6208807,비즈니스 프로세스 관리(캡스톤디자인),3,1
+경영정보학과,2023,9999,3,2,전선,6208073,IT 강독(English Reading on Special Topic of IT),3,1
+경영정보학과,2023,9999,3,2,전선,6208810,인공지능 경영(캡스톤디자인)(AI Management (Capstone Design)),3,1
+경영정보학과,2023,9999,4,1,전선,6208046,e-비즈니스론(e-Business Systems),3,1
+경영정보학과,2023,9999,4,1,전선,6208047,정보보호관리(Information Security Management),3,1
+경영정보학과,2023,9999,4,1,전선,6208809,데이터 지식경영(캡스톤디자인)(Data Knowledge Management(Capstone Design)),3,1
+경영정보학과,2023,9999,4,1,전선,6208050,경영프로세스통합(Business Process Integration),3,1
+경영정보학과,2023,9999,4,1,전선,6208080,영업 및 운영계획론(Sales and Operation Planning),3,1
+경영정보학과,2023,9999,4,1,전선,6208043,비즈니스 인텔리전스(Business Intelligence),3,1
+경영정보학과,2023,9999,4,1,전선,6208038,비즈니스 프로그래밍(Business Programming),3,1
+경영정보학과,2023,9999,4,2,전선,6208054,기술경영론(캡스톤디자인)(Technology Management)(Capstone Design),3,1
+경영정보학과,2023,9999,4,2,전선,6208057,ERP구축 프로젝트(ERP Implementation Project),3,1
+경영정보학과,2023,9999,4,2,전선,6208049,프로젝트관리(Project Management),3,1
+경영정보학과,2023,9999,4,2,전선,6208055,의사결정론(Decision Making),3,1
+경영정보학과,2023,9999,4,2,전선,6208812,고급 비즈니스 프로그래밍(캡스톤디자인)(Advanced Business Programming(Capstone Design)),3,1

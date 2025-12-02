@@ -1,0 +1,25 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3:*)",
+      "Bash(pip3 install:*)",
+      "Bash(./venv/Scripts/python.exe:*)",
+      "Bash(./venv/Scripts/pip.exe install --upgrade openpyxl)",
+      "Bash(./venv/Scripts/pip.exe install pandas==1.5.3 openpyxl==3.0.10)",
+      "Bash(./venv/Scripts/pip.exe install xlrd)",
+      "Bash(python:*)",
+      "Bash(timeout:*)",
+      "Bash(pip install:*)",
+      "Bash(venv/Scripts/pip.exe install:*)",
+      "Bash(venv/Scripts/python.exe:*)",
+      "Bash(source:*)",
+      "Bash(grep:*)",
+      "Bash(cat:*)",
+      "Bash(pkill:*)",
+      "Bash(ls:*)",
+      "Bash(true)",
+      "Read(//mnt/c/Users/chung/Desktop/2025-2 개신프론티어/xlsx_project/**)"
+    ],
+    "deny": []
+  }
+}

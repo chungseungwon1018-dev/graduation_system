@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>졸업요건 관리 - 졸업학점 관리 시스템</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f6fa;
+            color: #2c3e50;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .nav {
+            background: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #2c3e50;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .nav a:hover, .nav a.active {
+            background: #667eea;
+            color: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .controls {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        .filters {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .filter-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .filter-group label {
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #2c3e50;
+        }
+
+        .filter-group select,
+        .filter-group input {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .btn {
+            background: #667eea;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn:hover {
+            background: #5a67d8;
+        }
+
+        .btn-success {
+            background: #2ecc71;
+        }
+
+        .btn-success:hover {
+            background: #27ae60;
+        }
+
+        .btn-danger {
+            background: #e74c3c;
+        }
+
+        .btn-danger:hover {
+            background: #c0392b;
+        }
+
+        .btn-sm {
+            padding: 5px 10px;
+            font-size: 0.9em;
+        }
+
+        .requirements-table {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .table-header {
+            background: #2c3e50;
+            color: white;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #2c3e50;
+        }
+
+        tr:hover {
+            background: #f8f9fa;
+        }
+
+        .status-active {
+            color: #2ecc71;
+            font-weight: bold;
+        }
+
+        .status-inactive {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 30px;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 600px;
+            position: relative;
+        }
+
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .close:hover {
+            color: #000;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #2c3e50;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .form-group textarea {
+            height: 80px;
+            resize: vertical;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #7f8c8d;
+        }
+
+        .error {
+            background: #fee;
+            color: #c53030;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #c53030;
+        }
+
+        .success {
+            background: #f0fff4;
+            color: #2d7738;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 4px solid #2ecc71;
+        }
+
+        @media (max-width: 768px) {
+            .nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .filters {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            table {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>졸업요건 관리</h1>
+        <p style="text-align: center; opacity: 0.9;">학과별, 연도별 졸업 기준 관리</p>
+    </div>
+
+    <nav class="nav">
+        <ul>
+            <li><a href="/admin/dashboard">대시보드</a></li>
+            <li><a href="/admin/requirements" class="active">졸업요건 관리</a></li>
+            <li><a href="/admin/students">학생 관리</a></li>
+            <li><a href="/admin/notifications">알림 관리</a></li>
+            <li><a href="/logout">로그아웃</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="controls">
+            <div class="filters">
+                <div class="filter-group">
+                    <label for="filterDepartment">학과</label>
+                    <select id="filterDepartment">
+                        <option value="">전체</option>
+                        <option value="경영학과">경영학과</option>
+                        <option value="경영정보학과">경영정보학과</option>
+                        <option value="국제경영학과">국제경영학과</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="filterYear">입학년도</label>
+                    <select id="filterYear">
+                        <option value="">전체</option>
+                        <option value="2025">2025</option>
+                        <option value="2024">2024</option>
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                    </select>
+                </div>
+                <!-- 구분 필터 제거: 세부영역만으로 필터링 -->
+                <div class="filter-group">
+                    <label for="filterArea">세부영역</label>
+                    <select id="filterArea">
+                        <option value="">전체</option>
+                        <option value="개신기초교양">개신기초교양</option>
+                        <option value="일반교양">일반교양</option>
+                        <option value="확대교양">확대교양</option>
+                        <option value="OCU기타">OCU기타</option>
+                        <option value="전공필수">전공필수</option>
+                        <option value="전공선택">전공선택</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>&nbsp;</label>
+                    <button class="btn" onclick="loadRequirements()">검색</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="requirements-table">
+            <div class="table-header">
+                <h3>졸업요건 목록</h3>
+                <button class="btn btn-success" onclick="openAddModal()">+ 새 요건 추가</button>
+            </div>
+            <div id="requirementsTableContainer">
+                <div class="loading">졸업요건을 불러오는 중...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 추가/수정 모달 -->
+    <div id="requirementModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2 id="modalTitle">졸업요건 추가</h2>
+            
+            <form id="requirementForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="department">학과 *</label>
+                        <select id="department" required>
+                            <option value="">선택하세요</option>
+                            <option value="경영학과">경영학과</option>
+                            <option value="경영정보학과">경영정보학과</option>
+                            <option value="국제경영학과">국제경영학과</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="admissionYear">입학년도 *</label>
+                        <input type="number" id="admissionYear" min="2020" max="2030" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="category">구분 *</label>
+                        <select id="category" required>
+                            <option value="">선택하세요</option>
+                            <option value="교양">교양</option>
+                            <option value="전공">전공</option>
+                            <option value="기타">기타</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="requiredCredits">필요학점 *</label>
+                        <input type="number" id="requiredCredits" step="0.5" min="0" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="area">영역</label>
+                        <input type="text" id="area" placeholder="예: 기초교양, 전공필수">
+                    </div>
+                    <div class="form-group">
+                        <label for="subArea">세부영역</label>
+                        <input type="text" id="subArea" placeholder="예: 수학, 과학">
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="description">설명</label>
+                    <textarea id="description" placeholder="졸업요건에 대한 상세 설명"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="isActive" checked> 활성화
+                    </label>
+                </div>
+                
+                <div style="text-align: right; margin-top: 20px;">
+                    <button type="button" class="btn" onclick="closeModal()">취소</button>
+                    <button type="submit" class="btn btn-success">저장</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        let currentEditId = null;
+
+        async function loadRequirements() {
+            try {
+                const department = document.getElementById('filterDepartment').value;
+                const admissionYear = document.getElementById('filterYear').value;
+                // 구분(category) 필터 제거: 세부영역만 사용
+                const area = document.getElementById('filterArea').value;
+                
+                const params = new URLSearchParams();
+                if (department) params.append('department', department);
+                if (admissionYear) params.append('admission_year', admissionYear);
+                if (area) params.append('area', area);
+                
+                const response = await fetch(`/api/admin/requirements?${params}`);
+                const data = await response.json();
+
+                if (data.success) {
+                    displayRequirements(data.requirements);
+                } else {
+                    showError('졸업요건을 불러올 수 없습니다.');
+                }
+            } catch (error) {
+                console.error('Error loading requirements:', error);
+                showError('졸업요건을 불러오는 중 오류가 발생했습니다.');
+            }
+        }
+
+        function displayRequirements(requirements) {
+            const container = document.getElementById('requirementsTableContainer');
+            
+            if (requirements.length === 0) {
+                container.innerHTML = '<div class="loading">검색 결과가 없습니다.</div>';
+                return;
+            }
+
+            const tableHtml = `
+                <table>
+                    <thead>
+                        <tr>
+                            <th>학과</th>
+                            <th>입학년도</th>
+                            <th>구분</th>
+                            <th>영역</th>
+                            <th>필요학점</th>
+                            <th>상태</th>
+                            <th>관리</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${requirements.map(req => `
+                            <tr>
+                                <td>${req.department}</td>
+                                <td>${req.admission_year}</td>
+                                <td>${req.category}</td>
+                                <td>${req.area || '-'}</td>
+                                <td>${req.required_credits}</td>
+                                <td>
+                                    <span class="${req.is_active ? 'status-active' : 'status-inactive'}">
+                                        ${req.is_active ? '활성' : '비활성'}
+                                    </span>
+                                </td>
+                                <td>
+                                    <button class="btn btn-sm" onclick="editRequirement(${req.id})">수정</button>
+                                    <button class="btn btn-danger btn-sm" onclick="deleteRequirement(${req.id})">삭제</button>
+                                </td>
+                            </tr>
+                        `).join('')}
+                    </tbody>
+                </table>
+            `;
+
+            container.innerHTML = tableHtml;
+        }
+
+        function openAddModal() {
+            currentEditId = null;
+            document.getElementById('modalTitle').textContent = '졸업요건 추가';
+            document.getElementById('requirementForm').reset();
+            document.getElementById('isActive').checked = true;
+            document.getElementById('requirementModal').style.display = 'block';
+        }
+
+        async function editRequirement(id) {
+            try {
+                const response = await fetch('/api/admin/requirements');
+                const data = await response.json();
+                
+                if (data.success) {
+                    const requirement = data.requirements.find(r => r.id === id);
+                    if (requirement) {
+                        currentEditId = id;
+                        document.getElementById('modalTitle').textContent = '졸업요건 수정';
+                        
+                        document.getElementById('department').value = requirement.department;
+                        document.getElementById('admissionYear').value = requirement.admission_year;
+                        document.getElementById('category').value = requirement.category;
+                        document.getElementById('area').value = requirement.area || '';
+                        document.getElementById('subArea').value = requirement.sub_area || '';
+                        document.getElementById('requiredCredits').value = requirement.required_credits;
+                        document.getElementById('description').value = requirement.description || '';
+                        document.getElementById('isActive').checked = requirement.is_active;
+                        
+                        document.getElementById('requirementModal').style.display = 'block';
+                    }
+                }
+            } catch (error) {
+                console.error('Error loading requirement:', error);
+                showError('졸업요건 정보를 불러올 수 없습니다.');
+            }
+        }
+
+        async function deleteRequirement(id) {
+            if (!confirm('정말로 이 졸업요건을 삭제하시겠습니까?')) {
+                return;
+            }
+
+            try {
+                const response = await fetch(`/api/admin/requirements/${id}`, {
+                    method: 'DELETE'
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    showSuccess('졸업요건이 삭제되었습니다.');
+                    loadRequirements();
+                } else {
+                    showError('졸업요건 삭제에 실패했습니다.');
+                }
+            } catch (error) {
+                console.error('Error deleting requirement:', error);
+                showError('졸업요건 삭제 중 오류가 발생했습니다.');
+            }
+        }
+
+        function closeModal() {
+            document.getElementById('requirementModal').style.display = 'none';
+            currentEditId = null;
+        }
+
+        async function submitForm(event) {
+            event.preventDefault();
+            
+            const formData = {
+                department: document.getElementById('department').value,
+                admission_year: parseInt(document.getElementById('admissionYear').value),
+                category: document.getElementById('category').value,
+                area: document.getElementById('area').value || null,
+                sub_area: document.getElementById('subArea').value || null,
+                required_credits: parseFloat(document.getElementById('requiredCredits').value),
+                description: document.getElementById('description').value || null,
+                is_active: document.getElementById('isActive').checked
+            };
+
+            try {
+                const url = currentEditId ? `/api/admin/requirements/${currentEditId}` : '/api/admin/requirements';
+                const method = currentEditId ? 'PUT' : 'POST';
+                
+                const response = await fetch(url, {
+                    method: method,
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    showSuccess(currentEditId ? '졸업요건이 수정되었습니다.' : '졸업요건이 추가되었습니다.');
+                    closeModal();
+                    loadRequirements();
+                } else {
+                    showError(data.error || '졸업요건 저장에 실패했습니다.');
+                }
+            } catch (error) {
+                console.error('Error saving requirement:', error);
+                showError('졸업요건 저장 중 오류가 발생했습니다.');
+            }
+        }
+
+        function showError(message) {
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'error';
+            errorDiv.textContent = message;
+            document.querySelector('.container').insertBefore(errorDiv, document.querySelector('.container').firstChild);
+            
+            setTimeout(() => errorDiv.remove(), 5000);
+        }
+
+        function showSuccess(message) {
+            const successDiv = document.createElement('div');
+            successDiv.className = 'success';
+            successDiv.textContent = message;
+            document.querySelector('.container').insertBefore(successDiv, document.querySelector('.container').firstChild);
+            
+            setTimeout(() => successDiv.remove(), 5000);
+        }
+
+        // 이벤트 리스너
+        document.getElementById('requirementForm').addEventListener('submit', submitForm);
+
+        // 모달 외부 클릭 시 닫기
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('requirementModal');
+            if (event.target === modal) {
+                closeModal();
+            }
+        });
+        async function populateDepartments() {
+    try {
+        const res = await fetch('/api/admin/departments');
+        const data = await res.json();
+        if (!data.success) return;
+
+        const filterSelect = document.getElementById('filterDepartment');
+        const modalSelect = document.getElementById('department');
+
+        // 기존 옵션 초기화
+        filterSelect.innerHTML = '<option value="">전체</option>';
+        modalSelect.innerHTML = '<option value="">선택하세요</option>';
+
+        data.departments.forEach(dep => {
+            const opt1 = document.createElement('option');
+            opt1.value = dep;
+            opt1.textContent = dep;
+            filterSelect.appendChild(opt1);
+
+            const opt2 = document.createElement('option');
+            opt2.value = dep;
+            opt2.textContent = dep;
+            modalSelect.appendChild(opt2);
+        });
+    } catch (e) {
+        console.error('학과 목록 불러오기 실패', e);
+    }
+}
+
+        // 페이지 로드 시 데이터 로드
+        document.addEventListener('DOMContentLoaded', function() {
+            populateDepartments();
+            loadRequirements();
+        });
+    </script>
+</body>
+</html>

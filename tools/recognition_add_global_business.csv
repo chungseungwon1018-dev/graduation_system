@@ -1,0 +1,4 @@
+department,admission_year_from,admission_year_to,rule_type,source_college,source_department,required_type_source,course_code,course_name,recognized_type,is_active,notes
+경영정보학과,2018,2021,개별과목,,국제경영 학과,전선,6209100,글로벌비즈니스의 이해(Understanding of Global Business),전선,1,
+경영정보학과,2022,2022,개별과목,,국제경영 학과,전선,6209100,글로벌비즈니스의 이해(Understanding of Global Business),전선,1,
+경영정보학과,2023,2155,개별과목,,국제경영 학과,전선,6209100,글로벌비즈니스의 이해(Understanding of Global Business),전선,1,

@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>알림 관리 - 졸업학점 관리 시스템</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f5f6fa;
+            color: #2c3e50;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header h1 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .nav {
+            background: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .nav a {
+            text-decoration: none;
+            color: #2c3e50;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .nav a:hover, .nav a.active {
+            background: #667eea;
+            color: white;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+
+        .control-panel {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .panel-title {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+
+        .send-notification {
+            display: grid;
+            gap: 20px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #2c3e50;
+        }
+
+        input, select, textarea {
+            padding: 12px;
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: border-color 0.3s;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .target-options {
+            display: none;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            margin-top: 10px;
+        }
+
+        .target-options.active {
+            display: block;
+        }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .urgent-checkbox {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            transition: all 0.3s;
+            text-decoration: none;
+            text-align: center;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+
+        .btn-secondary:hover {
+            background: #5a6268;
+        }
+
+        .btn-danger {
+            background: #dc3545;
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background: #c82333;
+        }
+
+        .notification-list {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .list-header {
+            background: #f8f9fa;
+            padding: 20px 25px;
+            border-bottom: 1px solid #e9ecef;
+            display: flex;
+            justify-content: between;
+            align-items: center;
+        }
+
+        .search-controls {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            margin-left: auto;
+        }
+
+        .search-input {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 0.9em;
+        }
+
+        .notification-item {
+            padding: 20px 25px;
+            border-bottom: 1px solid #e9ecef;
+            display: grid;
+            grid-template-columns: 1fr auto auto;
+            gap: 20px;
+            align-items: center;
+            transition: background-color 0.3s;
+        }
+
+        .notification-item:hover {
+            background-color: #f8f9fa;
+        }
+
+        .notification-item:last-child {
+            border-bottom: none;
+        }
+
+        .notification-content h4 {
+            color: #2c3e50;
+            margin-bottom: 8px;
+            font-size: 1.1em;
+        }
+
+        .notification-meta {
+            color: #6c757d;
+            font-size: 0.9em;
+            margin-bottom: 5px;
+        }
+
+        .notification-message {
+            color: #495057;
+            line-height: 1.5;
+        }
+
+        .notification-stats {
+            text-align: center;
+            font-size: 0.9em;
+        }
+
+        .stat-number {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #667eea;
+            display: block;
+        }
+
+        .urgent-badge {
+            background: #dc3545;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: 600;
+            margin-left: 10px;
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-sm {
+            padding: 6px 12px;
+            font-size: 0.85em;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #6c757d;
+        }
+
+        .error {
+            background: #f8d7da;
+            color: #721c24;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #dc3545;
+        }
+
+        .success {
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid #28a745;
+        }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .pagination button {
+            padding: 8px 12px;
+            border: 1px solid #dee2e6;
+            background: white;
+            color: #495057;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .pagination button:hover {
+            background: #e9ecef;
+        }
+
+        .pagination button.active {
+            background: #667eea;
+            color: white;
+            border-color: #667eea;
+        }
+
+        .pagination button:disabled {
+            background: #f8f9fa;
+            color: #6c757d;
+            cursor: not-allowed;
+        }
+
+        @media (max-width: 768px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .notification-item {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .actions {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>알림 관리</h1>
+        <p style="text-align: center; opacity: 0.9;">졸업학점 관리 시스템</p>
+    </div>
+
+    <nav class="nav">
+        <ul>
+            <li><a href="/admin/dashboard">대시보드</a></li>
+            <li><a href="/admin/requirements">졸업요건 관리</a></li>
+            <li><a href="/admin/students">학생 관리</a></li>
+            <li><a href="/admin/notifications" class="active">알림 관리</a></li>
+            <li><a href="/logout">로그아웃</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <!-- 알림 발송 패널 -->
+        <div class="control-panel">
+            <h2 class="panel-title">새 알림 발송</h2>
+            <form id="notificationForm" class="send-notification">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="title">제목</label>
+                        <input type="text" id="title" name="title" required placeholder="알림 제목을 입력하세요">
+                    </div>
+                    <div class="form-group">
+                        <label for="targetType">발송 대상</label>
+                        <select id="targetType" name="targetType" required>
+                            <option value="">대상을 선택하세요</option>
+                            <option value="all">전체 학생</option>
+                            <option value="group">그룹 필터</option>
+                            <option value="individual">개별 학생</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- 그룹 필터 옵션 -->
+                <div id="groupOptions" class="target-options">
+                    <h4>그룹 필터 설정</h4>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="department">학과</label>
+                            <select id="department" name="department">
+                                <option value="">전체 학과</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="grade">학년</label>
+                            <select id="grade" name="grade">
+                                <option value="">전체 학년</option>
+                                <option value="1">1학년</option>
+                                <option value="2">2학년</option>
+                                <option value="3">3학년</option>
+                                <option value="4">4학년</option>
+                                <option value="5">5학년</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="admissionYear">입학년도</label>
+                            <select id="admissionYear" name="admissionYear">
+                                <option value="">전체 입학년도</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="completionRate">이수율 기준</label>
+                            <select id="completionRate" name="completionRate">
+                                <option value="">전체</option>
+                                <option value="90">90% 미만</option>
+                                <option value="80">80% 미만</option>
+                                <option value="70">70% 미만</option>
+                                <option value="60">60% 미만</option>
+                                <option value="50">50% 미만</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 개별 학생 옵션 -->
+                <div id="individualOptions" class="target-options">
+                    <h4>개별 학생 선택</h4>
+                    <div class="form-group">
+                        <label for="studentIds">학번 입력 (쉼표로 구분)</label>
+                        <textarea id="studentIds" name="studentIds" placeholder="예: 2021001, 2021002, 2021003"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group full-width">
+                    <label for="message">내용</label>
+                    <textarea id="message" name="message" required placeholder="알림 내용을 입력하세요"></textarea>
+                </div>
+
+                <div class="urgent-checkbox">
+                    <input type="checkbox" id="isUrgent" name="isUrgent">
+                    <label for="isUrgent">긴급 알림 (이메일 발송)</label>
+                </div>
+
+                <div style="display: flex; gap: 15px;">
+                    <button type="submit" class="btn btn-primary">알림 발송</button>
+                    <button type="button" class="btn btn-secondary" onclick="resetForm()">초기화</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- 발송된 알림 목록 -->
+        <div class="notification-list">
+            <div class="list-header">
+                <h2 class="panel-title">발송된 알림 목록</h2>
+                <div class="search-controls">
+                    <input type="text" id="searchInput" class="search-input" placeholder="제목 또는 내용 검색">
+                    <button class="btn btn-secondary btn-sm" onclick="searchNotifications()">검색</button>
+                    <button class="btn btn-secondary btn-sm" onclick="loadNotifications()">새로고침</button>
+                </div>
+            </div>
+            
+            <div id="notificationsList">
+                <div class="loading">알림 목록을 불러오는 중...</div>
+            </div>
+            
+            <div id="pagination" class="pagination" style="display: none;"></div>
+        </div>
+    </div>
+
+    <script>
+        let currentPage = 1;
+        let searchTerm = '';
+
+        // 페이지 로드 시 초기화
+        document.addEventListener('DOMContentLoaded', function() {
+            loadDepartments();
+            loadAdmissionYears();
+            loadNotifications();
+            
+            // 대상 타입 변경 이벤트
+            document.getElementById('targetType').addEventListener('change', function() {
+                showTargetOptions(this.value);
+            });
+        });
+
+        function showTargetOptions(targetType) {
+            // 모든 옵션 숨기기
+            document.getElementById('groupOptions').classList.remove('active');
+            document.getElementById('individualOptions').classList.remove('active');
+
+            // 선택된 타입에 따라 옵션 표시
+            if (targetType === 'group') {
+                document.getElementById('groupOptions').classList.add('active');
+            } else if (targetType === 'individual') {
+                document.getElementById('individualOptions').classList.add('active');
+            }
+        }
+
+        async function loadDepartments() {
+            try {
+                const response = await fetch('/api/admin/students?limit=1');
+                const data = await response.json();
+                
+                if (data.success && data.departments) {
+                    const select = document.getElementById('department');
+                    select.innerHTML = '<option value="">전체 학과</option>';
+                    
+                    data.departments.forEach(dept => {
+                        const option = document.createElement('option');
+                        option.value = dept;
+                        option.textContent = dept;
+                        select.appendChild(option);
+                    });
+                }
+            } catch (error) {
+                console.error('학과 목록 로드 오류:', error);
+            }
+        }
+
+        function loadAdmissionYears() {
+            const select = document.getElementById('admissionYear');
+            const currentYear = new Date().getFullYear();
+            
+            select.innerHTML = '<option value="">전체 입학년도</option>';
+            
+            for (let year = currentYear; year >= currentYear - 10; year--) {
+                const option = document.createElement('option');
+                option.value = year;
+                option.textContent = year + '년';
+                select.appendChild(option);
+            }
+        }
+
+        async function loadNotifications(page = 1) {
+            try {
+                currentPage = page;
+                const params = new URLSearchParams({
+                    page: page,
+                    limit: 10
+                });
+                
+                if (searchTerm) {
+                    params.append('search', searchTerm);
+                }
+
+                const response = await fetch(`/api/admin/notifications?${params}`);
+                const data = await response.json();
+
+                if (data.success) {
+                    displayNotifications(data.notifications);
+                    updatePagination(data.total, data.page, data.limit);
+                } else {
+                    showError('알림 목록을 불러올 수 없습니다.');
+                }
+            } catch (error) {
+                console.error('알림 목록 로드 오류:', error);
+                showError('알림 목록을 불러오는 중 오류가 발생했습니다.');
+            }
+        }
+
+        function displayNotifications(notifications) {
+            const container = document.getElementById('notificationsList');
+            
+            if (notifications.length === 0) {
+                container.innerHTML = '<div class="loading">발송된 알림이 없습니다.</div>';
+                return;
+            }
+
+            const html = notifications.map(notification => `
+                <div class="notification-item">
+                    <div class="notification-content">
+                        <h4>
+                            ${notification.title}
+                            ${notification.is_urgent ? '<span class="urgent-badge">긴급</span>' : ''}
+                        </h4>
+                        <div class="notification-meta">
+                            발송일: ${formatDate(notification.sent_at)} | 
+                            대상: ${getTargetTypeText(notification.target_type)} | 
+                            발송자: ${notification.sender_id}
+                        </div>
+                        <div class="notification-message">${notification.message}</div>
+                    </div>
+                    <div class="notification-stats">
+                        <span class="stat-number">${notification.recipients_count || 0}</span>
+                        <div>수신자</div>
+                        <span class="stat-number">${notification.read_count || 0}</span>
+                        <div>읽음</div>
+                    </div>
+                    <div class="actions">
+                        <button class="btn btn-secondary btn-sm" onclick="viewNotificationDetails(${notification.id})">상세</button>
+                        <button class="btn btn-danger btn-sm" onclick="deleteNotification(${notification.id})">삭제</button>
+                    </div>
+                </div>
+            `).join('');
+
+            container.innerHTML = html;
+        }
+
+        function getTargetTypeText(targetType) {
+            switch(targetType) {
+                case 'all': return '전체';
+                case 'group': return '그룹';
+                case 'individual': return '개별';
+                default: return targetType;
+            }
+        }
+
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleString('ko-KR');
+        }
+
+        function updatePagination(total, current, limit) {
+            const totalPages = Math.ceil(total / limit);
+            const pagination = document.getElementById('pagination');
+            
+            if (totalPages <= 1) {
+                pagination.style.display = 'none';
+                return;
+            }
+            
+            pagination.style.display = 'flex';
+            
+            let html = '';
+            
+            // 이전 버튼
+            html += `<button ${current <= 1 ? 'disabled' : ''} onclick="loadNotifications(${current - 1})">이전</button>`;
+            
+            // 페이지 번호
+            for (let i = Math.max(1, current - 2); i <= Math.min(totalPages, current + 2); i++) {
+                html += `<button class="${i === current ? 'active' : ''}" onclick="loadNotifications(${i})">${i}</button>`;
+            }
+            
+            // 다음 버튼
+            html += `<button ${current >= totalPages ? 'disabled' : ''} onclick="loadNotifications(${current + 1})">다음</button>`;
+            
+            pagination.innerHTML = html;
+        }
+
+        // 알림 발송 폼 제출
+        document.getElementById('notificationForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = {
+                title: formData.get('title'),
+                message: formData.get('message'),
+                target_type: formData.get('targetType'),
+                is_urgent: formData.get('isUrgent') === 'on'
+            };
+
+            // 대상별 데이터 설정
+            if (data.target_type === 'group') {
+                data.filter_criteria = {};
+                if (formData.get('department')) data.filter_criteria.department = formData.get('department');
+                if (formData.get('grade')) data.filter_criteria.grade = parseInt(formData.get('grade'));
+                if (formData.get('admissionYear')) data.filter_criteria.admission_year = parseInt(formData.get('admissionYear'));
+                if (formData.get('completionRate')) data.filter_criteria.completion_rate_below = parseInt(formData.get('completionRate'));
+            } else if (data.target_type === 'individual') {
+                const studentIds = formData.get('studentIds').split(',').map(id => id.trim()).filter(id => id);
+                if (studentIds.length === 0) {
+                    showError('학번을 입력해주세요.');
+                    return;
+                }
+                data.student_ids = studentIds;
+            }
+
+            try {
+                const response = await fetch('/api/admin/students/send-notification', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    showSuccess(`알림이 ${result.recipients_count}명에게 성공적으로 발송되었습니다.`);
+                    resetForm();
+                    loadNotifications(1);
+                } else {
+                    showError(result.error || '알림 발송에 실패했습니다.');
+                }
+            } catch (error) {
+                console.error('알림 발송 오류:', error);
+                showError('알림 발송 중 오류가 발생했습니다.');
+            }
+        });
+
+        function resetForm() {
+            document.getElementById('notificationForm').reset();
+            showTargetOptions('');
+        }
+
+        function searchNotifications() {
+            searchTerm = document.getElementById('searchInput').value.trim();
+            loadNotifications(1);
+        }
+
+        // Enter 키로 검색
+        document.getElementById('searchInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                searchNotifications();
+            }
+        });
+
+        async function viewNotificationDetails(notificationId) {
+            try {
+                const response = await fetch(`/api/admin/notifications/${notificationId}`);
+                const data = await response.json();
+
+                if (data.success) {
+                    const notification = data.notification;
+                    alert(`제목: ${notification.title}\n내용: ${notification.message}\n발송일: ${formatDate(notification.sent_at)}\n수신자 수: ${notification.recipients_count || 0}\n읽음 수: ${notification.read_count || 0}`);
+                } else {
+                    showError('알림 상세 정보를 불러올 수 없습니다.');
+                }
+            } catch (error) {
+                console.error('알림 상세 조회 오류:', error);
+                showError('알림 상세 정보를 불러오는 중 오류가 발생했습니다.');
+            }
+        }
+
+        async function deleteNotification(notificationId) {
+            if (!confirm('이 알림을 삭제하시겠습니까?\n\n삭제된 알림은 복구할 수 없습니다.')) {
+                return;
+            }
+
+            // 삭제 버튼 비활성화
+            const deleteBtn = event.target;
+            const originalText = deleteBtn.textContent;
+            deleteBtn.textContent = '삭제 중...';
+            deleteBtn.disabled = true;
+
+            try {
+                const response = await fetch(`/api/admin/notifications/${notificationId}`, {
+                    method: 'DELETE'
+                });
+
+                const result = await response.json();
+
+                if (response.ok && result.success) {
+                    showSuccess(result.message || '알림이 삭제되었습니다.');
+                    loadNotifications(currentPage);
+                } else {
+                    // HTTP 상태 코드에 따른 에러 메시지
+                    let errorMessage = result.error || '알림 삭제에 실패했습니다.';
+                    
+                    if (response.status === 404) {
+                        errorMessage = '삭제하려는 알림을 찾을 수 없습니다.';
+                    } else if (response.status === 403) {
+                        errorMessage = '이 알림을 삭제할 권한이 없습니다.';
+                    } else if (response.status === 500) {
+                        errorMessage = '서버 오류로 알림 삭제에 실패했습니다.';
+                    }
+                    
+                    showError(errorMessage);
+                }
+            } catch (error) {
+                console.error('알림 삭제 오류:', error);
+                showError('네트워크 오류로 알림 삭제에 실패했습니다.');
+            } finally {
+                // 버튼 상태 복원
+                deleteBtn.textContent = originalText;
+                deleteBtn.disabled = false;
+            }
+        }
+
+        function showError(message) {
+            const container = document.querySelector('.container');
+            const existing = container.querySelector('.error');
+            if (existing) existing.remove();
+            
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'error';
+            errorDiv.textContent = message;
+            container.insertBefore(errorDiv, container.firstChild);
+            
+            setTimeout(() => errorDiv.remove(), 5000);
+        }
+
+        function showSuccess(message) {
+            const container = document.querySelector('.container');
+            const existing = container.querySelector('.success');
+            if (existing) existing.remove();
+            
+            const successDiv = document.createElement('div');
+            successDiv.className = 'success';
+            successDiv.textContent = message;
+            container.insertBefore(successDiv, container.firstChild);
+            
+            setTimeout(() => successDiv.remove(), 5000);
+        }
+    </script>
+</body>
+</html>

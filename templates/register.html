@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입 - 졸업학점 관리 시스템</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2c3e50;
+            padding: 20px;
+        }
+
+        .register-container {
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+
+        .logo {
+            margin-bottom: 30px;
+        }
+
+        .logo h1 {
+            color: #667eea;
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        .logo p {
+            color: #7f8c8d;
+            font-size: 1.1em;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #2c3e50;
+        }
+
+        .form-group label .required {
+            color: #e74c3c;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e1e8ed;
+            border-radius: 8px;
+            font-size: 1em;
+            transition: all 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+
+        .form-group input.error {
+            border-color: #e74c3c;
+        }
+
+        .password-strength {
+            margin-top: 5px;
+            font-size: 0.8em;
+        }
+
+        .strength-weak { color: #e74c3c; }
+        .strength-medium { color: #f39c12; }
+        .strength-strong { color: #27ae60; }
+
+        .checkbox-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            margin-right: 10px;
+            transform: scale(1.2);
+        }
+
+        .checkbox-group label {
+            cursor: pointer;
+            font-size: 0.95em;
+        }
+
+        .admin-note {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 5px;
+            font-size: 0.85em;
+            color: #856404;
+        }
+
+        .btn-register {
+            width: 100%;
+            background: #667eea;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 20px;
+        }
+
+        .btn-register:hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+        }
+
+        .btn-register:disabled {
+            background: #bdc3c7;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .divider {
+            text-align: center;
+            margin: 20px 0;
+            position: relative;
+            color: #7f8c8d;
+        }
+
+        .divider:before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: #e1e8ed;
+        }
+
+        .divider span {
+            background: white;
+            padding: 0 15px;
+        }
+
+        .login-link {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .login-link:hover {
+            color: #5a67d8;
+        }
+
+        .alert {
+            padding: 12px 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .alert-error {
+            background: #fee;
+            color: #c53030;
+            border: 1px solid #fed7d7;
+        }
+
+        .alert-success {
+            background: #f0fff4;
+            color: #2d7738;
+            border: 1px solid #c6f6d5;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            color: #7f8c8d;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 600px) {
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            
+            .register-container {
+                margin: 20px;
+                padding: 30px 25px;
+            }
+            
+            .logo h1 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="register-container">
+        <div class="logo">
+            <h1>회원가입</h1>
+            <p>졸업학점 관리 시스템</p>
+        </div>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <form method="POST" id="registerForm">
+            <div class="form-group">
+                <label for="username">학번 / 사용자 ID <span class="required">*</span></label>
+                <input type="text" id="username" name="username" required 
+                       placeholder="학번 또는 원하는 ID를 입력하세요"
+                       value="{{ request.form.username if request.form.username }}">
+                <div id="usernameError" class="error-message"></div>
+            </div>
+
+            <div class="form-group">
+                <label for="name">이름 <span class="required">*</span></label>
+                <input type="text" id="name" name="name" required 
+                       placeholder="실명을 입력하세요"
+                       value="{{ request.form.name if request.form.name }}">
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="password">비밀번호 <span class="required">*</span></label>
+                    <input type="password" id="password" name="password" required 
+                           placeholder="6자 이상의 비밀번호">
+                    <div id="passwordStrength" class="password-strength"></div>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirmPassword">비밀번호 확인 <span class="required">*</span></label>
+                    <input type="password" id="confirmPassword" name="confirm_password" required 
+                           placeholder="비밀번호를 다시 입력하세요">
+                    <div id="passwordMatch" class="password-strength"></div>
+                </div>
+            </div>
+
+            <div class="checkbox-group">
+                <input type="checkbox" id="isAdmin" name="is_admin">
+                <label for="isAdmin">관리자 계정으로 등록</label>
+            </div>
+            <div id="adminNote" class="admin-note" style="display: none;">
+                관리자 계정은 졸업요건 관리, 학생 정보 조회, 알림 발송 등의 권한을 가집니다.
+            </div>
+
+            <button type="submit" class="btn-register" id="registerBtn">
+                계정 만들기
+            </button>
+            
+            <div class="loading" id="loading">
+                계정을 생성하는 중입니다...
+            </div>
+        </form>
+
+        <div class="divider">
+            <span>이미 계정이 있으신가요?</span>
+        </div>
+
+        <a href="/login" class="login-link">로그인하기</a>
+    </div>
+
+    <script>
+        const usernameInput = document.getElementById('username');
+        const passwordInput = document.getElementById('password');
+        const confirmPasswordInput = document.getElementById('confirmPassword');
+        const isAdminCheckbox = document.getElementById('isAdmin');
+        const adminNote = document.getElementById('adminNote');
+        const registerForm = document.getElementById('registerForm');
+
+        // 관리자 체크박스 이벤트
+        isAdminCheckbox.addEventListener('change', function() {
+            adminNote.style.display = this.checked ? 'block' : 'none';
+        });
+
+        // 비밀번호 강도 체크
+        passwordInput.addEventListener('input', function() {
+            const password = this.value;
+            const strengthDiv = document.getElementById('passwordStrength');
+            
+            if (password.length === 0) {
+                strengthDiv.textContent = '';
+                return;
+            }
+            
+            let strength = 0;
+            if (password.length >= 6) strength++;
+            if (password.match(/[a-z]/)) strength++;
+            if (password.match(/[A-Z]/)) strength++;
+            if (password.match(/[0-9]/)) strength++;
+            if (password.match(/[^a-zA-Z0-9]/)) strength++;
+            
+            if (strength < 2) {
+                strengthDiv.textContent = '약함';
+                strengthDiv.className = 'password-strength strength-weak';
+            } else if (strength < 4) {
+                strengthDiv.textContent = '보통';
+                strengthDiv.className = 'password-strength strength-medium';
+            } else {
+                strengthDiv.textContent = '강함';
+                strengthDiv.className = 'password-strength strength-strong';
+            }
+            
+            checkPasswordMatch();
+        });
+
+        // 비밀번호 일치 체크
+        confirmPasswordInput.addEventListener('input', checkPasswordMatch);
+
+        function checkPasswordMatch() {
+            const password = passwordInput.value;
+            const confirmPassword = confirmPasswordInput.value;
+            const matchDiv = document.getElementById('passwordMatch');
+            
+            if (confirmPassword.length === 0) {
+                matchDiv.textContent = '';
+                confirmPasswordInput.classList.remove('error');
+                return;
+            }
+            
+            if (password === confirmPassword) {
+                matchDiv.textContent = '비밀번호가 일치합니다';
+                matchDiv.className = 'password-strength strength-strong';
+                confirmPasswordInput.classList.remove('error');
+            } else {
+                matchDiv.textContent = '비밀번호가 일치하지 않습니다';
+                matchDiv.className = 'password-strength strength-weak';
+                confirmPasswordInput.classList.add('error');
+            }
+        }
+
+        // 사용자 ID 유효성 검사
+        usernameInput.addEventListener('blur', function() {
+            const username = this.value.trim();
+            const errorDiv = document.getElementById('usernameError');
+            
+            if (username.length < 3) {
+                errorDiv.textContent = 'ID는 3자 이상이어야 합니다.';
+                errorDiv.style.color = '#e74c3c';
+                this.classList.add('error');
+            } else if (!/^[a-zA-Z0-9]+$/.test(username)) {
+                errorDiv.textContent = 'ID는 영문자와 숫자만 사용 가능합니다.';
+                errorDiv.style.color = '#e74c3c';
+                this.classList.add('error');
+            } else {
+                errorDiv.textContent = '';
+                this.classList.remove('error');
+            }
+        });
+
+        // 폼 제출 검증
+        registerForm.addEventListener('submit', function(e) {
+            const username = usernameInput.value.trim();
+            const name = document.getElementById('name').value.trim();
+            const password = passwordInput.value;
+            const confirmPassword = confirmPasswordInput.value;
+            
+            // 필수 필드 검사
+            if (!username || !name || !password || !confirmPassword) {
+                e.preventDefault();
+                alert('모든 필수 필드를 입력해주세요.');
+                return;
+            }
+            
+            // 사용자 ID 검증
+            if (username.length < 3 || !/^[a-zA-Z0-9]+$/.test(username)) {
+                e.preventDefault();
+                alert('올바른 사용자 ID를 입력해주세요.');
+                usernameInput.focus();
+                return;
+            }
+            
+            // 비밀번호 검증
+            if (password.length < 6) {
+                e.preventDefault();
+                alert('비밀번호는 6자 이상이어야 합니다.');
+                passwordInput.focus();
+                return;
+            }
+            
+            // 비밀번호 일치 검증
+            if (password !== confirmPassword) {
+                e.preventDefault();
+                alert('비밀번호가 일치하지 않습니다.');
+                confirmPasswordInput.focus();
+                return;
+            }
+            
+            // 로딩 상태 표시
+            const registerBtn = document.getElementById('registerBtn');
+            const loading = document.getElementById('loading');
+            
+            registerBtn.style.display = 'none';
+            loading.style.display = 'block';
+        });
+
+        // 페이지 로드 시 첫 번째 입력 필드에 포커스
+        document.addEventListener('DOMContentLoaded', function() {
+            usernameInput.focus();
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,5 @@
+department,admission_year_from,admission_year_to,rule_type,source_college,source_department,required_type_source,course_code,course_name,recognized_type,is_active,notes
+경영정보학과,2018,2021,규칙,경영대학,,전필,,,전선,1,경영대학 전공필수는 전선 인정
+경영정보학과,2022,2022,규칙,경영대학,,전필,,,전선,1,
+경영정보학과,2023,9999,규칙,경영대학,,전필,,,전선,1,
+경영정보학과,2018,2021,개별과목,,경제학과,전선,6209XXX,미시경제학,전선,1,타학과 전선 인정 예시
