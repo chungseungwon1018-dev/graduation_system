@@ -1,0 +1,16 @@
+services:
+  web:
+    build: .
+    container_name: xlsx-project-app
+    restart: unless-stopped
+    ports:
+      - "9020:6000"
+    volumes:
+      - .:/app
+    environment:
+      - DB_HOST=203.255.78.58
+      - DB_PORT=9003
+      - DB_NAME=graduation_system
+      - DB_USER=user29
+      - DB_PASSWORD=123
+      - FLASK_RUN_PORT=6000
